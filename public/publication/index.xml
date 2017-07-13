@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Publications on Lost in Computation</title>
+    <link>https://mlxd.gitlab.io/publication/</link>
+    <description>Recent content in Publications on Lost in Computation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017 Lee James O&#39;Riordan (mlxd)</copyright>
+    <lastBuildDate>Thu, 03 Nov 2016 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/publication/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Topological defect dynamics of vortex lattices in Bose–Einstein condensates</title>
+      <link>https://mlxd.gitlab.io/publication/defect2016/</link>
+      <pubDate>Thu, 03 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://mlxd.gitlab.io/publication/defect2016/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Moiré superlattice structures in kicked Bose–Einstein condensates</title>
+      <link>https://mlxd.gitlab.io/publication/moire2016/</link>
+      <pubDate>Thu, 04 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://mlxd.gitlab.io/publication/moire2016/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Coherent transport by adiabatic passage on atom chips</title>
+      <link>https://mlxd.gitlab.io/publication/sap2013/</link>
+      <pubDate>Fri, 15 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://mlxd.gitlab.io/publication/sap2013/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

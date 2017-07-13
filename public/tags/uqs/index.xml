@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Uqs on Lost in Computation</title>
+    <link>https://mlxd.gitlab.io/tags/uqs/</link>
+    <description>Recent content in Uqs on Lost in Computation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017 Lee James O&#39;Riordan (mlxd)</copyright>
+    <lastBuildDate>Wed, 18 Jan 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/tags/uqs/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>GPUE</title>
+      <link>https://mlxd.gitlab.io/project/gpue/</link>
+      <pubDate>Wed, 18 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://mlxd.gitlab.io/project/gpue/</guid>
+      <description>&lt;p&gt;This page will be updated with instructions on how to use &lt;a href=&#34;https://github.com/mlxd/gpue&#34;&gt;GPUE&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ultracold quantum systems</title>
+      <link>https://mlxd.gitlab.io/project/uqs/</link>
+      <pubDate>Wed, 18 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://mlxd.gitlab.io/project/uqs/</guid>
+      <description>&lt;p&gt;This page will be updated with details of the research undertaken during my PhD.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Questions to expand upon</title>
+      <link>https://mlxd.gitlab.io/post/2017-07-11-questions/</link>
+      <pubDate>Wed, 11 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://mlxd.gitlab.io/post/2017-07-11-questions/</guid>
+      <description>
+
+&lt;h1 id=&#34;questions-to-consider&#34;&gt;Questions to consider&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;q-how-do-available-fft-routines-compare-over-different-libraries-and-accelerator-hardwares&#34;&gt;Q. How do available FFT routines compare over different libraries and accelerator hardwares?&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;This is something I started to investigate, though it can be difficult for an apples-to-apples comparison.&lt;/p&gt;
+
+&lt;p&gt;Firstly, the existing (and soon to be existing) technologies with which computations can be performed are:
+$$
+d = \left( \textrm{CPU, GPU, KNL, FPGA, IBM_TN, QM} \right)
+$$&lt;/p&gt;
+
+&lt;p&gt;A representative sample of the widely known and available libraries, both platform independent and not, are:
+$$
+l = \left( \textrm{CUFFT, clFFT, MKL-FFT, FFTW} \right)
+$$&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Generate a table of the support of the hardware with the available software libraries, or alternatives.
+&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

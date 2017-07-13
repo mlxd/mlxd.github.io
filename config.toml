@@ -1,5 +1,5 @@
 publishDir = "public"
-baseurl = "https://mlxd.github.io/"
+baseurl = "https://mlxd.gitlab.io"
 title = "Lost in Computation"
 copyright = "&copy; 2017 Lee James O'Riordan (mlxd)"
 theme = "academic"
@@ -72,7 +72,7 @@ defaultContentLanguageInSubdir = false
   [[params.social]]
     icon = "envelope"
     icon_pack = "fa"
-    link = "mailto:lee.oriordan@oist.jp"
+    link = "mailto:loriordan@lbl.gov"
 
   [[params.social]]
     icon = "github"

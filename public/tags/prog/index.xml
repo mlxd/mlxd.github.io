@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Prog on Lost in Computation</title>
+    <link>https://mlxd.gitlab.io/tags/prog/</link>
+    <description>Recent content in Prog on Lost in Computation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017 Lee James O&#39;Riordan (mlxd)</copyright>
+    <lastBuildDate>Mon, 18 Jan 2016 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/tags/prog/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Initiali[sz]e</title>
+      <link>https://mlxd.gitlab.io/post/2015-10-17-init/</link>
+      <pubDate>Mon, 18 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://mlxd.gitlab.io/post/2015-10-17-init/</guid>
+      <description>
+
+&lt;p&gt;(Original post 2015-10-17; updated 2017-01-18)&lt;/p&gt;
+
+&lt;p&gt;As this is my first post I will keep things simple. Unless otherwise specified, I will be using the following as my default tools.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;editors-ide-cool-things&#34;&gt;Editors/IDE/Cool things&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ViM (pretty much everything code related)&lt;/li&gt;
+&lt;li&gt;Atom (Markdown, text files, and the like)&lt;/li&gt;
+&lt;li&gt;Jupyter (IPython, IJulia)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;languages-toolchains&#34;&gt;Languages [toolchains]&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;C/C++ [g++, icc]&lt;/li&gt;
+&lt;li&gt;CUDA/OpenCL [nvcc, icc]&lt;/li&gt;
+&lt;li&gt;Python&lt;/li&gt;
+&lt;li&gt;MATLAB&lt;/li&gt;
+&lt;li&gt;Julia&lt;/li&gt;
+&lt;li&gt;Mathematica&lt;/li&gt;
+&lt;li&gt;Bash/Zsh&lt;/li&gt;
+&lt;li&gt;English (occasionally)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;os&#34;&gt;OS&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Arch Linux&lt;/li&gt;
+&lt;li&gt;CentOS 7&lt;/li&gt;
+&lt;li&gt;OS X 10.12&lt;/li&gt;
+&lt;li&gt;Windows 10&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;devices-as-of-2017-01-18&#34;&gt;Devices (as of 2017-01-18)&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Lenovo Thinkpad T430&lt;/li&gt;
+&lt;li&gt;Apple MBP (2012)&lt;/li&gt;
+&lt;li&gt;Sango cluster @ OIST&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;These lists will be updated to reflect whatever I am using in time. I may make this into a spreadsheet table, so I can tag posts with hardware&amp;hellip; if it makes sense to do so.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

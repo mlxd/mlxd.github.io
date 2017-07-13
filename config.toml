@@ -1,5 +1,5 @@
 publishDir = "public"
-baseurl = "https://mlxd.gitlab.io"
+baseurl = "https://mlxd.gitlab.io/"
 title = "Lost in Computation"
 copyright = "&copy; 2017 Lee James O'Riordan (mlxd)"
 theme = "academic"

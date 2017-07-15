@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lost in Computation</title>
+    <link>https://mlxd.github.io/</link>
+    <description>Recent content on Lost in Computation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017 Lee James O&#39;Riordan (mlxd)</copyright>
+    <lastBuildDate>Wed, 20 Apr 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://mlxd.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://mlxd.github.io/home/about/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://mlxd.github.io/home/about/</guid>
+      <description>Biography I am a PhD graduate of the Quantum Systems Unit at Okinawa Institute of Science and Technology Graduate University, Japan. My PhD research included control and manipulation of quantum states, GPU and next-generation computing, and nonlinear dynamics. I am an author of the Bose-Einstein condensate simulation suite GPUE. Currently I am investigating the use of prototype exascale computing technologies for femtosecond X-ray crystallography (XFEL) of bio-molecular systems.</description>
+    </item>
+    
+    <item>
+      <title>Publications</title>
+      <link>https://mlxd.github.io/home/publications/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://mlxd.github.io/home/publications/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Recent Posts</title>
+      <link>https://mlxd.github.io/home/posts/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://mlxd.github.io/home/posts/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Projects</title>
+      <link>https://mlxd.github.io/home/projects/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://mlxd.github.io/home/projects/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GPUE</title>
+      <link>https://mlxd.github.io/project/gpue/</link>
+      <pubDate>Wed, 18 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://mlxd.github.io/project/gpue/</guid>
+      <description>This page will be updated with instructions on how to use GPUE.</description>
+    </item>
+    
+    <item>
+      <title>Ultracold quantum systems</title>
+      <link>https://mlxd.github.io/project/uqs/</link>
+      <pubDate>Wed, 18 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://mlxd.github.io/project/uqs/</guid>
+      <description>This page will be updated with details of the research undertaken during my PhD.</description>
+    </item>
+    
+    <item>
+      <title>Example Talk</title>
+      <link>https://mlxd.github.io/talk/example-talk/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://mlxd.github.io/talk/example-talk/</guid>
+      <description>Embed your slides or video here using shortcodes. Further details can easily be added using Markdown and $\rm \LaTeX$ math code.</description>
+    </item>
+    
+    <item>
+      <title>Topological defect dynamics of vortex lattices in Bose–Einstein condensates</title>
+      <link>https://mlxd.github.io/publication/defect2016/</link>
+      <pubDate>Thu, 03 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://mlxd.github.io/publication/defect2016/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>FFTs over time and space... and devices</title>
+      <link>https://mlxd.github.io/post/2017-07-11-ffts/</link>
+      <pubDate>Wed, 11 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://mlxd.github.io/post/2017-07-11-ffts/</guid>
+      <description>Q. How do available FFT routines compare over different libraries and accelerator hardwares? This is something I have wondered for sometime, though it can be difficult for an apples-to-apples comparison. I will consider the above question in relation to the following plan:
+Comparing FFT implementations in a pseudospectral solver for linear and nonlinear Schrodinger equation dynamics
+To decide on how to proceed, it is instructive to list all (or most) widely known and used implementations.</description>
+    </item>
+    
+    <item>
+      <title>Questions to expand upon</title>
+      <link>https://mlxd.github.io/post/2017-07-11-questions/</link>
+      <pubDate>Wed, 11 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://mlxd.github.io/post/2017-07-11-questions/</guid>
+      <description> Questions to consider  FFTs over devices for quantum dynamics  </description>
+    </item>
+    
+    <item>
+      <title>Moiré superlattice structures in kicked Bose–Einstein condensates</title>
+      <link>https://mlxd.github.io/publication/moire2016/</link>
+      <pubDate>Thu, 04 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://mlxd.github.io/publication/moire2016/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Initiali[sz]e</title>
+      <link>https://mlxd.github.io/post/2015-10-17-init/</link>
+      <pubDate>Mon, 18 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://mlxd.github.io/post/2015-10-17-init/</guid>
+      <description>(Original post 2015-10-17; updated 2017-01-18)
+As this is my first post I will keep things simple. Unless otherwise specified, I will be using the following as my default tools.
+Editors/IDE/Cool things  ViM (pretty much everything code related) Atom (Markdown, text files, and the like) Jupyter (IPython, IJulia)  Languages [toolchains]  C/C++ [g++, icc] CUDA/OpenCL [nvcc, icc] Python MATLAB Julia Mathematica Bash/Zsh English (occasionally)  OS  Arch Linux CentOS 7 OS X 10.</description>
+    </item>
+    
+    <item>
+      <title>Coherent transport by adiabatic passage on atom chips</title>
+      <link>https://mlxd.github.io/publication/sap2013/</link>
+      <pubDate>Fri, 15 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://mlxd.github.io/publication/sap2013/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>About me</title>
+      <link>https://mlxd.github.io/page/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mlxd.github.io/page/about/</guid>
+      <description>My name is The Dude. I have the following qualities:
+ I rock a great beard I&amp;rsquo;m extremely loyal to my friends I like bowling  That rug really tied the room together.
+my history To be honest, I&amp;rsquo;m having some trouble remembering right now, so why don&amp;rsquo;t you just watch my movie and it will answer all your questions.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Lost in Computation</title>
+    <link>https://mlxd.github.io/post/</link>
+    <description>Recent content in Posts on Lost in Computation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017 Lee James O&#39;Riordan (mlxd)</copyright>
+    <lastBuildDate>Wed, 11 May 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://mlxd.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>FFTs over time and space... and devices</title>
+      <link>https://mlxd.github.io/post/2017-07-11-ffts/</link>
+      <pubDate>Wed, 11 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://mlxd.github.io/post/2017-07-11-ffts/</guid>
+      <description>Q. How do available FFT routines compare over different libraries and accelerator hardwares? This is something I have wondered for sometime, though it can be difficult for an apples-to-apples comparison. I will consider the above question in relation to the following plan:
+Comparing FFT implementations in a pseudospectral solver for linear and nonlinear Schrodinger equation dynamics
+To decide on how to proceed, it is instructive to list all (or most) widely known and used implementations.</description>
+    </item>
+    
+    <item>
+      <title>Questions to expand upon</title>
+      <link>https://mlxd.github.io/post/2017-07-11-questions/</link>
+      <pubDate>Wed, 11 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://mlxd.github.io/post/2017-07-11-questions/</guid>
+      <description> Questions to consider  FFTs over devices for quantum dynamics  </description>
+    </item>
+    
+    <item>
+      <title>Initiali[sz]e</title>
+      <link>https://mlxd.github.io/post/2015-10-17-init/</link>
+      <pubDate>Mon, 18 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://mlxd.github.io/post/2015-10-17-init/</guid>
+      <description>(Original post 2015-10-17; updated 2017-01-18)
+As this is my first post I will keep things simple. Unless otherwise specified, I will be using the following as my default tools.
+Editors/IDE/Cool things  ViM (pretty much everything code related) Atom (Markdown, text files, and the like) Jupyter (IPython, IJulia)  Languages [toolchains]  C/C++ [g++, icc] CUDA/OpenCL [nvcc, icc] Python MATLAB Julia Mathematica Bash/Zsh English (occasionally)  OS  Arch Linux CentOS 7 OS X 10.</description>
+    </item>
+    
+  </channel>
+</rss>

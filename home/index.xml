@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Homes on Lost in Computation</title>
+    <link>https://mlxd.github.io/home/</link>
+    <description>Recent content in Homes on Lost in Computation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017 Lee James O&#39;Riordan (mlxd)</copyright>
+    <lastBuildDate>Wed, 20 Apr 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://mlxd.github.io/home/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://mlxd.github.io/home/about/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://mlxd.github.io/home/about/</guid>
+      <description>Biography I am a PhD graduate of the Quantum Systems Unit at Okinawa Institute of Science and Technology Graduate University, Japan. My PhD research included control and manipulation of quantum states, GPU and next-generation computing, and nonlinear dynamics. I am an author of the Bose-Einstein condensate simulation suite GPUE. Currently I am investigating the use of prototype exascale computing technologies for femtosecond X-ray crystallography (XFEL) of bio-molecular systems.</description>
+    </item>
+    
+    <item>
+      <title>Publications</title>
+      <link>https://mlxd.github.io/home/publications/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://mlxd.github.io/home/publications/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Recent Posts</title>
+      <link>https://mlxd.github.io/home/posts/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://mlxd.github.io/home/posts/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Projects</title>
+      <link>https://mlxd.github.io/home/projects/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://mlxd.github.io/home/projects/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

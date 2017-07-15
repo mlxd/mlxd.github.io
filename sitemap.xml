@@ -1,162 +1,231 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
-  <url>
-    <loc>https://mlxd.github.io/home/about/</loc>
-    <lastmod>2016-04-20T00:00:00+00:00</lastmod>
-  </url>
+    
+    
+    <url>
+    
+      <loc>https://mlxd.gitlab.io/project/gpue/</loc>
+      <lastmod>2017-01-18T00:00:00+00:00</lastmod>
+    </url>
+    
   
-  <url>
-    <loc>https://mlxd.github.io/home/publications/</loc>
-    <lastmod>2016-04-20T00:00:00+00:00</lastmod>
-  </url>
+    
+    
+    <url>
+    
+      <loc>https://mlxd.gitlab.io/project/uqs/</loc>
+      <lastmod>2017-01-18T00:00:00+00:00</lastmod>
+    </url>
+    
   
-  <url>
-    <loc>https://mlxd.github.io/home/posts/</loc>
-    <lastmod>2016-04-20T00:00:00+00:00</lastmod>
-  </url>
+    
+    
+    <url>
+    
+      <loc>https://mlxd.gitlab.io/talk/example-talk/</loc>
+      <lastmod>2017-01-01T00:00:00+00:00</lastmod>
+    </url>
+    
   
-  <url>
-    <loc>https://mlxd.github.io/home/projects/</loc>
-    <lastmod>2016-04-20T00:00:00+00:00</lastmod>
-  </url>
+    
+    
+    <url>
+    
+      <loc>https://mlxd.gitlab.io/publication/defect2016/</loc>
+      <lastmod>2016-11-03T00:00:00+00:00</lastmod>
+    </url>
+    
   
-  <url>
-    <loc>https://mlxd.github.io/project/gpue/</loc>
-    <lastmod>2017-01-18T00:00:00+00:00</lastmod>
-  </url>
+    
+    
+    <url>
+    
+      <loc>https://mlxd.gitlab.io/post/2017-07-11-ffts/</loc>
+      <lastmod>2016-05-11T00:00:00+00:00</lastmod>
+    </url>
+    
   
-  <url>
-    <loc>https://mlxd.github.io/project/uqs/</loc>
-    <lastmod>2017-01-18T00:00:00+00:00</lastmod>
-  </url>
+    
+    
+    <url>
+    
+      <loc>https://mlxd.gitlab.io/post/2017-07-11-questions/</loc>
+      <lastmod>2016-05-11T00:00:00+00:00</lastmod>
+    </url>
+    
   
-  <url>
-    <loc>https://mlxd.github.io/talk/example-talk/</loc>
-    <lastmod>2017-01-01T00:00:00+00:00</lastmod>
-  </url>
+    
+    
+    <url>
+    
+      <loc>https://mlxd.gitlab.io/publication/moire2016/</loc>
+      <lastmod>2016-02-04T00:00:00+00:00</lastmod>
+    </url>
+    
   
-  <url>
-    <loc>https://mlxd.github.io/publication/defect2016/</loc>
-    <lastmod>2016-11-03T00:00:00+00:00</lastmod>
-  </url>
+    
+    
+    <url>
+    
+      <loc>https://mlxd.gitlab.io/post/2015-10-17-init/</loc>
+      <lastmod>2016-01-18T00:00:00+00:00</lastmod>
+    </url>
+    
   
-  <url>
-    <loc>https://mlxd.github.io/post/2017-07-11-ffts/</loc>
-    <lastmod>2016-05-11T00:00:00+00:00</lastmod>
-  </url>
+    
+    
+    <url>
+    
+      <loc>https://mlxd.gitlab.io/publication/sap2013/</loc>
+      <lastmod>2013-11-15T00:00:00+00:00</lastmod>
+    </url>
+    
   
-  <url>
-    <loc>https://mlxd.github.io/post/2017-07-11-questions/</loc>
-    <lastmod>2016-05-11T00:00:00+00:00</lastmod>
-  </url>
+    
+    
+    <url>
+    
+      <loc>https://mlxd.gitlab.io/page/about/</loc>
+    </url>
+    
   
-  <url>
-    <loc>https://mlxd.github.io/publication/moire2016/</loc>
-    <lastmod>2016-02-04T00:00:00+00:00</lastmod>
-  </url>
+    
+    
+    <url>
+    
+      <loc>https://mlxd.gitlab.io/tags/bec/</loc>
+      <lastmod>2017-01-18T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
   
-  <url>
-    <loc>https://mlxd.github.io/post/2015-10-17-init/</loc>
-    <lastmod>2016-01-18T00:00:00+00:00</lastmod>
-  </url>
+    
+    
+    <url>
+    
+      <loc>https://mlxd.gitlab.io/categories/</loc>
+      <priority>0</priority>
+    </url>
+    
   
-  <url>
-    <loc>https://mlxd.github.io/publication/sap2013/</loc>
-    <lastmod>2013-11-15T00:00:00+00:00</lastmod>
-  </url>
+    
+    
+    <url>
+    
+      <loc>https://mlxd.gitlab.io/tags/gpu/</loc>
+      <lastmod>2017-01-18T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
   
-  <url>
-    <loc>https://mlxd.github.io/page/about/</loc>
-  </url>
+    
+    
+    <url>
+    
+      <loc>https://mlxd.gitlab.io/</loc>
+      <lastmod>2016-04-20T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
   
-  <url>
-    <loc>https://mlxd.github.io/tags/bec/</loc>
-    <lastmod>2017-01-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
+    
+    
+    <url>
+    
+      <loc>https://mlxd.gitlab.io/page/</loc>
+      <priority>0</priority>
+    </url>
+    
   
-  <url>
-    <loc>https://mlxd.github.io/categories/</loc>
-    <priority>0</priority>
-  </url>
+    
+    
+    <url>
+    
+      <loc>https://mlxd.gitlab.io/post/</loc>
+      <lastmod>2016-05-11T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
   
-  <url>
-    <loc>https://mlxd.github.io/tags/gpu/</loc>
-    <lastmod>2017-01-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
+    
+    
+    <url>
+    
+      <loc>https://mlxd.gitlab.io/tags/prog/</loc>
+      <lastmod>2016-01-18T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
   
-  <url>
-    <loc>https://mlxd.github.io/home/</loc>
-    <lastmod>2016-04-20T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
+    
+    
+    <url>
+    
+      <loc>https://mlxd.gitlab.io/project/</loc>
+      <lastmod>2017-01-18T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
   
-  <url>
-    <loc>https://mlxd.github.io/</loc>
-    <lastmod>2016-04-20T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
+    
+    
+    <url>
+    
+      <loc>https://mlxd.gitlab.io/publication/</loc>
+      <lastmod>2016-11-03T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
   
-  <url>
-    <loc>https://mlxd.github.io/page/</loc>
-    <priority>0</priority>
-  </url>
+    
+    
+    <url>
+    
+      <loc>https://mlxd.gitlab.io/tags/quantum/</loc>
+      <lastmod>2017-01-18T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
   
-  <url>
-    <loc>https://mlxd.github.io/post/</loc>
-    <lastmod>2016-05-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
+    
+    
+    <url>
+    
+      <loc>https://mlxd.gitlab.io/tags/sap/</loc>
+      <lastmod>2017-01-18T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
   
-  <url>
-    <loc>https://mlxd.github.io/tags/prog/</loc>
-    <lastmod>2016-01-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
+    
+    
+    <url>
+    
+      <loc>https://mlxd.gitlab.io/tags/</loc>
+      <lastmod>2017-01-18T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
   
-  <url>
-    <loc>https://mlxd.github.io/project/</loc>
-    <lastmod>2017-01-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
+    
+    
+    <url>
+    
+      <loc>https://mlxd.gitlab.io/talk/</loc>
+      <lastmod>2017-01-01T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
   
-  <url>
-    <loc>https://mlxd.github.io/publication/</loc>
-    <lastmod>2016-11-03T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mlxd.github.io/tags/quantum/</loc>
-    <lastmod>2017-01-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mlxd.github.io/tags/sap/</loc>
-    <lastmod>2017-01-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mlxd.github.io/tags/</loc>
-    <lastmod>2017-01-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mlxd.github.io/talk/</loc>
-    <lastmod>2017-01-01T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mlxd.github.io/tags/uqs/</loc>
-    <lastmod>2017-01-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
+    
+    
+    <url>
+    
+      <loc>https://mlxd.gitlab.io/tags/uqs/</loc>
+      <lastmod>2017-01-18T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
   
 </urlset>

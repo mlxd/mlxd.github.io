@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="hugo-academic">
+  <meta name="generator" content="Hugo 0.25.1" />
+  <meta name="author" content="Lee James O&#39;Riordan">
+  <meta name="description" content="Postdoctoral researcher">
+
+  
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="/css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.0/css/academicons.min.css" integrity="sha512-GGGNUPDhnG8LEAEDsjqYIQns+Gu8RBs4j5XGlxl7UfRaZBhCCm5jenJkeJL8uPuOXGqgl8/H1gjlWQDRjd3cUQ==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather%7CRoboto+Mono">
+  <link rel="stylesheet" href="/css/hugo-academic.css">
+  
+
+  
+
+  <link rel="alternate" href="https://mlxd.gitlab.io/index.xml" type="application/rss+xml" title="Lost in Computation">
+  <link rel="feed" href="https://mlxd.gitlab.io/index.xml" type="application/rss+xml" title="Lost in Computation">
+
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/apple-touch-icon.png">
+
+  <link rel="canonical" href="https://mlxd.gitlab.io/post/2017-07-11-ffts/">
+
+  
+
+  <title>FFTs over time and space... and devices | Lost in Computation</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Lost in Computation</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#about">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#publications">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#posts">
+            
+            <span>Posts</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#projects">
+            
+            <span>Projects</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+  <div class="article-container">
+    <h1 itemprop="name">FFTs over time and space... and devices</h1>
+    
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    <time datetime="2016-05-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      2016-05-11
+    </time>
+  </span>
+
+  
+
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="/tags/gpu">gpu</a
+    >, 
+    
+    <a href="/tags/uqs">uqs</a
+    >, 
+    
+    <a href="/tags/quantum">quantum</a
+    >
+    
+  </span>
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fmlxd.gitlab.io%2fpost%2f2017-07-11-ffts%2f"
+         target="_blank">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </li>
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=FFTs%20over%20time%20and%20space...%20and%20devices&amp;url=https%3a%2f%2fmlxd.gitlab.io%2fpost%2f2017-07-11-ffts%2f"
+         target="_blank">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fmlxd.gitlab.io%2fpost%2f2017-07-11-ffts%2f&amp;title=FFTs%20over%20time%20and%20space...%20and%20devices"
+         target="_blank">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fmlxd.gitlab.io%2fpost%2f2017-07-11-ffts%2f&amp;title=FFTs%20over%20time%20and%20space...%20and%20devices"
+         target="_blank">
+        <i class="fa fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=FFTs%20over%20time%20and%20space...%20and%20devices&amp;body=https%3a%2f%2fmlxd.gitlab.io%2fpost%2f2017-07-11-ffts%2f">
+        <i class="fa fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<hr />
+
+<h1 id="q-how-do-available-fft-routines-compare-over-different-libraries-and-accelerator-hardwares">Q. How do available FFT routines compare over different libraries and accelerator hardwares?</h1>
+
+<hr />
+
+<p>This is something I have wondered for sometime, though it can be difficult for an apples-to-apples comparison. I will consider the above question in relation to the following plan:</p>
+
+<p><strong><em>Comparing FFT implementations in a pseudospectral solver for linear and nonlinear Schrodinger equation dynamics</em></strong></p>
+
+<p>To decide on how to proceed, it is instructive to list all (or most) widely known and used implementations.</p>
+
+<h2 id="standard-implementations">Standard implementations</h2>
+
+<h3 id="cpu">[CPU]</h3>
+
+<ul>
+<li>FFTW: <a href="http://fftw.org/">http://fftw.org/</a> and <a href="https://github.com/FFTW/fftw3">https://github.com/FFTW/fftw3</a></li>
+<li>MKL-FFT: <a href="https://software.intel.com/en-us/articles/the-intel-math-kernel-library-and-its-fast-fourier-transform-routines">https://software.intel.com/en-us/articles/the-intel-math-kernel-library-and-its-fast-fourier-transform-routines</a></li>
+<li>clFFT: <a href="https://github.com/clMathLibraries/clFFT">https://github.com/clMathLibraries/clFFT</a></li>
+<li>Eigen FFT (using kissfft backend): <a href="http://eigen.tuxfamily.org/index.php?title=EigenFFT">http://eigen.tuxfamily.org/index.php?title=EigenFFT</a></li>
+<li>sFFT: <a href="http://groups.csail.mit.edu/netmit/sFFT/code.html">http://groups.csail.mit.edu/netmit/sFFT/code.html</a></li>
+</ul>
+
+<h3 id="gpu">[GPU]</h3>
+
+<ul>
+<li>cuFFT: <a href="http://docs.nvidia.com/cuda/cufft/index.html">http://docs.nvidia.com/cuda/cufft/index.html</a></li>
+<li>clFFT: <a href="https://github.com/clMathLibraries/clFFT">https://github.com/clMathLibraries/clFFT</a></li>
+<li>fbfft: <a href="https://github.com/facebook/fbcuda/tree/master/fbfft">https://github.com/facebook/fbcuda/tree/master/fbfft</a> and <a href="https://arxiv.org/abs/1412.7580">https://arxiv.org/abs/1412.7580</a></li>
+</ul>
+
+<h3 id="cutting-edge">[Cutting edge]</h3>
+
+<ul>
+<li>FPGA FFT (Xilinx and Altera/Intel): <a href="https://www.xilinx.com/products/intellectual-property/fft.html">https://www.xilinx.com/products/intellectual-property/fft.html</a> and <a href="https://www.altera.com/products/intellectual-property/ip/dsp/m-ham-fft.html">https://www.altera.com/products/intellectual-property/ip/dsp/m-ham-fft.html</a></li>
+<li>IBM TrueNorth FFT: No link/source found (yet)</li>
+<li>Rigetti pyQuil quantum FFT: <a href="http://pyquil.readthedocs.io/en/latest/getting_started.html">http://pyquil.readthedocs.io/en/latest/getting_started.html</a> (currently emulated AFAIK, but will eventually/hopefully run directly on quantum hardware)</li>
+</ul>
+
+<h2 id="test-cases">Test cases</h2>
+
+<p>To ensure sufficient time is spent in the FFT routines I will opt for a 2D transform of an NxN grid, requiring N transforms, a transpose, and another N. The value of N can be scaled to determine sweet spots for all implementations. Granted, memory size will be the determining factor of how large we can go. $N=2^j$ where $j \in \mathbb{Z}, 7 \leq j \leq 11$ is a reasonable range of values to examine that should fit readily on most hardware.</p>
+
+<p>For this, the following test precisions will be instructive:</p>
+
+<ul>
+<li><p>$\mathbb{C}2\mathbb{C}$ - 32-bit float (32-bits for each real and imaginary component)</p></li>
+
+<li><p>$\mathbb{C}2\mathbb{C}$ - 64bit float</p></li>
+
+<li><p>$\mathbb{R}2\mathbb{C}$ - 32bit float</p></li>
+
+<li><p>$\mathbb{R}2\mathbb{C}$ - 64bit float</p></li>
+</ul>
+
+<p>As a sample system to investigate, I will consider the case of a quantum harmonic oscillator (QHO). To investigate dynamics and their resulting accuracy, a known and analytically calculable result is useful. For this, I will opt for a a superposition state of the groundstate along the $xy$ plane, and the first excited state along $x$ with the groundstate along $y$. To put things more formally:</p>
+
+<p>$$
+\Psi(x,y) = \frac{ \Psi_{00}(x,y) + \Psi_{10}(x,y) }{\sqrt{2}}.
+$$
+To construct the above wavefunction we will assume that the states $\Psi_{00}(x,y)$ and $\Psi_{10}(x,y)$ are outer products of the solutions to the QHO, as given by:</p>
+
+<p>$$
+\Psi_n(x) = \frac{1}{\sqrt{2^{n}n!}}\left(\frac{m\omega_x}{\pi\hbar}\right)^{\frac{1}{4}}\mathrm{e}^{-\frac{m\omega_x x^2}{2\hbar}}H_n(x),
+$$
+where $$
+H_n(x)=(-1)^n\mathrm{e}^{x^2}\frac{d^n}{dx^n}\left(\mathrm{e}^{-x^2}\right),$$
+are the <a href="https://en.wikipedia.org/wiki/Hermite_polynomials">physicists&rsquo; Hermite polynomials</a>. As we are looking for the ground and first excited states ($n=0,1$) we can simplify a lot of the above calculations: $H_0(x)=1$ and $H_0(x)=2x$. Next, we determine the states $\Psi_0(x)$ and $\Psi_1(x)$ as:</p>
+
+<p>$$ \begin{eqnarray}
+\Psi_0(x) = \left(\frac{m\omega_x}{\pi\hbar}\right)^\frac{1}{4}\mathrm{e}^{-\frac{m\omega_x x^2}{2\hbar}},~
+\Psi_1(x) = \frac{2x}{\sqrt{2}} \left(\frac{m\omega_x}{\pi\hbar}\right)^{\frac{1}{4}}\mathrm{e}^{-\frac{m\omega_x x^2}{2\hbar}}.
+\end{eqnarray}
+$$</p>
+
+<p>Along a single dimension, our system can potentially be in any of the allowed harmonic oscillator states. Therefore, the overall state is given by a tensor product of the state along $x$ and that along $y$. If we assume the dimensionality of the Hilbert space along the $i$-th orthogonal spacial index is finite and given by $d_i$, then the overall system dimensionality (ie the total number of states we can consider) is $d = \displaystyle\prod_{i} d_i$.</p>
+
+<p>Assuming an $n$-dimensional system, where each individual dimension is in the groundstate of the harmonic oscillator, we can define the tensor product state as
+$$
+\Psi_n = \Psi_0^{\otimes n} = \Psi_0 \otimes \Psi_0  \cdots \otimes \Psi_0.
+$$</p>
+
+<p>While the above is fine for a general case, for the purposes of FFTs we have assumed a much simpler system, dealing with combinations of only 2 states. We can then define them as $\Psi_{00}(x,y) = \Psi_{0}(x)\otimes\Psi_{0}(y)$ and $\Psi_{10}(x,y) = \Psi_{1}(x)\otimes\Psi_{0}(y)$. Thus, our final superposition state when filling everything in is given by
+$$
+\Psi(x,y) = \left(\frac{m}{\pi\hbar}\right)^{\frac{1}{2}}\left(\omega_x\omega_y\right)^{\frac{1}{4}}\mathrm{e}^{-\frac{m}{2\hbar}\left(\omega_x x^2 + \omega_y y^2\right)}\left(x + \frac{1}{\sqrt{2}}\right).
+$$</p>
+
+<p>For a more detailed explanation and approach to the above have a look at Christina Lee&rsquo;s (<a href="https://github.com/albi3ro">albi3ro</a>) blog post on <a href="http://albi3ro.github.io/M4//prerequisites%20required/Time-Evolution.html">time evolution</a>, which will cover the method I use next.</p>
+
+<p><code>To be continued</code></p>
+
+    </div>
+  </div>
+
+</article>
+
+<div class="container">
+  <nav>
+  <ul class="pager">
+    
+    <li class="previous"><a href="https://mlxd.gitlab.io/post/2017-07-11-questions/"><span
+      aria-hidden="true">&larr;</span> Questions to expand upon</a></li>
+    
+
+    
+  </ul>
+</nav>
+
+</div>
+
+<div class="article-container">
+  
+
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="powered-by">
+
+      &copy; 2017 Lee James O&rsquo;Riordan (mlxd) &middot; 
+
+      Powered by the <a href="https://github.com/gcushen/hugo-academic" target="_blank">Academic
+      theme</a> for <a href="http://gohugo.io" target="_blank">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.2/imagesloaded.pkgd.min.js" integrity="sha512-iHzEu7GbSc705hE2skyH6/AlTpOfBmkx7nUqTLGzPYR+C1tRaItbRlJ7hT/D3YQ9SV0fqLKzp4XY9wKulTBGTw==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js" integrity="sha512-Z5heTz36xTemt1TbtbfXtTq5lMfYnOkXM2/eWcTTiLU01+Sw4ku1i7vScDc8fWhrP2abz9GQzgKH5NGBLoYlAw==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/plugins/ScrollToPlugin.min.js" integrity="sha512-CDeU7pRtkPX6XJtF/gcFWlEwyaX7mcAp5sO3VIu/ylsdR74wEw4wmBpD5yYTrmMAiAboi9thyBUr1vXRPA7t0Q==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+    
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML" integrity="sha512-tOav5w1OjvsSJzePRtt2uQPFwBoHt1VZcUq8l8nm5284LEKE9FSJBQryzMBzHxY5P0zRdNqEcpLIRVYFNgu1jw==" crossorigin="anonymous"></script>
+    
+    
+
+  </body>
+</html>
+

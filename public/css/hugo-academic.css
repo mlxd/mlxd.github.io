@@ -28,7 +28,7 @@ html {
 }
 @media screen and (min-width: 58em) {
   html {
-    font-size: 20px;
+    font-size: 16px;
   }
 }
 
@@ -250,7 +250,7 @@ blockquote p:last-child {
 
 #profile {
   text-align: center;
-  padding: 30px 10px;
+  padding: 10px 10px;
   position: relative;
 }
 
@@ -259,24 +259,24 @@ blockquote p:last-child {
   width: 200px;
   height: 200px;
   margin: 0 auto;
-  border-radius: 50%;
+  border-radius: 20%;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
 }
 
 #profile .portrait-title h2 {
-  font-size: 1.75em;
+  font-size: 1.65em;
   font-weight: 300;
-  color: #000000;
-  margin: 20px 0 10px 0;
+  color: #111111;
+  margin: 5px 0 5px 0;
 }
 
 #profile .portrait-title h3 {
   font-size: 1.13em;
   font-weight: 300;
   color: #AAAAAA;
-  margin: 0px 0 10px 0;
+  margin: 0px 0 0px 0;
 }
 
 #profile ul.social-icon {
@@ -285,11 +285,11 @@ blockquote p:last-child {
   flex-wrap: wrap;
   list-style: none;
   padding: 0;
-  margin-top: 30px;
+  margin-top: 10px;
 }
 
 #profile .social-icon li {
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
 #profile .social-icon li:last-of-type {
@@ -301,7 +301,7 @@ blockquote p:last-child {
 }
 
 .big-icon {
-  font-size: 2rem;
+  font-size: 1.7rem;
 }
 
 ul.ul-interests li {
@@ -389,8 +389,8 @@ article {
 }
 
 .article-container {
-  max-width: 760px;
-  padding: 1rem 20px 0 20px;
+  max-width: 900px;
+  padding: 1rem 10px 0 10px;
   margin: 0 auto 0 auto;
 }
 

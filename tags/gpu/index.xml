@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017 Lee James O&#39;Riordan (mlxd)</copyright>
-    <lastBuildDate>Wed, 18 Jan 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 01 Jan 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://mlxd.github.io/tags/gpu/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>FFTs over time and space... and devices</title>
+      <link>https://mlxd.github.io/post/2017-07-11-ffts/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://mlxd.github.io/post/2017-07-11-ffts/</guid>
+      <description>Q. How do available FFT routines compare over different libraries and accelerator hardwares? This is something I have wondered for sometime, though it can be difficult for an apples-to-apples comparison. I will consider the above question in relation to the following plan:
+Comparing FFT implementations in a pseudospectral solver for linear and nonlinear Schrodinger equation dynamics
+To decide on how to proceed, it is instructive to list all (or most) widely known and used implementations.</description>
+    </item>
     
     <item>
       <title>GPUE</title>
@@ -28,17 +39,6 @@
       
       <guid>https://mlxd.github.io/project/uqs/</guid>
       <description>This page will be updated with details of the research undertaken during my PhD.</description>
-    </item>
-    
-    <item>
-      <title>FFTs over time and space... and devices</title>
-      <link>https://mlxd.github.io/post/2017-07-11-ffts/</link>
-      <pubDate>Wed, 11 May 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://mlxd.github.io/post/2017-07-11-ffts/</guid>
-      <description>Q. How do available FFT routines compare over different libraries and accelerator hardwares? This is something I have wondered for sometime, though it can be difficult for an apples-to-apples comparison. I will consider the above question in relation to the following plan:
-Comparing FFT implementations in a pseudospectral solver for linear and nonlinear Schrodinger equation dynamics
-To decide on how to proceed, it is instructive to list all (or most) widely known and used implementations.</description>
     </item>
     
     <item>

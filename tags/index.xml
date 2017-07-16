@@ -8,9 +8,7 @@
     <language>en-us</language>
     <copyright>&amp;copy; 2017 Lee James O&#39;Riordan (mlxd)</copyright>
     <lastBuildDate>Wed, 18 Jan 2017 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://mlxd.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    
+    <atom:link href="/tags/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Bec</title>

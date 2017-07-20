@@ -18,6 +18,8 @@
       <guid>https://mlxd.github.io/post/2017-07-11-ffts/</guid>
       <description>
 
+&lt;p&gt;&lt;code&gt;The following article is a work in progress, and will be continually updated over time. I&#39;ll issue a RELEASE tag or similar when everything has been finished.&lt;/code&gt;&lt;/p&gt;
+
 &lt;hr /&gt;
 
 &lt;h1 id=&#34;q-how-do-available-fft-routines-compare-over-different-libraries-and-accelerator-hardwares&#34;&gt;Q. How do available FFT routines compare over different libraries and accelerator hardwares?&lt;/h1&gt;
@@ -68,11 +70,11 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;$\mathbb{C}2\mathbb{C}$ - 32-bit float (32-bits for each real and imaginary component)&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;$\mathbb{C}2\mathbb{C}$ - 64bit float&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;$\mathbb{C}2\mathbb{C}$ - 64-bit float&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;$\mathbb{R}2\mathbb{C}$ - 32bit float&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;$\mathbb{R}2\mathbb{C}$ - 32-bit float&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;$\mathbb{R}2\mathbb{C}$ - 64bit float&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;$\mathbb{R}2\mathbb{C}$ - 64-bit float&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;As a sample system to investigate, I will consider the case of a quantum harmonic oscillator (QHO). To investigate dynamics and their resulting accuracy, a known and analytically calculable result is useful. For this, I will opt for a a superposition state of the groundstate along the $xy$ plane, and the first excited state along $x$ with the groundstate along $y$. To put things more formally:&lt;/p&gt;

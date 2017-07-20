@@ -214,10 +214,14 @@ blockquote p:last-child {
   padding: 110px 0 110px 0;
   animation: intro 0.3s both;
   animation-delay: 0.15s;
+    padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 .home-section:first-of-type {
-  padding-top: 50px;
+    padding-top: 30px;
+
+
 }
 
 .home-section:nth-of-type(even) {

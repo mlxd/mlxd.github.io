@@ -126,7 +126,8 @@ $$&lt;/p&gt;
 &lt;h1 id=&#34;questions-to-consider&#34;&gt;Questions to consider&lt;/h1&gt;
 
 &lt;ul&gt;
-&lt;li&gt;FFTs over devices for quantum dynamics&lt;/li&gt;
+&lt;li&gt;What is the optimal choice of FFTs over competing HPC software and device architectures for quantum dynamics using pseduospectral methods?&lt;/li&gt;
+&lt;li&gt;Do space filling curves have a performance impact on multidimensional data when performing FFTs along the i-th dimension?&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

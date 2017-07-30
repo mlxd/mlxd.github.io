@@ -109,6 +109,11 @@ $$
 \Psi(x,y) = \left(\frac{m}{\pi\hbar}\right)^{\frac{1}{2}}\left(\omega_x\omega_y\right)^{\frac{1}{4}}\mathrm{e}^{-\frac{m}{2\hbar}\left(\omega_x x^2 + \omega_y y^2\right)}\left(x + \frac{1}{\sqrt{2}}\right).
 $$&lt;/p&gt;
 
+&lt;p&gt;To simplify life, I will assume some of the above quantities are set to unity (i.e. $m=\omega_x = \omega_y = \hbar = 1$). This will not change the dynamics of the simulation, but simplify the equations and the numerical implementation, which can help with improving accuracy. The above equation then becomes
+$$
+\Psi(x,y) = \left(\frac{1}{\pi}\right)^{\frac{1}{2}}\mathrm{e}^{-\frac{1}{2}\left( x^2 + y^2 \right)}\left(x + \frac{1}{\sqrt{2}}\right).
+$$&lt;/p&gt;
+
 &lt;p&gt;For a more detailed explanation and approach to the above have a look at Christina Lee&amp;rsquo;s (&lt;a href=&#34;https://github.com/albi3ro&#34;&gt;albi3ro&lt;/a&gt;) blog post on &lt;a href=&#34;http://albi3ro.github.io/M4//prerequisites%20required/Time-Evolution.html&#34;&gt;time evolution&lt;/a&gt;, which will cover the method I use next.&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;To be continued&lt;/code&gt;&lt;/p&gt;
@@ -150,6 +155,7 @@ typedef struct Grid{
 } Grid;
 
 void setupGrids(Grid *grid){
+    double invSqrt2 = 1/sqrt(2);
     //Position space grids
     for (int j=0; j &amp;lt; GRIDSIZE; ++j){
         grid-&amp;gt;x[j] = -GRIDMAX + j*(2*GRIDMAX+1)/GRIDSIZE;
@@ -158,10 +164,16 @@ void setupGrids(Grid *grid){
     for(int i=0; i &amp;lt; GRIDSIZE; ++i){
         for(int j=0; j &amp;lt; GRIDSIZE; ++j){
             grid-&amp;gt;xy2[j+GRIDSIZE*i] = 0.5*(grid-&amp;gt;x[i]*grid-&amp;gt;x[i]+grid-&amp;gt;y[j]*grid-&amp;gt;y[j]);
+            //Evolution operator in position space
             grid-&amp;gt;U_V[j+GRIDSIZE*i].x = cos(-grid-&amp;gt;xy2[j+GRIDSIZE*i]*DT);
             grid-&amp;gt;U_V[j+GRIDSIZE*i].y = sin(-grid-&amp;gt;xy2[j+GRIDSIZE*i]*DT);
+            
+            //Wavefunction
+            grid-&amp;gt;wfc[j+GRIDSIZE*i].x = sqrt( 1/PI )*exp( -0.5 * ( grid-&amp;gt;x[i]*grid-&amp;gt;x[i] + grid-&amp;gt;y[j]*grid-&amp;gt;y[j] ) ) * ( grid-&amp;gt;x[i] + invSqrt2 );
+            grid-&amp;gt;wfc[j+GRIDSIZE*i].y = 0.;
         }
     }
+
     //Momentum space grids
     for (int j=0; j &amp;lt; GRIDSIZE; ++j){
         grid-&amp;gt;kx[j] = (j&amp;lt;(GRIDSIZE/2)) ? j*2*PI/(GRIDMAX) : -j*(2*PI/(GRIDMAX));
@@ -170,14 +182,19 @@ void setupGrids(Grid *grid){
     for(int i=0; i &amp;lt; GRIDSIZE; ++i){
         for(int j=0; j &amp;lt; GRIDSIZE; ++j){
             grid-&amp;gt;kxy2[j+GRIDSIZE*i] = 0.5*(grid-&amp;gt;kx[i]*grid-&amp;gt;kx[i]+grid-&amp;gt;ky[j]*grid-&amp;gt;ky[j]);
+
+            //Evolution operator in momentum space
             grid-&amp;gt;U_K[j+GRIDSIZE*i].x = cos(-grid-&amp;gt;kxy2[j+GRIDSIZE*i]*DT);
             grid-&amp;gt;U_K[j+GRIDSIZE*i].y = sin(-grid-&amp;gt;kxy2[j+GRIDSIZE*i]*DT);
         }
     }
+
+
 }
 //################################################//
 int main(){
-    return 0;
+    //Begin by defining the posisiton and momentum space grids, operators and initial wavefunction state.
+    setupGrids(Grid);
 }
 //################################################//
 

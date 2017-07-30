@@ -302,6 +302,11 @@ $$
 \Psi(x,y) = \left(\frac{m}{\pi\hbar}\right)^{\frac{1}{2}}\left(\omega_x\omega_y\right)^{\frac{1}{4}}\mathrm{e}^{-\frac{m}{2\hbar}\left(\omega_x x^2 + \omega_y y^2\right)}\left(x + \frac{1}{\sqrt{2}}\right).
 $$</p>
 
+<p>To simplify life, I will assume some of the above quantities are set to unity (i.e. $m=\omega_x = \omega_y = \hbar = 1$). This will not change the dynamics of the simulation, but simplify the equations and the numerical implementation, which can help with improving accuracy. The above equation then becomes
+$$
+\Psi(x,y) = \left(\frac{1}{\pi}\right)^{\frac{1}{2}}\mathrm{e}^{-\frac{1}{2}\left( x^2 + y^2 \right)}\left(x + \frac{1}{\sqrt{2}}\right).
+$$</p>
+
 <p>For a more detailed explanation and approach to the above have a look at Christina Lee&rsquo;s (<a href="https://github.com/albi3ro">albi3ro</a>) blog post on <a href="http://albi3ro.github.io/M4//prerequisites%20required/Time-Evolution.html">time evolution</a>, which will cover the method I use next.</p>
 
 <p><code>To be continued</code></p>
@@ -343,6 +348,7 @@ typedef struct Grid{
 } Grid;
 
 void setupGrids(Grid *grid){
+    double invSqrt2 = 1/sqrt(2);
     //Position space grids
     for (int j=0; j &lt; GRIDSIZE; ++j){
         grid-&gt;x[j] = -GRIDMAX + j*(2*GRIDMAX+1)/GRIDSIZE;
@@ -351,10 +357,16 @@ void setupGrids(Grid *grid){
     for(int i=0; i &lt; GRIDSIZE; ++i){
         for(int j=0; j &lt; GRIDSIZE; ++j){
             grid-&gt;xy2[j+GRIDSIZE*i] = 0.5*(grid-&gt;x[i]*grid-&gt;x[i]+grid-&gt;y[j]*grid-&gt;y[j]);
+            //Evolution operator in position space
             grid-&gt;U_V[j+GRIDSIZE*i].x = cos(-grid-&gt;xy2[j+GRIDSIZE*i]*DT);
             grid-&gt;U_V[j+GRIDSIZE*i].y = sin(-grid-&gt;xy2[j+GRIDSIZE*i]*DT);
+            
+            //Wavefunction
+            grid-&gt;wfc[j+GRIDSIZE*i].x = sqrt( 1/PI )*exp( -0.5 * ( grid-&gt;x[i]*grid-&gt;x[i] + grid-&gt;y[j]*grid-&gt;y[j] ) ) * ( grid-&gt;x[i] + invSqrt2 );
+            grid-&gt;wfc[j+GRIDSIZE*i].y = 0.;
         }
     }
+
     //Momentum space grids
     for (int j=0; j &lt; GRIDSIZE; ++j){
         grid-&gt;kx[j] = (j&lt;(GRIDSIZE/2)) ? j*2*PI/(GRIDMAX) : -j*(2*PI/(GRIDMAX));
@@ -363,14 +375,19 @@ void setupGrids(Grid *grid){
     for(int i=0; i &lt; GRIDSIZE; ++i){
         for(int j=0; j &lt; GRIDSIZE; ++j){
             grid-&gt;kxy2[j+GRIDSIZE*i] = 0.5*(grid-&gt;kx[i]*grid-&gt;kx[i]+grid-&gt;ky[j]*grid-&gt;ky[j]);
+
+            //Evolution operator in momentum space
             grid-&gt;U_K[j+GRIDSIZE*i].x = cos(-grid-&gt;kxy2[j+GRIDSIZE*i]*DT);
             grid-&gt;U_K[j+GRIDSIZE*i].y = sin(-grid-&gt;kxy2[j+GRIDSIZE*i]*DT);
         }
     }
+
+
 }
 //################################################//
 int main(){
-    return 0;
+    //Begin by defining the posisiton and momentum space grids, operators and initial wavefunction state.
+    setupGrids(Grid);
 }
 //################################################//
 

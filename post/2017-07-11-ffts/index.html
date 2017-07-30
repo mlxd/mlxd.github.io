@@ -325,6 +325,7 @@ This document will implement the quantum simulation aspects of the code, in as s
 #define PI 3.14159
 #define DT 1e-4
 
+
 //################################################//
 
 struct double2{
@@ -333,7 +334,7 @@ struct double2{
 };
 
 //Define the grid on which the simulation will be run.
-typedef struct Grid{
+struct Grid{
     double *x = (double*) malloc(GRIDSIZE*sizeof(double));
     double *y = (double*) malloc(GRIDSIZE*sizeof(double));
     double *xy2 = (double*) malloc(GRIDSIZE*GRIDSIZE*sizeof(double));
@@ -345,13 +346,13 @@ typedef struct Grid{
     double2 *wfc = (double2*) malloc(GRIDSIZE*GRIDSIZE*sizeof(double2));
     double2 *U_V = (double2*) malloc(GRIDSIZE*GRIDSIZE*sizeof(double2));
     double2 *U_K = (double2*) malloc(GRIDSIZE*GRIDSIZE*sizeof(double2));
-} Grid;
+};
 
 void setupGrids(Grid *grid){
     double invSqrt2 = 1/sqrt(2);
     //Position space grids
     for (int j=0; j &lt; GRIDSIZE; ++j){
-        grid-&gt;x[j] = -GRIDMAX + j*(2*GRIDMAX+1)/GRIDSIZE;
+        grid-&gt;x[j] = -GRIDMAX + j*(2*GRIDMAX)/((double)GRIDSIZE);
         grid-&gt;y[j] = grid-&gt;x[j];
     }
     for(int i=0; i &lt; GRIDSIZE; ++i){
@@ -381,8 +382,6 @@ void setupGrids(Grid *grid){
             grid-&gt;U_K[j+GRIDSIZE*i].y = sin(-grid-&gt;kxy2[j+GRIDSIZE*i]*DT);
         }
     }
-
-
 }
 //################################################//
 int main(){

@@ -306,6 +306,76 @@ $$</p>
 
 <p><code>To be continued</code></p>
 
+<pre><code class="language-c">/***
+
+This document will implement the quantum simulation aspects of the code, in as simple a means as possible.
+
+***/
+#include&lt;stdio.h&gt;
+#include&lt;stdlib.h&gt;
+#include&lt;math.h&gt;
+
+#define GRIDSIZE 128
+#define GRIDMAX 5
+#define PI 3.14159
+#define DT 1e-4
+
+//################################################//
+
+struct double2{
+    double x;
+    double y;
+};
+
+//Define the grid on which the simulation will be run.
+typedef struct Grid{
+    double *x = (double*) malloc(GRIDSIZE*sizeof(double));
+    double *y = (double*) malloc(GRIDSIZE*sizeof(double));
+    double *xy2 = (double*) malloc(GRIDSIZE*GRIDSIZE*sizeof(double));
+
+    double *kx = (double*) malloc(GRIDSIZE*sizeof(double));
+    double *ky = (double*) malloc(GRIDSIZE*sizeof(double));
+    double *kxy2 = (double*) malloc(GRIDSIZE*GRIDSIZE*sizeof(double));
+
+    double2 *wfc = (double2*) malloc(GRIDSIZE*GRIDSIZE*sizeof(double2));
+    double2 *U_V = (double2*) malloc(GRIDSIZE*GRIDSIZE*sizeof(double2));
+    double2 *U_K = (double2*) malloc(GRIDSIZE*GRIDSIZE*sizeof(double2));
+} Grid;
+
+void setupGrids(Grid *grid){
+    //Position space grids
+    for (int j=0; j &lt; GRIDSIZE; ++j){
+        grid-&gt;x[j] = -GRIDMAX + j*(2*GRIDMAX+1)/GRIDSIZE;
+        grid-&gt;y[j] = grid-&gt;x[j];
+    }
+    for(int i=0; i &lt; GRIDSIZE; ++i){
+        for(int j=0; j &lt; GRIDSIZE; ++j){
+            grid-&gt;xy2[j+GRIDSIZE*i] = 0.5*(grid-&gt;x[i]*grid-&gt;x[i]+grid-&gt;y[j]*grid-&gt;y[j]);
+            grid-&gt;U_V[j+GRIDSIZE*i].x = cos(-grid-&gt;xy2[j+GRIDSIZE*i]*DT);
+            grid-&gt;U_V[j+GRIDSIZE*i].y = sin(-grid-&gt;xy2[j+GRIDSIZE*i]*DT);
+        }
+    }
+    //Momentum space grids
+    for (int j=0; j &lt; GRIDSIZE; ++j){
+        grid-&gt;kx[j] = (j&lt;(GRIDSIZE/2)) ? j*2*PI/(GRIDMAX) : -j*(2*PI/(GRIDMAX));
+        grid-&gt;ky[j] = grid-&gt;kx[j];
+    }
+    for(int i=0; i &lt; GRIDSIZE; ++i){
+        for(int j=0; j &lt; GRIDSIZE; ++j){
+            grid-&gt;kxy2[j+GRIDSIZE*i] = 0.5*(grid-&gt;kx[i]*grid-&gt;kx[i]+grid-&gt;ky[j]*grid-&gt;ky[j]);
+            grid-&gt;U_K[j+GRIDSIZE*i].x = cos(-grid-&gt;kxy2[j+GRIDSIZE*i]*DT);
+            grid-&gt;U_K[j+GRIDSIZE*i].y = sin(-grid-&gt;kxy2[j+GRIDSIZE*i]*DT);
+        }
+    }
+}
+//################################################//
+int main(){
+    return 0;
+}
+//################################################//
+
+</code></pre>
+
     </div>
   </div>
 

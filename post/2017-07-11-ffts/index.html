@@ -370,7 +370,7 @@ void setupGrids(Grid *grid){
 
     //Momentum space grids
     for (int j=0; j &lt; GRIDSIZE; ++j){
-        grid-&gt;kx[j] = (j&lt;(GRIDSIZE/2)) ? j*2*PI/(GRIDMAX) : -j*(2*PI/(GRIDMAX));
+        grid-&gt;kx[j] = (j&lt;(GRIDSIZE/2)) ? j*2*PI/(GRIDMAX) : -(GRIDSIZE - j)*(2*PI/(GRIDMAX));
         grid-&gt;ky[j] = grid-&gt;kx[j];
     }
     for(int i=0; i &lt; GRIDSIZE; ++i){
@@ -383,14 +383,54 @@ void setupGrids(Grid *grid){
         }
     }
 }
+
+//################################################//
+int fileIO(Grid *grid){
+    //Open files to write
+    FILE *f_x = fopen(&quot;x&quot;, &quot;w&quot;);
+    FILE *f_y = fopen(&quot;y&quot;, &quot;w&quot;);
+    FILE *f_xy2 = fopen(&quot;xy2&quot;, &quot;w&quot;);
+    FILE *f_kx = fopen(&quot;kx&quot;, &quot;w&quot;);
+    FILE *f_ky = fopen(&quot;ky&quot;, &quot;w&quot;);
+    FILE *f_kxy2 = fopen(&quot;kxy2&quot;, &quot;w&quot;);
+    FILE *f_U_V = fopen(&quot;U_V&quot;, &quot;w&quot;);
+    FILE *f_U_K = fopen(&quot;U_K&quot;, &quot;w&quot;);
+    FILE *f_wfc = fopen(&quot;wfc&quot;, &quot;w&quot;);
+
+    //No safety checks because I'm a bad person
+
+    fwrite(grid-&gt;x, sizeof(double), GRIDSIZE, f_x);
+    fwrite(grid-&gt;y, sizeof(double), GRIDSIZE, f_y);
+    fwrite(grid-&gt;xy2, sizeof(double), GRIDSIZE*GRIDSIZE, f_xy2);
+    fwrite(grid-&gt;kx, sizeof(double), GRIDSIZE, f_kx);
+    fwrite(grid-&gt;ky, sizeof(double), GRIDSIZE, f_ky);
+    fwrite(grid-&gt;kxy2, sizeof(double), GRIDSIZE*GRIDSIZE, f_kxy2);
+    fwrite(grid-&gt;U_V, sizeof(double2), GRIDSIZE*GRIDSIZE, f_U_V);
+    fwrite(grid-&gt;U_K, sizeof(double2), GRIDSIZE*GRIDSIZE, f_U_K);
+    fwrite(grid-&gt;wfc, sizeof(double2), GRIDSIZE*GRIDSIZE, f_wfc);
+
+    //No moar opin
+
+    fclose(f_x); fclose(f_y); fclose(f_xy2); fclose(f_kx);  fclose(f_ky);
+    fclose(f_kxy2); fclose(f_U_V); fclose(f_U_K); fclose(f_wfc);
+    return 0;
+}
+
 //################################################//
 int main(){
-    //Begin by defining the posisiton and momentum space grids, operators and initial wavefunction state.
-    setupGrids(Grid);
+    Grid grid;
+    setupGrids(&amp;grid);
+    fileIO(&amp;grid);
 }
+
+
 //################################################//
 
 </code></pre>
+
+<p><img src="/img/x_y_kx_ky.png" alt="alt text" title="X Y Kx Ky" />
+<img src="/img/xy2_kxky2_UV_UK.png" alt="alt text" title="Ops" />
+<img src="/img/wfc_abs2.png" alt="alt text" title="WFC" /></p>
 
     </div>
   </div>

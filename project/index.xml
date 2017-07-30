@@ -11,6 +11,16 @@
     <atom:link href="/project/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>ExaFEL</title>
+      <link>https://mlxd.github.io/project/exafel/</link>
+      <pubDate>Wed, 18 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://mlxd.github.io/project/exafel/</guid>
+      <description>&lt;p&gt;For now, I will link directly to the &lt;a href=&#34;https://exafel.github.io/docs&#34;&gt;ExaFEL site&lt;/a&gt;. I&amp;rsquo;ll directly link all pages in here at a later time.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>GPUE</title>
       <link>https://mlxd.github.io/project/gpue/</link>
       <pubDate>Wed, 18 Jan 2017 00:00:00 +0000</pubDate>

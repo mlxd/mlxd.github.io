@@ -177,7 +177,7 @@ void setupGrids(Grid *grid){
 
     //Momentum space grids
     for (int j=0; j &amp;lt; GRIDSIZE; ++j){
-        grid-&amp;gt;kx[j] = (j&amp;lt;(GRIDSIZE/2)) ? j*2*PI/(GRIDMAX) : -j*(2*PI/(GRIDMAX));
+        grid-&amp;gt;kx[j] = (j&amp;lt;(GRIDSIZE/2)) ? j*2*PI/(GRIDMAX) : -(GRIDSIZE - j)*(2*PI/(GRIDMAX));
         grid-&amp;gt;ky[j] = grid-&amp;gt;kx[j];
     }
     for(int i=0; i &amp;lt; GRIDSIZE; ++i){
@@ -190,14 +190,54 @@ void setupGrids(Grid *grid){
         }
     }
 }
+
+//################################################//
+int fileIO(Grid *grid){
+    //Open files to write
+    FILE *f_x = fopen(&amp;quot;x&amp;quot;, &amp;quot;w&amp;quot;);
+    FILE *f_y = fopen(&amp;quot;y&amp;quot;, &amp;quot;w&amp;quot;);
+    FILE *f_xy2 = fopen(&amp;quot;xy2&amp;quot;, &amp;quot;w&amp;quot;);
+    FILE *f_kx = fopen(&amp;quot;kx&amp;quot;, &amp;quot;w&amp;quot;);
+    FILE *f_ky = fopen(&amp;quot;ky&amp;quot;, &amp;quot;w&amp;quot;);
+    FILE *f_kxy2 = fopen(&amp;quot;kxy2&amp;quot;, &amp;quot;w&amp;quot;);
+    FILE *f_U_V = fopen(&amp;quot;U_V&amp;quot;, &amp;quot;w&amp;quot;);
+    FILE *f_U_K = fopen(&amp;quot;U_K&amp;quot;, &amp;quot;w&amp;quot;);
+    FILE *f_wfc = fopen(&amp;quot;wfc&amp;quot;, &amp;quot;w&amp;quot;);
+
+    //No safety checks because I&#39;m a bad person
+
+    fwrite(grid-&amp;gt;x, sizeof(double), GRIDSIZE, f_x);
+    fwrite(grid-&amp;gt;y, sizeof(double), GRIDSIZE, f_y);
+    fwrite(grid-&amp;gt;xy2, sizeof(double), GRIDSIZE*GRIDSIZE, f_xy2);
+    fwrite(grid-&amp;gt;kx, sizeof(double), GRIDSIZE, f_kx);
+    fwrite(grid-&amp;gt;ky, sizeof(double), GRIDSIZE, f_ky);
+    fwrite(grid-&amp;gt;kxy2, sizeof(double), GRIDSIZE*GRIDSIZE, f_kxy2);
+    fwrite(grid-&amp;gt;U_V, sizeof(double2), GRIDSIZE*GRIDSIZE, f_U_V);
+    fwrite(grid-&amp;gt;U_K, sizeof(double2), GRIDSIZE*GRIDSIZE, f_U_K);
+    fwrite(grid-&amp;gt;wfc, sizeof(double2), GRIDSIZE*GRIDSIZE, f_wfc);
+
+    //No moar opin
+
+    fclose(f_x); fclose(f_y); fclose(f_xy2); fclose(f_kx);  fclose(f_ky);
+    fclose(f_kxy2); fclose(f_U_V); fclose(f_U_K); fclose(f_wfc);
+    return 0;
+}
+
 //################################################//
 int main(){
-    //Begin by defining the posisiton and momentum space grids, operators and initial wavefunction state.
-    setupGrids(Grid);
+    Grid grid;
+    setupGrids(&amp;amp;grid);
+    fileIO(&amp;amp;grid);
 }
+
+
 //################################################//
 
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://mlxd.github.io/img/x_y_kx_ky.png&#34; alt=&#34;alt text&#34; title=&#34;X Y Kx Ky&#34; /&gt;
+&lt;img src=&#34;https://mlxd.github.io/img/xy2_kxky2_UV_UK.png&#34; alt=&#34;alt text&#34; title=&#34;Ops&#34; /&gt;
+&lt;img src=&#34;https://mlxd.github.io/img/wfc_abs2.png&#34; alt=&#34;alt text&#34; title=&#34;WFC&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     

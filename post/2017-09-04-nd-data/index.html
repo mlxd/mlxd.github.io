@@ -37,11 +37,11 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/apple-touch-icon.png">
 
-  <link rel="canonical" href="">
+  <link rel="canonical" href="https://mlxd.github.io/post/2017-09-04-nd-data/">
 
   
 
-  <title>404 Page not found | Lost in Computation</title>
+  <title>Permutations of n-D data | Lost in Computation</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -123,54 +123,139 @@
   </div>
 </nav>
 
-<div class="container">
 
-  <h1>Page not found</h1>
-  <p>Maybe you were looking for one of these?</p>
+<article class="article" itemscope itemtype="http://schema.org/Article">
 
-  <h2>Recent Posts</h2>
-  
-  <ul>
-    <li><a href="https://mlxd.github.io/post/2017-07-11-ffts/">FFTs over time and space... and devices</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="https://mlxd.github.io/post/2017-09-04-nd-data/">Permutations of n-D data</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="https://mlxd.github.io/post/2017-07-11-questions/">Questions to expand upon</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="https://mlxd.github.io/post/2015-10-17-init/">Initiali[sz]e</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="https://mlxd.github.io/post/">Posts</a></li>
-  </ul>
   
 
-  <h2>Recent Publications</h2>
+
+  <div class="article-container">
+    <h1 itemprop="name">Permutations of n-D data</h1>
+    
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    <time datetime="2017-09-04 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      2017-09-04
+    </time>
+  </span>
+
   
-  <ul>
-    <li><a href="https://mlxd.github.io/publication/defect2016/">Topological defect dynamics of vortex lattices in Bose–Einstein condensates</a></li>
-  </ul>
+
   
-  <ul>
-    <li><a href="https://mlxd.github.io/publication/moire2016/">Moiré superlattice structures in kicked Bose–Einstein condensates</a></li>
-  </ul>
   
-  <ul>
-    <li><a href="https://mlxd.github.io/publication/sap2013/">Coherent transport by adiabatic passage on atom chips</a></li>
-  </ul>
   
-  <ul>
-    <li><a href="https://mlxd.github.io/publication/">Publications</a></li>
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="/tags/math">math</a
+    >, 
+    
+    <a href="/tags/cs">cs</a
+    >, 
+    
+    <a href="/tags/quantum">quantum</a
+    >
+    
+  </span>
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fmlxd.github.io%2fpost%2f2017-09-04-nd-data%2f"
+         target="_blank">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </li>
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Permutations%20of%20n-D%20data&amp;url=https%3a%2f%2fmlxd.github.io%2fpost%2f2017-09-04-nd-data%2f"
+         target="_blank">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fmlxd.github.io%2fpost%2f2017-09-04-nd-data%2f&amp;title=Permutations%20of%20n-D%20data"
+         target="_blank">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fmlxd.github.io%2fpost%2f2017-09-04-nd-data%2f&amp;title=Permutations%20of%20n-D%20data"
+         target="_blank">
+        <i class="fa fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Permutations%20of%20n-D%20data&amp;body=https%3a%2f%2fmlxd.github.io%2fpost%2f2017-09-04-nd-data%2f">
+        <i class="fa fa-envelope"></i>
+      </a>
+    </li>
   </ul>
+</div>
+
+
   
 
 </div>
+
+    <div class="article-style" itemprop="articleBody">
+      <p>Something I have been thinking bout for quite a long time is the means to manipulate high-dimensional (dense) data-sets efficiently. Namely, I wish to allow for the data along any specific orthgonal basis diretion to become adjacent in memory in strides of the length of samples along that axis.</p>
+
+<p>The reason for this? To allow for optimal vectorisation and caching of data when performing computations. Take for example a GPU: if we put data on there we want to access and manipulate it in chunks given by the chosen thread-size. If we access elements out of order, we essentially lose all of the parallelism offered by the device, as the data access will not be performed in the optimal $k$-element wide chunks, but individually at worst, and somewhere in between most likely.</p>
+
+<p><img src="/img/ndData.jpg" alt="alt text" title="A sample layout permutation" /></p>
+
+<p>For a problem with data defined in the space given by $ijk$, we can define the lexicographical order from fastest to slowest indices to be in the given $ijk$ order. The included image above is an example of rotation about the $j$ axis, showing in the right the respective mappings to new index values (for the sake of my interest I showed slices along $j$ and $i$, but worked with the latter for the remainder).</p>
+
+<p>The bottom of the image shows the rearrangements of memory from the original (upper) to the rotated (lower) memory configurations. The indices themselves seem to take the following mappings (orig. $\rightarrow $ rot.):</p>
+
+<p>$$ \begin{align}
+i &amp; \rightarrow \textrm{stride}(j)-k, \\<br />
+j &amp; \rightarrow j, \\<br />
+k &amp; \rightarrow i, \
+\end{align}$$</p>
+
+<p>where the stride() operation returns the spacing between the elements in the given dimension (in this case, the stride of $j$ is the size of $i$).</p>
+
+<p>I intend to find an optimal way to perform this in time, but that is all an hours or two of procrastination can produce. TBC</p>
+
+    </div>
+  </div>
+
+</article>
+
+<div class="container">
+  <nav>
+  <ul class="pager">
+    
+    <li class="previous"><a href="https://mlxd.github.io/post/2017-07-11-questions/"><span
+      aria-hidden="true">&larr;</span> Questions to expand upon</a></li>
+    
+
+    
+    <li class="next"><a href="https://mlxd.github.io/post/2017-07-11-ffts/">FFTs over time and space... and devices <span
+      aria-hidden="true">&rarr;</span></a></li>
+    
+  </ul>
+</nav>
+
+</div>
+
+<div class="article-container">
+  
+
+</div>
+
 <footer class="site-footer">
   <div class="container">
     <p class="powered-by">

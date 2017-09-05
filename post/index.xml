@@ -242,6 +242,34 @@ int main(){
     </item>
     
     <item>
+      <title>Permutations of n-D data</title>
+      <link>https://mlxd.github.io/post/2017-09-04-nd-data/</link>
+      <pubDate>Mon, 04 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://mlxd.github.io/post/2017-09-04-nd-data/</guid>
+      <description>&lt;p&gt;Something I have been thinking bout for quite a long time is the means to manipulate high-dimensional (dense) data-sets efficiently. Namely, I wish to allow for the data along any specific orthgonal basis diretion to become adjacent in memory in strides of the length of samples along that axis.&lt;/p&gt;
+
+&lt;p&gt;The reason for this? To allow for optimal vectorisation and caching of data when performing computations. Take for example a GPU: if we put data on there we want to access and manipulate it in chunks given by the chosen thread-size. If we access elements out of order, we essentially lose all of the parallelism offered by the device, as the data access will not be performed in the optimal $k$-element wide chunks, but individually at worst, and somewhere in between most likely.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://mlxd.github.io/img/ndData.jpg&#34; alt=&#34;alt text&#34; title=&#34;A sample layout permutation&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;For a problem with data defined in the space given by $ijk$, we can define the lexicographical order from fastest to slowest indices to be in the given $ijk$ order. The included image above is an example of rotation about the $j$ axis, showing in the right the respective mappings to new index values (for the sake of my interest I showed slices along $j$ and $i$, but worked with the latter for the remainder).&lt;/p&gt;
+
+&lt;p&gt;The bottom of the image shows the rearrangements of memory from the original (upper) to the rotated (lower) memory configurations. The indices themselves seem to take the following mappings (orig. $\rightarrow $ rot.):&lt;/p&gt;
+
+&lt;p&gt;$$ \begin{align}
+i &amp;amp; \rightarrow \textrm{stride}(j)-k, \\&lt;br /&gt;
+j &amp;amp; \rightarrow j, \\&lt;br /&gt;
+k &amp;amp; \rightarrow i, \
+\end{align}$$&lt;/p&gt;
+
+&lt;p&gt;where the stride() operation returns the spacing between the elements in the given dimension (in this case, the stride of $j$ is the size of $i$).&lt;/p&gt;
+
+&lt;p&gt;I intend to find an optimal way to perform this in time, but that is all an hours or two of procrastination can produce. TBC&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Questions to expand upon</title>
       <link>https://mlxd.github.io/post/2017-07-11-questions/</link>
       <pubDate>Wed, 11 May 2016 00:00:00 +0000</pubDate>
@@ -254,6 +282,7 @@ int main(){
 &lt;ul&gt;
 &lt;li&gt;What is the optimal choice of FFTs over competing HPC software and device architectures for quantum dynamics using pseduospectral methods?&lt;/li&gt;
 &lt;li&gt;Do space filling curves have a performance impact on multidimensional data when performing FFTs along the i-th dimension?&lt;/li&gt;
+&lt;li&gt;Is there an optimal way to permute an n-D data set so that the elements along a specific basis direction are linear in memory? Reasons for this are optimal data access when performing operations, allowing for higher cache hits (such as with FFTs on GPUs are an example).&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

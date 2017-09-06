@@ -1,7 +1,7 @@
 +++
 title = "Introduction to GPUE: Part 2"
-draft = true
-date = "2015-09-20"
+draft = false
+date = "2017-09-05"
 tags = ["gpu","uqs","quantum"]
 math = "true"
 summary = ""

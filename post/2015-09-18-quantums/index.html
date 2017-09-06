@@ -37,11 +37,11 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/apple-touch-icon.png">
 
-  <link rel="canonical" href="https://mlxd.github.io/post/2017-09-04-nd-data/">
+  <link rel="canonical" href="https://mlxd.github.io/post/2015-09-18-quantums/">
 
   
 
-  <title>Permutations of n-D data | Lost in Computation</title>
+  <title>Introduction to GPUE: Part 1 | Lost in Computation</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -130,14 +130,14 @@
 
 
   <div class="article-container">
-    <h1 itemprop="name">Permutations of n-D data</h1>
+    <h1 itemprop="name">Introduction to GPUE: Part 1</h1>
     
 
 <div class="article-metadata">
 
   <span class="article-date">
-    <time datetime="2017-09-04 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-      2017-09-04
+    <time datetime="2017-09-05 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      2017-09-05
     </time>
   </span>
 
@@ -149,10 +149,10 @@
   <span class="article-tags">
     <i class="fa fa-tags"></i>
     
-    <a href="/tags/math">math</a
+    <a href="/tags/gpu">gpu</a
     >, 
     
-    <a href="/tags/cs">cs</a
+    <a href="/tags/uqs">uqs</a
     >, 
     
     <a href="/tags/quantum">quantum</a
@@ -168,35 +168,35 @@
   <ul class="share">
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fmlxd.github.io%2fpost%2f2017-09-04-nd-data%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fmlxd.github.io%2fpost%2f2015-09-18-quantums%2f"
          target="_blank">
         <i class="fa fa-facebook"></i>
       </a>
     </li>
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Permutations%20of%20n-D%20data&amp;url=https%3a%2f%2fmlxd.github.io%2fpost%2f2017-09-04-nd-data%2f"
+         href="https://twitter.com/intent/tweet?text=Introduction%20to%20GPUE%3a%20Part%201&amp;url=https%3a%2f%2fmlxd.github.io%2fpost%2f2015-09-18-quantums%2f"
          target="_blank">
         <i class="fa fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fmlxd.github.io%2fpost%2f2017-09-04-nd-data%2f&amp;title=Permutations%20of%20n-D%20data"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fmlxd.github.io%2fpost%2f2015-09-18-quantums%2f&amp;title=Introduction%20to%20GPUE%3a%20Part%201"
          target="_blank">
         <i class="fa fa-linkedin"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fmlxd.github.io%2fpost%2f2017-09-04-nd-data%2f&amp;title=Permutations%20of%20n-D%20data"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fmlxd.github.io%2fpost%2f2015-09-18-quantums%2f&amp;title=Introduction%20to%20GPUE%3a%20Part%201"
          target="_blank">
         <i class="fa fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Permutations%20of%20n-D%20data&amp;body=https%3a%2f%2fmlxd.github.io%2fpost%2f2017-09-04-nd-data%2f">
+         href="mailto:?subject=Introduction%20to%20GPUE%3a%20Part%201&amp;body=https%3a%2f%2fmlxd.github.io%2fpost%2f2015-09-18-quantums%2f">
         <i class="fa fa-envelope"></i>
       </a>
     </li>
@@ -209,37 +209,76 @@
 </div>
 
     <div class="article-style" itemprop="articleBody">
-      <p>Something I have been (occasionally) thinking about for quite a long time is the means to manipulate high-dimensional data-sets (dense grids, specifically), and do so efficiently. Namely, I wish to make the data along any specific orthgonal basis direction to become adjacent in memory by strides of the length of samples along that axis.</p>
+      
 
-<p>The reason for this? To allow for optimal vectorisation and caching of data when performing computations. Take for example a GPU: if we put data on GPU memory we want to access and manipulate it in chunks given by the chosen thread-size. If we access elements out of order, we essentially lose all of the parallelism offered by the device, as the data access will not be performed in the optimal $n$-element wide chunks, but individually at worst, and somewhere in between most likely.</p>
+<h1 id="bose-einstein-condensation">Bose$-$Einstein condensation</h1>
 
-<p>For a problem with a Cartesian gridded data set in the space given by $ijk$, we can define the lexicographical order from fastest to slowest indices to be in the $ijk$ order.</p>
+<hr />
 
-<pre><code class="language-c++">for(int k=0; k &lt; k_size; ++k)
-    for(int j=0; j &lt; j_size; ++j)
-        for(int k=0; k &lt; i_size; ++i)
-            data[i + i_size*j*(1 + j_size*k)] = 0;
-</code></pre>
+<p>This will be a hand-waiving introduction to Bose-Einstein condensate theory. I&rsquo;ll begin by introducing what is a Bose-Einstein condensate, followed by how we model it (hint: we use the Gross-Pitaevskii equation). For more detailed derivations, see Pethick and Smith [ISBN: 978-0521846516] or Pitaevskii and Stringari [ISBN: 978-0198507192].</p>
 
-<p>In this example, $i$ is the fast index and the axis along which the data is linearly adjacent in memory, and $k$ is the slow axis (with $j$ being slower than fast and faster than slow).</p>
+<p>Again, this is another work in progress, so expect me to continually dump my thoughts here and on subsequent posts.</p>
 
-<p><img src="/img/ndData.jpg" alt="alt text" title="A sample layout permutation" /></p>
+<h2 id="schrödinger-equation">Schrödinger equation</h2>
 
-<p>The included image above is an example of rotation about the $j$ axis, showing on the right the respective mappings to new index values (for the sake of my interest I&rsquo;ve taken slices along $j$ and $i$, but worked with the latter for the rest of this discussion).</p>
+<p>To understand how we simulate a Bose$-$Einstein condensate, first we must examine the behaviour of the Schrödinger equation. I will assume that you are already familiar with the Schrödinger equation, but if not, I will recommend the usual material:</p>
 
-<p>The bottom of the image shows the rearrangements of memory from the original (upper) to the rotated (lower) memory configurations. The indices themselves seem to take the following mappings (orig. $\rightarrow $ rot.):</p>
+<ul>
+<li>Principles of Quantum Mechanics, Shankar [ISBN: 978-0306447907]</li>
+<li>Introduction to Quantum Mechanics, Griffiths [ISBN: 978-9332542891]</li>
+</ul>
 
-<p>$$ \begin{align}
-i &amp; \rightarrow \textrm{stride}(j)-k, \\<br />
-j &amp; \rightarrow j, \\<br />
-k &amp; \rightarrow i, \
-\end{align}$$</p>
+<h3 id="single-particle">Single particle</h3>
 
-<p>where the stride() operation returns the spacing between the elements in the given dimension (in this case, the stride of $j$ is the size of $i$).</p>
+<p>The single particle Schrödinger equation describes the behaviour of a non-relativistic (i.e. much slower than the speed of light, and/or massless) quantum particle. Firstly, we define our Hamiltonian as</p>
 
-<p>I intend to find an optimal way to perform this in time. Even suboptimal, but good enough would be fine though.</p>
+<p>$$
+\hat{H}_0 = -\frac{\hbar^2}{2m} \hat{\nabla}^2 ,
+$$</p>
 
-<p>L.</p>
+<p>where $~\hat{H}_0$ corresponds with the momentum-space operator for a free particle. Assuming the particle is trapped by an external potential energy, we can give the following Hamiltonian instead,</p>
+
+<p>$$
+\hat{H}_1 = \hat{H}_0 + \hat{V}_{\textrm{ext}}(\mathbf{r},t).
+$$</p>
+
+<p>Now we have a potential and kinetic term for our system. In cold atomic systems, we nearly always have trapped atoms, by use of an external trapping potential [usually with optical or magnetic fields]. To simulate the dynamics of a single particle in a trapping potential, we use the time dependent Schrödinger equation,</p>
+
+<p>$$
+i\hbar\frac{\partial}{\partial t}{\Psi}(\mathbf{r},t) =  \hat{H}_1 {\Psi}(\mathbf{r},t).
+$$</p>
+
+<h3 id="many-particle">Many particle</h3>
+
+<p>$$
+ H_N = \displaystyle\sum\limits_{i=1}^{N} \left(-\frac{\hbar^2}{2m_i} \nabla_i^2 + V_\textrm{ext}(\mathbf{r}_i,t) + \displaystyle\sum_{j\neq i}^{N-1}U(\mathbf{r}_i,\mathbf{r}_j) \right)
+$$
+Solving this for the ground state is hard, even numerically. The memory requirements grow exponentially as we increase the particle count, as every particle must interact in some way with all the others nearby. Therefore, in order to find the lowest energy state we must <a href="http://arxiv.org/pdf/1301.2073v1.pdf">simplify things</a>.</p>
+
+<p>First, let&rsquo;s assume that particles don&rsquo;t interact over long, or even short ranges. What if they can only interact when they occupy the same position, as though $|\mathbf{r}_i - \mathbf{r}_j| = 0$. Also, we can say that the strength of this interaction is dependent upon some parameter, $g$, which depends on properties of the particle. We can also assume that the more particles in a particular region, then the larger the interactions in that specific region. Thus, we can say that these interactions can be approximated by $g\rho(\mathbf{r},t)$, where $\rho$ is the particle density in the region.</p>
+
+<p>$$
+i\hbar\frac{\partial}{\partial t}\hat{\Psi}(\mathbf{r}_1,\dots\mathbf{r}_N,t) = \left[\hat{\Psi}(\mathbf{r}_1,\dots\mathbf{r}_N,t), H_N \right]
+$$</p>
+
+<h2 id="gp-equation">GP equation</h2>
+
+<p>$$
+i\hbar\frac{\partial}{\partial t}\Psi(\mathbf{r},t) = \left[ -\frac{\hbar^2}{2m} \nabla^2 + V(\mathbf{r},t) + \color{violet}{g\vert\Psi(\mathbf{r},t)\vert^2} -\color{teal}{\mathbf{\Omega}\cdot \mathbf{L} }\right]\Psi(\mathbf{r},t)<br />
+$$</p>
+
+<h3 id="madelung-transform">Madelung transform</h3>
+
+<p>$$
+ \Psi(\mathbf{r},t) = \sqrt{\rho\left(\mathbf{r},t\right)}\exp\left[i\theta\left(\mathbf{r},t\right)\right],
+$$
+where $$\rho(\mathbf{r},t) = |\Psi\left(\mathbf{r},t\right)|^2$$</p>
+
+<h3 id="evolution">Evolution</h3>
+
+<p>$$
+\Psi(\mathbf{r},t+\delta t) = \exp\left(-\frac{i H}{\hbar}\delta t\right)\Psi(\mathbf{r},t)
+$$</p>
 
     </div>
   </div>
@@ -250,13 +289,10 @@ k &amp; \rightarrow i, \
   <nav>
   <ul class="pager">
     
-    <li class="previous"><a href="https://mlxd.github.io/post/2017-07-11-ffts/"><span
-      aria-hidden="true">&larr;</span> FFTs over time and space... and devices</a></li>
+    <li class="previous"><a href="https://mlxd.github.io/post/2015-09-20-quantum-vortices/"><span
+      aria-hidden="true">&larr;</span> Introduction to GPUE: Part 2</a></li>
     
 
-    
-    <li class="next"><a href="https://mlxd.github.io/post/2015-09-22-tdsim/">Introduction to GPUE: Part 3 <span
-      aria-hidden="true">&rarr;</span></a></li>
     
   </ul>
 </nav>

@@ -422,6 +422,13 @@
     <h1>Recent Posts</h1>
     
     
+    <p class="view-all">
+      <a href="/post/">
+        More Posts
+        <i class="fa fa-angle-double-right"></i>
+      </a>
+    </p>
+    
 
   </div>
   <div class="col-xs-12 col-md-8">
@@ -438,15 +445,15 @@
   
   
   <h3 class="article-title" itemprop="name">
-    <a href="https://mlxd.github.io/post/2017-07-11-ffts/" itemprop="url">FFTs over time and space... and devices</a>
+    <a href="https://mlxd.github.io/post/2015-09-18-quantums/" itemprop="url">Introduction to GPUE: Part 1</a>
   </h3>
   
 
 <div class="article-metadata">
 
   <span class="article-date">
-    <time datetime="2018-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-      2018-01-01
+    <time datetime="2017-09-05 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      2017-09-05
     </time>
   </span>
 
@@ -477,11 +484,130 @@
 
   <div class="article-style" itemprop="articleBody">
     
-    <p>Investigating the use of different FFT implementations for quantum dynamics across different hardware architectures</p>
+    Bose$-$Einstein condensation This will be a hand-waiving introduction to Bose-Einstein condensate theory. I&rsquo;ll begin by introducing what is a Bose-Einstein condensate, followed by how we model it (hint: we use the Gross-Pitaevskii equation). For more detailed derivations, see Pethick and Smith [ISBN: 978-0521846516] or Pitaevskii and Stringari [ISBN: 978-0198507192].
+Again, this is another work in progress, so expect me to continually dump my thoughts here and on subsequent posts.
     
   </div>
   <p class="read-more">
-    <a href="https://mlxd.github.io/post/2017-07-11-ffts/" class="btn btn-primary btn-outline">
+    <a href="https://mlxd.github.io/post/2015-09-18-quantums/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+      
+        
+        
+
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://mlxd.github.io/post/2015-09-20-quantum-vortices/" itemprop="url">Introduction to GPUE: Part 2</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    <time datetime="2017-09-05 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      2017-09-05
+    </time>
+  </span>
+
+  
+
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="/tags/gpu">gpu</a
+    >, 
+    
+    <a href="/tags/uqs">uqs</a
+    >, 
+    
+    <a href="/tags/quantum">quantum</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    Quantum vortices Consider, if you will, a bucket of water. We can also do this with a closed bottle of water, to prevent from getting wet, but let&rsquo;s assume we have a bucket. We drop a spoon/stick/paddle in there, and begin to draw a circle, stirring the water. If the item is removed, the water continues to rotate, gradually slowing down before coming to a halt. Let us now assume that the water is spinning quickly, such that a hole develops in the centre.
+    
+  </div>
+  <p class="read-more">
+    <a href="https://mlxd.github.io/post/2015-09-20-quantum-vortices/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+      
+        
+        
+
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://mlxd.github.io/post/2015-09-22-tdsim/" itemprop="url">Introduction to GPUE: Part 3</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    <time datetime="2017-09-05 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      2017-09-05
+    </time>
+  </span>
+
+  
+
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="/tags/gpu">gpu</a
+    >, 
+    
+    <a href="/tags/uqs">uqs</a
+    >, 
+    
+    <a href="/tags/quantum">quantum</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    Time dependent simulations I will focus on the pseudo-spectral Fourier split operator (or split step) method.
+Firsly, we need to quantised position space by making a grid over a specific range of position values. Assume $-10$ $\mu$m to $+10$ $\mu$m, giving a grid divided into $xDim=2^8$ equispaced elements. Let us call this grid $\mathbf{x}$, and the maximum value $x_\textrm{max}$. The following Julia code will carry out the above:
+xDim = 2^8; # The resolution of your grid.
+    
+  </div>
+  <p class="read-more">
+    <a href="https://mlxd.github.io/post/2015-09-22-tdsim/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>
@@ -554,15 +680,15 @@
   
   
   <h3 class="article-title" itemprop="name">
-    <a href="https://mlxd.github.io/post/2017-07-11-questions/" itemprop="url">Questions to expand upon</a>
+    <a href="https://mlxd.github.io/post/2017-07-11-ffts/" itemprop="url">FFTs over time and space... and devices</a>
   </h3>
   
 
 <div class="article-metadata">
 
   <span class="article-date">
-    <time datetime="2016-05-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-      2016-05-11
+    <time datetime="2017-08-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      2017-08-01
     </time>
   </span>
 
@@ -593,65 +719,11 @@
 
   <div class="article-style" itemprop="articleBody">
     
-    <p>A place for me to place questions I&rsquo;ve considered, and aim to answer or develop further.</p>
+    <p>Investigating the use of different FFT implementations for quantum dynamics across different hardware architectures</p>
     
   </div>
   <p class="read-more">
-    <a href="https://mlxd.github.io/post/2017-07-11-questions/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-      
-        
-        
-
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://mlxd.github.io/post/2015-10-17-init/" itemprop="url">Initiali[sz]e</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    <time datetime="2016-01-18 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-      2016-01-18
-    </time>
-  </span>
-
-  
-
-  
-  
-  
-  <span class="article-tags">
-    <i class="fa fa-tags"></i>
-    
-    <a href="/tags/prog">prog</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    (Original post 2015-10-17; updated 2017-01-18)
-As this is my first post I will keep things simple. Unless otherwise specified, I will be using the following as my default tools.
-Editors/IDE/Cool things  ViM (pretty much everything code related) Atom (Markdown, text files, and the like) Jupyter (IPython, IJulia)  Languages [toolchains]  C/C++ [g++, icc] CUDA/OpenCL [nvcc, icc] Python MATLAB Julia Mathematica Bash/Zsh English (occasionally)  OS  Arch Linux CentOS 7 OS X 10.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://mlxd.github.io/post/2015-10-17-init/" class="btn btn-primary btn-outline">
+    <a href="https://mlxd.github.io/post/2017-07-11-ffts/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>

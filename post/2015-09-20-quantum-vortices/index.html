@@ -37,11 +37,11 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/apple-touch-icon.png">
 
-  <link rel="canonical" href="">
+  <link rel="canonical" href="https://mlxd.github.io/post/2015-09-20-quantum-vortices/">
 
   
 
-  <title>404 Page not found | Lost in Computation</title>
+  <title>Introduction to GPUE: Part 2 | Lost in Computation</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -123,70 +123,137 @@
   </div>
 </nav>
 
-<div class="container">
 
-  <h1>Page not found</h1>
-  <p>Maybe you were looking for one of these?</p>
+<article class="article" itemscope itemtype="http://schema.org/Article">
 
-  <h2>Recent Posts</h2>
-  
-  <ul>
-    <li><a href="https://mlxd.github.io/post/2015-09-18-quantums/">Introduction to GPUE: Part 1</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="https://mlxd.github.io/post/2015-09-20-quantum-vortices/">Introduction to GPUE: Part 2</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="https://mlxd.github.io/post/2015-09-22-tdsim/">Introduction to GPUE: Part 3</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="https://mlxd.github.io/post/2017-09-04-nd-data/">Permutations of n-D data</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="https://mlxd.github.io/post/2017-07-11-ffts/">FFTs over time and space... and devices</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="https://mlxd.github.io/post/2016-05-11-todo/">Overdue todo</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="https://mlxd.github.io/post/2017-07-11-questions/">Questions to expand upon</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="https://mlxd.github.io/post/2015-10-17-init/">Initiali[sz]e</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="https://mlxd.github.io/post/">Posts</a></li>
-  </ul>
   
 
-  <h2>Recent Publications</h2>
+
+  <div class="article-container">
+    <h1 itemprop="name">Introduction to GPUE: Part 2</h1>
+    
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    <time datetime="2017-09-05 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      2017-09-05
+    </time>
+  </span>
+
   
-  <ul>
-    <li><a href="https://mlxd.github.io/publication/defect2016/">Topological defect dynamics of vortex lattices in Bose–Einstein condensates</a></li>
-  </ul>
+
   
-  <ul>
-    <li><a href="https://mlxd.github.io/publication/moire2016/">Moiré superlattice structures in kicked Bose–Einstein condensates</a></li>
-  </ul>
   
-  <ul>
-    <li><a href="https://mlxd.github.io/publication/sap2013/">Coherent transport by adiabatic passage on atom chips</a></li>
-  </ul>
   
-  <ul>
-    <li><a href="https://mlxd.github.io/publication/">Publications</a></li>
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="/tags/gpu">gpu</a
+    >, 
+    
+    <a href="/tags/uqs">uqs</a
+    >, 
+    
+    <a href="/tags/quantum">quantum</a
+    >
+    
+  </span>
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fmlxd.github.io%2fpost%2f2015-09-20-quantum-vortices%2f"
+         target="_blank">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </li>
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Introduction%20to%20GPUE%3a%20Part%202&amp;url=https%3a%2f%2fmlxd.github.io%2fpost%2f2015-09-20-quantum-vortices%2f"
+         target="_blank">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fmlxd.github.io%2fpost%2f2015-09-20-quantum-vortices%2f&amp;title=Introduction%20to%20GPUE%3a%20Part%202"
+         target="_blank">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fmlxd.github.io%2fpost%2f2015-09-20-quantum-vortices%2f&amp;title=Introduction%20to%20GPUE%3a%20Part%202"
+         target="_blank">
+        <i class="fa fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Introduction%20to%20GPUE%3a%20Part%202&amp;body=https%3a%2f%2fmlxd.github.io%2fpost%2f2015-09-20-quantum-vortices%2f">
+        <i class="fa fa-envelope"></i>
+      </a>
+    </li>
   </ul>
+</div>
+
+
   
 
 </div>
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<h1 id="quantum-vortices">Quantum vortices</h1>
+
+<hr />
+
+<p>Consider, if you will, a bucket of water. We can also do this with a closed bottle of water, to prevent from getting wet, but let&rsquo;s assume we have a bucket. We drop a spoon/stick/paddle in there, and begin to draw a circle, stirring the water. If the item is removed, the water continues to rotate, gradually slowing down before coming to a halt. Let us now assume that the water is spinning quickly, such that a hole develops in the centre. We call this a vortex. As it rotates faster and faster, the vortex increases in size, until we rotate so fast that the water flies out over the edge of the bucket. Hopefully, you have a towel on hand.</p>
+
+<p>Now, let us assume that we have a really small bucket, namely a <em>quantum bucket</em>. This quantum bucket, like the normal bucket, holds atoms, but very few of them in comparison. These atoms are also very cold, and form what is known as a [Bose-Einstein condensate](). Now, imagine we have a really small spoon/stick/paddle, and we once again begin to stir. What do we assume will happen?</p>
+
+<p>Nothing may happen. Otherwise, something strange may happen. Both <em>nothing</em>, and <em>something strange</em> are equally interesting. What causes these two separate, yet related, cases is a (not unique) property of Bose-Einstein condensates known as <em>superfluidity</em>.</p>
+
+<p>Let us go back to stirring our condensate. If we stir slowly enough, the condensate will remain stationary. That is to say, it will be as if we were not stirring at all. To allow it rotate, the stirring rate must be above a specific value. This is because, in a superfluid, the circulation occurs in discrete units only. That is to say, it is quantised.</p>
+
+<p>Unlike a classical fluid, such as water, a condensate cannot accept a continuous range of values with which it rotates. Also, unlike a classical fluid, a superfluid in rotation will continue to rotate without slowing, provided the quantum bucket holds it in place. Beyond the critical value for rotation in a condensate a vortex will be visible. This vortex will not grow or shrink with changes around the critical value, as though a vortex in water might. However, since it does not grow, what happens with faster rotation?</p>
+
+<p>Since the rotation is quantised, we could assume that beyond another specific value, the vortex might just become wider,  with a circulation of 2 units, instead of just 1. This, however, is not the case (in most cases encountered). Instead of a <em>winding</em> 2 vortex, we obtain 2 <em>winding</em> 1 vortices.</p>
+
+    </div>
+  </div>
+
+</article>
+
+<div class="container">
+  <nav>
+  <ul class="pager">
+    
+    <li class="previous"><a href="https://mlxd.github.io/post/2015-09-22-tdsim/"><span
+      aria-hidden="true">&larr;</span> Introduction to GPUE: Part 3</a></li>
+    
+
+    
+    <li class="next"><a href="https://mlxd.github.io/post/2015-09-18-quantums/">Introduction to GPUE: Part 1 <span
+      aria-hidden="true">&rarr;</span></a></li>
+    
+  </ul>
+</nav>
+
+</div>
+
+<div class="article-container">
+  
+
+</div>
+
 <footer class="site-footer">
   <div class="container">
     <p class="powered-by">

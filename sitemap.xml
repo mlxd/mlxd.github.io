@@ -5,8 +5,26 @@
     
     <url>
     
-      <loc>https://mlxd.github.io/post/2017-07-11-ffts/</loc>
-      <lastmod>2018-01-01T00:00:00+00:00</lastmod>
+      <loc>https://mlxd.github.io/post/2015-09-18-quantums/</loc>
+      <lastmod>2017-09-05T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>https://mlxd.github.io/post/2015-09-20-quantum-vortices/</loc>
+      <lastmod>2017-09-05T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>https://mlxd.github.io/post/2015-09-22-tdsim/</loc>
+      <lastmod>2017-09-05T00:00:00+00:00</lastmod>
     </url>
     
   
@@ -16,6 +34,15 @@
     
       <loc>https://mlxd.github.io/post/2017-09-04-nd-data/</loc>
       <lastmod>2017-09-04T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>https://mlxd.github.io/post/2017-07-11-ffts/</loc>
+      <lastmod>2017-08-01T00:00:00+00:00</lastmod>
     </url>
     
   
@@ -61,6 +88,15 @@
     
       <loc>https://mlxd.github.io/publication/defect2016/</loc>
       <lastmod>2016-11-03T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>https://mlxd.github.io/post/2016-05-11-todo/</loc>
+      <lastmod>2016-05-11T00:00:00+00:00</lastmod>
     </url>
     
   
@@ -162,7 +198,7 @@
     <url>
     
       <loc>https://mlxd.github.io/tags/gpu/</loc>
-      <lastmod>2018-01-01T00:00:00+00:00</lastmod>
+      <lastmod>2017-09-05T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -221,7 +257,7 @@
     <url>
     
       <loc>https://mlxd.github.io/post/</loc>
-      <lastmod>2018-01-01T00:00:00+00:00</lastmod>
+      <lastmod>2017-09-05T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -261,7 +297,7 @@
     <url>
     
       <loc>https://mlxd.github.io/tags/quantum/</loc>
-      <lastmod>2018-01-01T00:00:00+00:00</lastmod>
+      <lastmod>2017-09-05T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -301,7 +337,7 @@
     <url>
     
       <loc>https://mlxd.github.io/tags/uqs/</loc>
-      <lastmod>2018-01-01T00:00:00+00:00</lastmod>
+      <lastmod>2017-09-05T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     

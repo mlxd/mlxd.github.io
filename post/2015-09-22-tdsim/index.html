@@ -37,11 +37,11 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/apple-touch-icon.png">
 
-  <link rel="canonical" href="">
+  <link rel="canonical" href="https://mlxd.github.io/post/2015-09-22-tdsim/">
 
   
 
-  <title>404 Page not found | Lost in Computation</title>
+  <title>Introduction to GPUE: Part 3 | Lost in Computation</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -123,70 +123,196 @@
   </div>
 </nav>
 
-<div class="container">
 
-  <h1>Page not found</h1>
-  <p>Maybe you were looking for one of these?</p>
+<article class="article" itemscope itemtype="http://schema.org/Article">
 
-  <h2>Recent Posts</h2>
-  
-  <ul>
-    <li><a href="https://mlxd.github.io/post/2015-09-18-quantums/">Introduction to GPUE: Part 1</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="https://mlxd.github.io/post/2015-09-20-quantum-vortices/">Introduction to GPUE: Part 2</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="https://mlxd.github.io/post/2015-09-22-tdsim/">Introduction to GPUE: Part 3</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="https://mlxd.github.io/post/2017-09-04-nd-data/">Permutations of n-D data</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="https://mlxd.github.io/post/2017-07-11-ffts/">FFTs over time and space... and devices</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="https://mlxd.github.io/post/2016-05-11-todo/">Overdue todo</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="https://mlxd.github.io/post/2017-07-11-questions/">Questions to expand upon</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="https://mlxd.github.io/post/2015-10-17-init/">Initiali[sz]e</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="https://mlxd.github.io/post/">Posts</a></li>
-  </ul>
   
 
-  <h2>Recent Publications</h2>
+
+  <div class="article-container">
+    <h1 itemprop="name">Introduction to GPUE: Part 3</h1>
+    
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    <time datetime="2017-09-05 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      2017-09-05
+    </time>
+  </span>
+
   
-  <ul>
-    <li><a href="https://mlxd.github.io/publication/defect2016/">Topological defect dynamics of vortex lattices in Bose–Einstein condensates</a></li>
-  </ul>
+
   
-  <ul>
-    <li><a href="https://mlxd.github.io/publication/moire2016/">Moiré superlattice structures in kicked Bose–Einstein condensates</a></li>
-  </ul>
   
-  <ul>
-    <li><a href="https://mlxd.github.io/publication/sap2013/">Coherent transport by adiabatic passage on atom chips</a></li>
-  </ul>
   
-  <ul>
-    <li><a href="https://mlxd.github.io/publication/">Publications</a></li>
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="/tags/gpu">gpu</a
+    >, 
+    
+    <a href="/tags/uqs">uqs</a
+    >, 
+    
+    <a href="/tags/quantum">quantum</a
+    >
+    
+  </span>
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fmlxd.github.io%2fpost%2f2015-09-22-tdsim%2f"
+         target="_blank">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </li>
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Introduction%20to%20GPUE%3a%20Part%203&amp;url=https%3a%2f%2fmlxd.github.io%2fpost%2f2015-09-22-tdsim%2f"
+         target="_blank">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fmlxd.github.io%2fpost%2f2015-09-22-tdsim%2f&amp;title=Introduction%20to%20GPUE%3a%20Part%203"
+         target="_blank">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fmlxd.github.io%2fpost%2f2015-09-22-tdsim%2f&amp;title=Introduction%20to%20GPUE%3a%20Part%203"
+         target="_blank">
+        <i class="fa fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Introduction%20to%20GPUE%3a%20Part%203&amp;body=https%3a%2f%2fmlxd.github.io%2fpost%2f2015-09-22-tdsim%2f">
+        <i class="fa fa-envelope"></i>
+      </a>
+    </li>
   </ul>
+</div>
+
+
   
 
 </div>
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<h1 id="time-dependent-simulations">Time dependent simulations</h1>
+
+<hr />
+
+<p>I will focus on the <a href="https://en.wikipedia.org/wiki/Pseudo-spectral_method">pseudo-spectral</a> Fourier split operator (or split step) method.</p>
+
+<p>Firsly, we need to quantised position space by making a grid over a specific range of position values. Assume $-10$ $\mu$m to $+10$ $\mu$m, giving a grid divided into $xDim=2^8$ equispaced elements. Let us call this grid $\mathbf{x}$, and the maximum value $x_\textrm{max}$. The following Julia code will carry out the above:</p>
+
+<pre><code class="language-jl">xDim = 2^8; # The resolution of your grid.
+xMax = 4e-4;
+x = linspace(-xMax, xMax, xDim);
+dx = abs(x[2]-x[1]);
+</code></pre>
+
+<p>Great, so now that we have our grid in position space, we need to also consider generating another grid, this time in <a href="https://en.wikipedia.org/wiki/Position_and_momentum_space">momentum space</a> (also known as reciprocal space, $k$ space). Position and momentum space are related by the Fourier transform.</p>
+
+<pre><code class="language-jl">kxMax = (2*pi/xMax)*(xDim/2);
+kx = circshift(linspace(-kxMax,kxMax,xDim),xDim/2);
+dkx = abs(kx[2] - kx[1]);
+</code></pre>
+
+<p>However, as you may know, knowledge of position can affect your knowledge of momentum, and vice-versa. In this case, our fundamental limit is defined by the size of our grid dimension, $d$. Just as the wavenumber is given by the relation $k = \frac{2\pi}{\lambda}$, we can obtain our smallest $k$ value using our largest position space value, $x_\textrm{max}$.</p>
+
+<pre><code class="language-jl">#Define properties of the system
+omegaX = 2*pi*1 # Harmonic trapping potential frequency
+hbar = 1.0545718e-34;
+m = 1.4431607e-25; #Rb87 mass
+a_s = 4.76e-9; #S-wave scattering length
+dt = 1e-4; #Timestep
+
+#Make an initial guess
+wfc = pdf(Normal(0,xMax/100),x) + 0*im;
+
+#Define the trapping potential and kinetic energy operators
+V = 0.5*m*x.^2.*omegaX^2;
+K = (0.5*hbar^2/m).*(kx.^2);
+
+GV = exp(-0.5*V*dt/hbar);
+GK = exp(-K*dt/hbar);
+
+wfc /= sqrt(sum(abs(wfc).^2)*dx);
+for t=1:10000
+        wfc = wfc.*GV;
+        wfc = ifft(fft(wfc).*GK);
+        wfc = wfc.*GV;
+        wfc /= sqrt(sum(abs(wfc).^2)*dx);
+end
+</code></pre>
+
+<pre><code class="language-jl">function energy(wfc,dx,V,K)
+        EV = V.*wfc;
+        EK = ifft(K.*fft(wfc));
+        E = conj(wfc).*(EV + EK)
+        return real(sum(E)*dx)/hbar
+end
+</code></pre>
+
+<pre><code class="language-jl">e_0 = 1e100 #Arbitrarily large unrealistic value
+e_1 = energy(wfc,dx,V,K);
+
+while e_0-e_1 &gt; 1e-7
+        push!(E,e_1)
+        wfc = wfc.*GV;
+        wfc = ifft(fft(wfc).*GK);
+        wfc = wfc.*GV;
+        wfc /= sqrt(sum(abs(wfc).^2)*dx);
+        e_0 = e_1;
+        e_1 = energy(wfc,dx,V,K)
+        println(e_1)
+end
+</code></pre>
+
+<p>$$  k_\textrm{max} = \frac{2\pi}{x_\textrm{max}}d $$
+n A</p>
+
+    </div>
+  </div>
+
+</article>
+
+<div class="container">
+  <nav>
+  <ul class="pager">
+    
+    <li class="previous"><a href="https://mlxd.github.io/post/2017-09-04-nd-data/"><span
+      aria-hidden="true">&larr;</span> Permutations of n-D data</a></li>
+    
+
+    
+    <li class="next"><a href="https://mlxd.github.io/post/2015-09-20-quantum-vortices/">Introduction to GPUE: Part 2 <span
+      aria-hidden="true">&rarr;</span></a></li>
+    
+  </ul>
+</nav>
+
+</div>
+
+<div class="article-container">
+  
+
+</div>
+
 <footer class="site-footer">
   <div class="container">
     <p class="powered-by">

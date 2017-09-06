@@ -7,13 +7,243 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017 Lee James O&#39;Riordan (mlxd)</copyright>
-    <lastBuildDate>Mon, 01 Jan 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 05 Sep 2017 00:00:00 +0000</lastBuildDate>
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Introduction to GPUE: Part 1</title>
+      <link>https://mlxd.github.io/post/2015-09-18-quantums/</link>
+      <pubDate>Tue, 05 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://mlxd.github.io/post/2015-09-18-quantums/</guid>
+      <description>
+
+&lt;h1 id=&#34;bose-einstein-condensation&#34;&gt;Bose$-$Einstein condensation&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;This will be a hand-waiving introduction to Bose-Einstein condensate theory. I&amp;rsquo;ll begin by introducing what is a Bose-Einstein condensate, followed by how we model it (hint: we use the Gross-Pitaevskii equation). For more detailed derivations, see Pethick and Smith [ISBN: 978-0521846516] or Pitaevskii and Stringari [ISBN: 978-0198507192].&lt;/p&gt;
+
+&lt;p&gt;Again, this is another work in progress, so expect me to continually dump my thoughts here and on subsequent posts.&lt;/p&gt;
+
+&lt;h2 id=&#34;schrödinger-equation&#34;&gt;Schrödinger equation&lt;/h2&gt;
+
+&lt;p&gt;To understand how we simulate a Bose$-$Einstein condensate, first we must examine the behaviour of the Schrödinger equation. I will assume that you are already familiar with the Schrödinger equation, but if not, I will recommend the usual material:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Principles of Quantum Mechanics, Shankar [ISBN: 978-0306447907]&lt;/li&gt;
+&lt;li&gt;Introduction to Quantum Mechanics, Griffiths [ISBN: 978-9332542891]&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;single-particle&#34;&gt;Single particle&lt;/h3&gt;
+
+&lt;p&gt;The single particle Schrödinger equation describes the behaviour of a non-relativistic (i.e. much slower than the speed of light, and/or massless) quantum particle. Firstly, we define our Hamiltonian as&lt;/p&gt;
+
+&lt;p&gt;$$
+\hat{H}_0 = -\frac{\hbar^2}{2m} \hat{\nabla}^2 ,
+$$&lt;/p&gt;
+
+&lt;p&gt;where $~\hat{H}_0$ corresponds with the momentum-space operator for a free particle. Assuming the particle is trapped by an external potential energy, we can give the following Hamiltonian instead,&lt;/p&gt;
+
+&lt;p&gt;$$
+\hat{H}_1 = \hat{H}_0 + \hat{V}_{\textrm{ext}}(\mathbf{r},t).
+$$&lt;/p&gt;
+
+&lt;p&gt;Now we have a potential and kinetic term for our system. In cold atomic systems, we nearly always have trapped atoms, by use of an external trapping potential [usually with optical or magnetic fields]. To simulate the dynamics of a single particle in a trapping potential, we use the time dependent Schrödinger equation,&lt;/p&gt;
+
+&lt;p&gt;$$
+i\hbar\frac{\partial}{\partial t}{\Psi}(\mathbf{r},t) =  \hat{H}_1 {\Psi}(\mathbf{r},t).
+$$&lt;/p&gt;
+
+&lt;h3 id=&#34;many-particle&#34;&gt;Many particle&lt;/h3&gt;
+
+&lt;p&gt;$$
+ H_N = \displaystyle\sum\limits_{i=1}^{N} \left(-\frac{\hbar^2}{2m_i} \nabla_i^2 + V_\textrm{ext}(\mathbf{r}_i,t) + \displaystyle\sum_{j\neq i}^{N-1}U(\mathbf{r}_i,\mathbf{r}_j) \right)
+$$
+Solving this for the ground state is hard, even numerically. The memory requirements grow exponentially as we increase the particle count, as every particle must interact in some way with all the others nearby. Therefore, in order to find the lowest energy state we must &lt;a href=&#34;http://arxiv.org/pdf/1301.2073v1.pdf&#34;&gt;simplify things&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;First, let&amp;rsquo;s assume that particles don&amp;rsquo;t interact over long, or even short ranges. What if they can only interact when they occupy the same position, as though $|\mathbf{r}_i - \mathbf{r}_j| = 0$. Also, we can say that the strength of this interaction is dependent upon some parameter, $g$, which depends on properties of the particle. We can also assume that the more particles in a particular region, then the larger the interactions in that specific region. Thus, we can say that these interactions can be approximated by $g\rho(\mathbf{r},t)$, where $\rho$ is the particle density in the region.&lt;/p&gt;
+
+&lt;p&gt;$$
+i\hbar\frac{\partial}{\partial t}\hat{\Psi}(\mathbf{r}_1,\dots\mathbf{r}_N,t) = \left[\hat{\Psi}(\mathbf{r}_1,\dots\mathbf{r}_N,t), H_N \right]
+$$&lt;/p&gt;
+
+&lt;h2 id=&#34;gp-equation&#34;&gt;GP equation&lt;/h2&gt;
+
+&lt;p&gt;$$
+i\hbar\frac{\partial}{\partial t}\Psi(\mathbf{r},t) = \left[ -\frac{\hbar^2}{2m} \nabla^2 + V(\mathbf{r},t) + \color{violet}{g\vert\Psi(\mathbf{r},t)\vert^2} -\color{teal}{\mathbf{\Omega}\cdot \mathbf{L} }\right]\Psi(\mathbf{r},t)&lt;br /&gt;
+$$&lt;/p&gt;
+
+&lt;h3 id=&#34;madelung-transform&#34;&gt;Madelung transform&lt;/h3&gt;
+
+&lt;p&gt;$$
+ \Psi(\mathbf{r},t) = \sqrt{\rho\left(\mathbf{r},t\right)}\exp\left[i\theta\left(\mathbf{r},t\right)\right],
+$$
+where $$\rho(\mathbf{r},t) = |\Psi\left(\mathbf{r},t\right)|^2$$&lt;/p&gt;
+
+&lt;h3 id=&#34;evolution&#34;&gt;Evolution&lt;/h3&gt;
+
+&lt;p&gt;$$
+\Psi(\mathbf{r},t+\delta t) = \exp\left(-\frac{i H}{\hbar}\delta t\right)\Psi(\mathbf{r},t)
+$$&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Introduction to GPUE: Part 2</title>
+      <link>https://mlxd.github.io/post/2015-09-20-quantum-vortices/</link>
+      <pubDate>Tue, 05 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://mlxd.github.io/post/2015-09-20-quantum-vortices/</guid>
+      <description>
+
+&lt;h1 id=&#34;quantum-vortices&#34;&gt;Quantum vortices&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Consider, if you will, a bucket of water. We can also do this with a closed bottle of water, to prevent from getting wet, but let&amp;rsquo;s assume we have a bucket. We drop a spoon/stick/paddle in there, and begin to draw a circle, stirring the water. If the item is removed, the water continues to rotate, gradually slowing down before coming to a halt. Let us now assume that the water is spinning quickly, such that a hole develops in the centre. We call this a vortex. As it rotates faster and faster, the vortex increases in size, until we rotate so fast that the water flies out over the edge of the bucket. Hopefully, you have a towel on hand.&lt;/p&gt;
+
+&lt;p&gt;Now, let us assume that we have a really small bucket, namely a &lt;em&gt;quantum bucket&lt;/em&gt;. This quantum bucket, like the normal bucket, holds atoms, but very few of them in comparison. These atoms are also very cold, and form what is known as a [Bose-Einstein condensate](). Now, imagine we have a really small spoon/stick/paddle, and we once again begin to stir. What do we assume will happen?&lt;/p&gt;
+
+&lt;p&gt;Nothing may happen. Otherwise, something strange may happen. Both &lt;em&gt;nothing&lt;/em&gt;, and &lt;em&gt;something strange&lt;/em&gt; are equally interesting. What causes these two separate, yet related, cases is a (not unique) property of Bose-Einstein condensates known as &lt;em&gt;superfluidity&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Let us go back to stirring our condensate. If we stir slowly enough, the condensate will remain stationary. That is to say, it will be as if we were not stirring at all. To allow it rotate, the stirring rate must be above a specific value. This is because, in a superfluid, the circulation occurs in discrete units only. That is to say, it is quantised.&lt;/p&gt;
+
+&lt;p&gt;Unlike a classical fluid, such as water, a condensate cannot accept a continuous range of values with which it rotates. Also, unlike a classical fluid, a superfluid in rotation will continue to rotate without slowing, provided the quantum bucket holds it in place. Beyond the critical value for rotation in a condensate a vortex will be visible. This vortex will not grow or shrink with changes around the critical value, as though a vortex in water might. However, since it does not grow, what happens with faster rotation?&lt;/p&gt;
+
+&lt;p&gt;Since the rotation is quantised, we could assume that beyond another specific value, the vortex might just become wider,  with a circulation of 2 units, instead of just 1. This, however, is not the case (in most cases encountered). Instead of a &lt;em&gt;winding&lt;/em&gt; 2 vortex, we obtain 2 &lt;em&gt;winding&lt;/em&gt; 1 vortices.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Introduction to GPUE: Part 3</title>
+      <link>https://mlxd.github.io/post/2015-09-22-tdsim/</link>
+      <pubDate>Tue, 05 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://mlxd.github.io/post/2015-09-22-tdsim/</guid>
+      <description>
+
+&lt;h1 id=&#34;time-dependent-simulations&#34;&gt;Time dependent simulations&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;I will focus on the &lt;a href=&#34;https://en.wikipedia.org/wiki/Pseudo-spectral_method&#34;&gt;pseudo-spectral&lt;/a&gt; Fourier split operator (or split step) method.&lt;/p&gt;
+
+&lt;p&gt;Firsly, we need to quantised position space by making a grid over a specific range of position values. Assume $-10$ $\mu$m to $+10$ $\mu$m, giving a grid divided into $xDim=2^8$ equispaced elements. Let us call this grid $\mathbf{x}$, and the maximum value $x_\textrm{max}$. The following Julia code will carry out the above:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-jl&#34;&gt;xDim = 2^8; # The resolution of your grid.
+xMax = 4e-4;
+x = linspace(-xMax, xMax, xDim);
+dx = abs(x[2]-x[1]);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Great, so now that we have our grid in position space, we need to also consider generating another grid, this time in &lt;a href=&#34;https://en.wikipedia.org/wiki/Position_and_momentum_space&#34;&gt;momentum space&lt;/a&gt; (also known as reciprocal space, $k$ space). Position and momentum space are related by the Fourier transform.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-jl&#34;&gt;kxMax = (2*pi/xMax)*(xDim/2);
+kx = circshift(linspace(-kxMax,kxMax,xDim),xDim/2);
+dkx = abs(kx[2] - kx[1]);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;However, as you may know, knowledge of position can affect your knowledge of momentum, and vice-versa. In this case, our fundamental limit is defined by the size of our grid dimension, $d$. Just as the wavenumber is given by the relation $k = \frac{2\pi}{\lambda}$, we can obtain our smallest $k$ value using our largest position space value, $x_\textrm{max}$.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-jl&#34;&gt;#Define properties of the system
+omegaX = 2*pi*1 # Harmonic trapping potential frequency
+hbar = 1.0545718e-34;
+m = 1.4431607e-25; #Rb87 mass
+a_s = 4.76e-9; #S-wave scattering length
+dt = 1e-4; #Timestep
+
+#Make an initial guess
+wfc = pdf(Normal(0,xMax/100),x) + 0*im;
+
+#Define the trapping potential and kinetic energy operators
+V = 0.5*m*x.^2.*omegaX^2;
+K = (0.5*hbar^2/m).*(kx.^2);
+
+GV = exp(-0.5*V*dt/hbar);
+GK = exp(-K*dt/hbar);
+
+wfc /= sqrt(sum(abs(wfc).^2)*dx);
+for t=1:10000
+        wfc = wfc.*GV;
+        wfc = ifft(fft(wfc).*GK);
+        wfc = wfc.*GV;
+        wfc /= sqrt(sum(abs(wfc).^2)*dx);
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-jl&#34;&gt;function energy(wfc,dx,V,K)
+        EV = V.*wfc;
+        EK = ifft(K.*fft(wfc));
+        E = conj(wfc).*(EV + EK)
+        return real(sum(E)*dx)/hbar
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-jl&#34;&gt;e_0 = 1e100 #Arbitrarily large unrealistic value
+e_1 = energy(wfc,dx,V,K);
+
+while e_0-e_1 &amp;gt; 1e-7
+        push!(E,e_1)
+        wfc = wfc.*GV;
+        wfc = ifft(fft(wfc).*GK);
+        wfc = wfc.*GV;
+        wfc /= sqrt(sum(abs(wfc).^2)*dx);
+        e_0 = e_1;
+        e_1 = energy(wfc,dx,V,K)
+        println(e_1)
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;$$  k_\textrm{max} = \frac{2\pi}{x_\textrm{max}}d $$
+n A&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Permutations of n-D data</title>
+      <link>https://mlxd.github.io/post/2017-09-04-nd-data/</link>
+      <pubDate>Mon, 04 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://mlxd.github.io/post/2017-09-04-nd-data/</guid>
+      <description>&lt;p&gt;Something I have been (occasionally) thinking about for quite a long time is the means to manipulate high-dimensional data-sets (dense grids, specifically), and do so efficiently. Namely, I wish to make the data along any specific orthgonal basis direction to become adjacent in memory by strides of the length of samples along that axis.&lt;/p&gt;
+
+&lt;p&gt;The reason for this? To allow for optimal vectorisation and caching of data when performing computations. Take for example a GPU: if we put data on GPU memory we want to access and manipulate it in chunks given by the chosen thread-size. If we access elements out of order, we essentially lose all of the parallelism offered by the device, as the data access will not be performed in the optimal $n$-element wide chunks, but individually at worst, and somewhere in between most likely.&lt;/p&gt;
+
+&lt;p&gt;For a problem with a Cartesian gridded data set in the space given by $ijk$, we can define the lexicographical order from fastest to slowest indices to be in the $ijk$ order.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;for(int k=0; k &amp;lt; k_size; ++k)
+    for(int j=0; j &amp;lt; j_size; ++j)
+        for(int k=0; k &amp;lt; i_size; ++i)
+            data[i + i_size*j*(1 + j_size*k)] = 0;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In this example, $i$ is the fast index and the axis along which the data is linearly adjacent in memory, and $k$ is the slow axis (with $j$ being slower than fast and faster than slow).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://mlxd.github.io/img/ndData.jpg&#34; alt=&#34;alt text&#34; title=&#34;A sample layout permutation&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The included image above is an example of rotation about the $j$ axis, showing on the right the respective mappings to new index values (for the sake of my interest I&amp;rsquo;ve taken slices along $j$ and $i$, but worked with the latter for the rest of this discussion).&lt;/p&gt;
+
+&lt;p&gt;The bottom of the image shows the rearrangements of memory from the original (upper) to the rotated (lower) memory configurations. The indices themselves seem to take the following mappings (orig. $\rightarrow $ rot.):&lt;/p&gt;
+
+&lt;p&gt;$$ \begin{align}
+i &amp;amp; \rightarrow \textrm{stride}(j)-k, \\&lt;br /&gt;
+j &amp;amp; \rightarrow j, \\&lt;br /&gt;
+k &amp;amp; \rightarrow i, \
+\end{align}$$&lt;/p&gt;
+
+&lt;p&gt;where the stride() operation returns the spacing between the elements in the given dimension (in this case, the stride of $j$ is the size of $i$).&lt;/p&gt;
+
+&lt;p&gt;I intend to find an optimal way to perform this in time. Even suboptimal, but good enough would be fine though.&lt;/p&gt;
+
+&lt;p&gt;L.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>FFTs over time and space... and devices</title>
       <link>https://mlxd.github.io/post/2017-07-11-ffts/</link>
-      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 01 Aug 2017 00:00:00 +0000</pubDate>
       
       <guid>https://mlxd.github.io/post/2017-07-11-ffts/</guid>
       <description>
@@ -242,30 +472,24 @@ int main(){
     </item>
     
     <item>
-      <title>Permutations of n-D data</title>
-      <link>https://mlxd.github.io/post/2017-09-04-nd-data/</link>
-      <pubDate>Mon, 04 Sep 2017 00:00:00 +0000</pubDate>
+      <title>Overdue todo</title>
+      <link>https://mlxd.github.io/post/2016-05-11-todo/</link>
+      <pubDate>Wed, 11 May 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://mlxd.github.io/post/2017-09-04-nd-data/</guid>
-      <description>&lt;p&gt;Something I have been thinking bout for quite a long time is the means to manipulate high-dimensional (dense) data-sets efficiently. Namely, I wish to allow for the data along any specific orthgonal basis diretion to become adjacent in memory in strides of the length of samples along that axis.&lt;/p&gt;
+      <guid>https://mlxd.github.io/post/2016-05-11-todo/</guid>
+      <description>&lt;p&gt;Granted I have not published any of the articles I am writing since my initial post, they are still in the works. Unfortunately, they will also  need to wait until my thesis has been written and published (as some of them will be used therein).&lt;/p&gt;
 
-&lt;p&gt;The reason for this? To allow for optimal vectorisation and caching of data when performing computations. Take for example a GPU: if we put data on there we want to access and manipulate it in chunks given by the chosen thread-size. If we access elements out of order, we essentially lose all of the parallelism offered by the device, as the data access will not be performed in the optimal $k$-element wide chunks, but individually at worst, and somewhere in between most likely.&lt;/p&gt;
+&lt;p&gt;As a snapshot, I will intend to discuss the following topics:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://mlxd.github.io/img/ndData.jpg&#34; alt=&#34;alt text&#34; title=&#34;A sample layout permutation&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;GPU acceleration of Schrodinger-like problems using &lt;a href=&#34;https://github.com/mlxd/gpue&#34;&gt;GPUE&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Implementing the pseudospectral Fourier split-operator method for time dependent simulations&lt;/li&gt;
+&lt;li&gt;An easy introduction to simulation of Bose-Einstein condensates (BECs)&lt;/li&gt;
+&lt;li&gt;Numerically solving the Bogoliubov equations for BEC fun&lt;/li&gt;
+&lt;li&gt;Playing with vortices in a BEC&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;For a problem with data defined in the space given by $ijk$, we can define the lexicographical order from fastest to slowest indices to be in the given $ijk$ order. The included image above is an example of rotation about the $j$ axis, showing in the right the respective mappings to new index values (for the sake of my interest I showed slices along $j$ and $i$, but worked with the latter for the remainder).&lt;/p&gt;
-
-&lt;p&gt;The bottom of the image shows the rearrangements of memory from the original (upper) to the rotated (lower) memory configurations. The indices themselves seem to take the following mappings (orig. $\rightarrow $ rot.):&lt;/p&gt;
-
-&lt;p&gt;$$ \begin{align}
-i &amp;amp; \rightarrow \textrm{stride}(j)-k, \\&lt;br /&gt;
-j &amp;amp; \rightarrow j, \\&lt;br /&gt;
-k &amp;amp; \rightarrow i, \
-\end{align}$$&lt;/p&gt;
-
-&lt;p&gt;where the stride() operation returns the spacing between the elements in the given dimension (in this case, the stride of $j$ is the size of $i$).&lt;/p&gt;
-
-&lt;p&gt;I intend to find an optimal way to perform this in time, but that is all an hours or two of procrastination can produce. TBC&lt;/p&gt;
+&lt;p&gt;However, do not hold your breath for these&amp;hellip;&lt;/p&gt;
 </description>
     </item>
     

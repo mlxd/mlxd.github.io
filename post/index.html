@@ -137,14 +137,14 @@
   
   <div>
     
-    <h2><a href="https://mlxd.github.io/post/2017-07-11-ffts/">FFTs over time and space... and devices</a></h2>
+    <h2><a href="https://mlxd.github.io/post/2015-09-18-quantums/">Introduction to GPUE: Part 1</a></h2>
     
 
 <div class="article-metadata">
 
   <span class="article-date">
-    <time datetime="2018-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-      2018-01-01
+    <time datetime="2017-09-05 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      2017-09-05
     </time>
   </span>
 
@@ -175,7 +175,100 @@
 
     <div class="article-style"><p>
       
-      Investigating the use of different FFT implementations for quantum dynamics across different hardware architectures
+      Bose$-$Einstein condensation This will be a hand-waiving introduction to Bose-Einstein condensate theory. I&rsquo;ll begin by introducing what is a Bose-Einstein condensate, followed by how we model it (hint: we use the Gross-Pitaevskii equation). For more detailed derivations, see Pethick and Smith [ISBN: 978-0521846516] or Pitaevskii and Stringari [ISBN: 978-0198507192].
+Again, this is another work in progress, so expect me to continually dump my thoughts here and on subsequent posts.
+      
+    </p></div>
+  </div>
+  
+  <div>
+    
+    <h2><a href="https://mlxd.github.io/post/2015-09-20-quantum-vortices/">Introduction to GPUE: Part 2</a></h2>
+    
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    <time datetime="2017-09-05 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      2017-09-05
+    </time>
+  </span>
+
+  
+
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="/tags/gpu">gpu</a
+    >, 
+    
+    <a href="/tags/uqs">uqs</a
+    >, 
+    
+    <a href="/tags/quantum">quantum</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+    <div class="article-style"><p>
+      
+      Quantum vortices Consider, if you will, a bucket of water. We can also do this with a closed bottle of water, to prevent from getting wet, but let&rsquo;s assume we have a bucket. We drop a spoon/stick/paddle in there, and begin to draw a circle, stirring the water. If the item is removed, the water continues to rotate, gradually slowing down before coming to a halt. Let us now assume that the water is spinning quickly, such that a hole develops in the centre.
+      
+    </p></div>
+  </div>
+  
+  <div>
+    
+    <h2><a href="https://mlxd.github.io/post/2015-09-22-tdsim/">Introduction to GPUE: Part 3</a></h2>
+    
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    <time datetime="2017-09-05 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      2017-09-05
+    </time>
+  </span>
+
+  
+
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="/tags/gpu">gpu</a
+    >, 
+    
+    <a href="/tags/uqs">uqs</a
+    >, 
+    
+    <a href="/tags/quantum">quantum</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+    <div class="article-style"><p>
+      
+      Time dependent simulations I will focus on the pseudo-spectral Fourier split operator (or split step) method.
+Firsly, we need to quantised position space by making a grid over a specific range of position values. Assume $-10$ $\mu$m to $+10$ $\mu$m, giving a grid divided into $xDim=2^8$ equispaced elements. Let us call this grid $\mathbf{x}$, and the maximum value $x_\textrm{max}$. The following Julia code will carry out the above:
+xDim = 2^8; # The resolution of your grid.
       
     </p></div>
   </div>
@@ -221,6 +314,109 @@
     <div class="article-style"><p>
       
       Thoughts on permutations of $n$-D data in memory.
+      
+    </p></div>
+  </div>
+  
+  <div>
+    
+    <h2><a href="https://mlxd.github.io/post/2017-07-11-ffts/">FFTs over time and space... and devices</a></h2>
+    
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    <time datetime="2017-08-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      2017-08-01
+    </time>
+  </span>
+
+  
+
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="/tags/gpu">gpu</a
+    >, 
+    
+    <a href="/tags/uqs">uqs</a
+    >, 
+    
+    <a href="/tags/quantum">quantum</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+    <div class="article-style"><p>
+      
+      Investigating the use of different FFT implementations for quantum dynamics across different hardware architectures
+      
+    </p></div>
+  </div>
+  
+  <div>
+    
+    <h2><a href="https://mlxd.github.io/post/2016-05-11-todo/">Overdue todo</a></h2>
+    
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    <time datetime="2016-05-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      2016-05-11
+    </time>
+  </span>
+
+  
+
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="/tags/gpu">gpu</a
+    >, 
+    
+    <a href="/tags/uqs">uqs</a
+    >, 
+    
+    <a href="/tags/quantum">quantum</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+    <div class="article-style"><p>
+      
+      <p>Granted I have not published any of the articles I am writing since my initial post, they are still in the works. Unfortunately, they will also  need to wait until my thesis has been written and published (as some of them will be used therein).</p>
+
+<p>As a snapshot, I will intend to discuss the following topics:</p>
+
+<ul>
+<li>GPU acceleration of Schrodinger-like problems using <a href="https://github.com/mlxd/gpue">GPUE</a></li>
+<li>Implementing the pseudospectral Fourier split-operator method for time dependent simulations</li>
+<li>An easy introduction to simulation of Bose-Einstein condensates (BECs)</li>
+<li>Numerically solving the Bogoliubov equations for BEC fun</li>
+<li>Playing with vortices in a BEC</li>
+</ul>
+
+<p>However, do not hold your breath for these&hellip;</p>
+
       
     </p></div>
   </div>

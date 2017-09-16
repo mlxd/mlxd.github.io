@@ -34,6 +34,11 @@
 - id: education
   translation: Education
 
+
+
+- id: experience
+  translation: Experience
+
 # Publications widget
 
 - id: more_publications

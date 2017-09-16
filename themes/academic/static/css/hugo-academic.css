@@ -342,6 +342,30 @@ ul.ul-edu li .description p.institution {
   color: #8A8A8A;
 }
 
+
+
+ul.ul-experience {
+  list-style: cjk-ideographic;
+}
+
+ul.ul-experience li {
+  position: relative;
+  padding: 0px 15px 4px 3px;
+}
+
+ul.ul-experience li .info p {
+  margin: 0;
+}
+
+ul.ul-experience li .info p.title {
+  font-size: 0.9rem;
+    color: #AAAAAA;
+}
+
+ul.ul-experience li .info p.company {
+  font-size: 0.75rem;
+  color: #8A8A8A;
+}
 /*************************************************
  *  Sharing
  **************************************************/

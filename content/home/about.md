@@ -29,6 +29,25 @@ weight = 1
   institution = "Waterford Institute of Technology"
   year = 2010
 
+# List your experience
+[[experience.info]]
+  title = "Postdoctoral fellow"
+  company = "Lawrence Berkeley National Laboratory"
+  s_year = 2017
+  e_year = "Current"
+
+
+[[experience.info]]
+  title = "Software developer"
+  company = "IBM, Dublin Software Labs"
+  s_year = 2010
+  e_year = 2011
+
+[[experience.info]]
+  title = "Product engineer"
+  company = "Analog Devices"
+  s_year = 2009
+  e_year = 2009
 +++
 
 # Biography

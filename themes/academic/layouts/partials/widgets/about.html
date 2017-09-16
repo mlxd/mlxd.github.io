@@ -75,6 +75,29 @@
       </div>
       {{ end }}
 
+      {{ with $page.Params.experience }}
+      <div class="col-sm-8">
+        <h3>{{ i18n "experience" | markdownify }}</h3>
+        <ul class="ul-experience">
+          {{ range .info }}
+          <li>
+            <div class="info">
+                <p class="title">{{ .title }},  {{ with .s_year }} {{ . }} {{ end }} 
+                  {{ if isset .e_year "Current" }} 
+                    - {{ "Current" }} 
+                  {{ else if eq .e_year .s_year }}
+                    
+                  {{ else }} 
+                    - {{ .e_year }} 
+                  {{ end }}  </p>
+                <p class="company">{{ .company }}</p>
+            </div>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+      {{ end }}
+
     </div>
   </div>
 </div>

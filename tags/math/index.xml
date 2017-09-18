@@ -24,7 +24,7 @@
 
 &lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;for(int k=0; k &amp;lt; k_size; ++k)
     for(int j=0; j &amp;lt; j_size; ++j)
-        for(int k=0; k &amp;lt; i_size; ++i)
+        for(int i=0; i &amp;lt; i_size; ++i)
             data[i + i_size*j*(1 + j_size*k)] = 0;
 &lt;/code&gt;&lt;/pre&gt;
 

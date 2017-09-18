@@ -1,0 +1,87 @@
+\documentclass[10pt,a4paper]{standalone}
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{tikz}
+\usepackage[no-math]{fontspec}
+\usepackage{xltxtra,xunicode}%Above 2 lines redundant in xelatex
+
+
+\usepackage{graphicx} % For including images
+\graphicspath{{./Images/}} % Specifies the directory where pictures are stored
+
+\usepackage{longtable} % tables that can span several pages
+\usepackage[bf]{caption} % caption: FIG in bold
+\usepackage{fancyhdr} % For the headers
+
+
+\usepackage{amsthm,amsmath,amssymb,amsfonts,bbm}% Math symbols
+\usepackage{flexisym,mathrsfs,cancel}
+\usepackage[parfill]{parskip}
+\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+%\usepackage[hyphens]{url}
+
+\usepackage{chapterbib}
+\usepackage{float}
+%\setmathfont{XITS Math}
+\usetikzlibrary{shapes,arrows}
+\author{Lee J. O' Riordan}
+
+\begin{document}
+\tikzstyle{block} = [rectangle, draw, fill=blue!20,text width=6em, text centered, rounded corners, minimum height=2em]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=2.5cm,
+    minimum height=1em, text height=1em]
+\tikzstyle{note} = [rectangle,draw,rounded corners, node distance=2.5cm,
+    minimum width=20em, text height=1.5em]
+\begin{tikzpicture}[node distance = 2.5cm, auto, scale=1, transform shape]
+    % Place nodes
+
+    \node [block] (wfcr1) {$\Psi(\mathbf{r},t)$};
+    \node [left of=wfcr1, node distance = 4.5cm] (num1) {$(0)$};
+
+    \node [cloud, below of=wfcr1,node distance=1.2cm] (EKr1) at (-2.5,0) {$\times\hat{U}_{\mathbf{r},\frac{\tau}{2}}$};
+
+    %\node [cloud, right of=wfcr1] (FFTr1) {$\mathscr{F}$};
+    \node [block, below of=EKr1,node distance=1.2cm] (wfcr3) {$\Psi\left(\mathbf{r},t+\tau/2\right)$};
+
+    \node [left of=wfcr3, node distance = 2cm] (num2) {$(1)$};
+
+
+
+    \node [cloud, right of=wfcr3] (FFTr2) {$\mathscr{F}$};
+        %\node [note, above of=FFTr2, node distance=4em] (Start) {\Large\textbf{$wfc(\bar{r},t)$}};
+
+    \node [block, right of=FFTr2] (wfcp2) {$\Psi^{}\left(\mathbf{k},t\right)$};
+    \node [cloud, below of=wfcp2,node distance=1.2cm] (EKp2) {$\times\hat{U}_{\mathbf{k},\tau}$};
+    \node [block, below of=EKp2,node distance=1.2cm] (wfcp4) {$\Psi^{}\left(\mathbf{k},t+\tau\right)$};
+    \node [cloud, left of=wfcp4] (FFTp2) {$\mathscr{F}^{-1}$};
+    \node [block, left of=FFTp2] (wfcr4) {$\Psi^{'}\left(\mathbf{r},t+\tau/2\right)$};
+    \node [left of=wfcr4, node distance = 2cm] (num2) {$(2)$};
+
+        \node [cloud, below of=wfcr4,node distance=1.2cm] (EKr2) {$\times\hat{U}_{\mathbf{r},\frac{\tau}{2}}$};
+
+    \node [block, below of=EKr2, node distance=1.2cm] (wfcrfin) at (0,-6) {$\Psi(\mathbf{r},t+\tau)$};
+    \node [left of=wfcrfin, node distance = 4.5cm] (num4) {$(3)$};
+
+
+    %\path [line,dashed] (Start) -- (wfcr1);
+    \path [line] (wfcr1) -- (EKr1);
+    \path [line] (EKr1) -- (wfcr3);
+    %\draw[->] (Start) -- (Fin);
+    %\path [line,dashed] (Start) -- (Fin);
+
+    \path [line] (wfcr3) -- (FFTr2);
+    \path [line] (FFTr2) -- (wfcp2);
+    \path [line] (wfcp2) -- (EKp2);
+    \path [line] (EKp2) -- (wfcp4);
+
+    \path [line] (wfcp4) -- (FFTp2);
+    \path [line] (FFTp2) -- (wfcr4);
+	\path [line] (wfcr4) -- (EKr2);
+	\path [line] (EKr2) -- (wfcrfin);
+
+\end{tikzpicture}
+\end{document}

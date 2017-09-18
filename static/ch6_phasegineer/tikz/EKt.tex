@@ -1,0 +1,68 @@
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage{tikz,pgfplots,pgf}
+\usetikzlibrary{pgfplots.groupplots}
+\input{../../colour_incl}
+\begin{document}
+    \begin{tikzpicture}
+
+
+
+\iffalse
+    \begin{groupplot}[
+    group style={
+        group name=my plots,
+        group size=1 by 2,
+        xlabels at=edge bottom,
+        xticklabels at=edge bottom,
+        vertical sep=1pt
+    },
+    xmax=2e6,
+    ymin=1e-22,
+    ymax=1e-14,
+    xmode=log,
+    ymode=log,
+    width=8cm,
+    height=4cm,
+    xlabel=\textrm{$k$ (m$^{-1}$)},
+    tickpos=left,
+    ytick = {1e-22, 1e-18, 1e-14},
+    yticklabels= {$10^{-22}$, $10^{-18}$, $10^{-14}$},
+    ytick align=outside,
+    xtick align=outside
+]
+
+\nextgroupplot
+\addplot[mark=none, myblue, thick] table [ col sep=comma, trim cells=true, x=a, y=b] {EKt0.csv};
+\addplot[mark=none, myorange, thick] table [ col sep=comma, trim cells=true, x=a, y=c] {EKt0.csv};
+
+\nextgroupplot
+\addplot[mark=none, myblue, thick,dashed] table [ col sep=comma, trim cells=true, x=a, y=b] {EKt1k.csv};
+\addplot[mark=none, myorange, thick,dashed] table [ col sep=comma, trim cells=true, x=a, y=c] {EKt1k.csv};
+
+\end{groupplot}
+
+\fi
+
+        \begin{axis}[
+            legend pos=south west,
+            legend cell align=left,
+            tick scale binop=\times,
+            xmode=log,
+            ymode=log,
+            xlabel=\textrm{$k$ (m$^{-1}$)},
+            ylabel=\textrm{${E^i/E^c}$ }
+        ]
+
+            \addplot[mark=none, myblue, thick] table [ col sep=comma, trim cells=true, x=a, y expr=\thisrowno{1} / \thisrowno{2}] {EKt0.csv};
+            %\addplot[mark=none, myorange, thick] table [ col sep=comma, trim cells=true, x=a, y=c] {EKt0.csv};
+
+
+            \addplot[mark=none, myorange, thick,dashed] table [ col sep=comma, trim cells=true, x=a, y expr=\thisrowno{1} / \thisrowno{2}] {EKt1k.csv};
+            %\addplot[mark=none, mypurple, thick,dashed] table [ col sep=comma, trim cells=true, x=a, y=c] {EKt1k.csv};
+
+            %\legend{ $E^c_k(t=10ms)$ \\ $E^i_k(t=10m0s)$ };
+            \legend{$t=0$ ms\\$t=10$ ms\\}
+        \end{axis}
+
+    \end{tikzpicture}
+\end{document}

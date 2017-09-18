@@ -1,0 +1,275 @@
++++
+# Date this page was created.
+date = "2017-01-18"
+
+# Project title.
+title = "Thesis - 2. Background"
+
+# Project summary to display on homepage.
+summary = "Thesis - 2. Background"
+
+# Optional image to display on homepage (relative to `static/img/` folder).
+#image_preview = "gpue.png"
+
+# Optional image to display on project detail page (relative to `static/img/` folder).
+image = ""
+
+# Tags: can be used for filtering projects.
+# Example: `tags = ["machine-learning", "deep-learning"]`
+tags = ["data","bio", "hpc", "knl"]
+
+# Optional external URL for project (replaces project detail page).
+external_link = ""
+
+# Does the project detail page use math formatting?
+math = true
+
++++
+
+Background
+==========
+
+\[chp:background\]
+
+Ultracold atoms
+---------------
+
+### Cooling of atomic gases
+
+One of the major advances in experimental physics towards creating matter in extreme situations has been the cooling of trapped atoms to temperatures near absolute zero. This feat resulted from the pioneering work of C. Cohen-Tannoudji, S. Chu and W. Phillips, and earned them the Nobel Prize in Physics, 1997 . It relies on the use of counter-propagating detuned laser fields which act upon a trapped cloud of atoms. Due to Doppler shifting of the frequencies, atoms moving towards the respective beams see resonant photons, absorb them and slow down due to the momentum absorbed. This is followed by a spontaneous emission in a random direction, for which the recoil kicks average out to zero; hence, the atoms become cooler. This technique is known as “Doppler cooling”. As a result, the atoms eventually reach a velocity below that which no photons can be absorbed from the lasers due to the change in resonance frequency and the limit imposed by the resonance width of the atomic levels, leaving a narrower velocity distribution with a peak at a lower value. Although Doppler cooling allowed temperatures to reach micro-Kelvin regimes, additional techniques, such as evaporative cooling, must be used to obtain atoms deep in the nano-Kelvin temperature range. A further discussion of these cooling methods is presented in . These cooling techniques allow for the creation of Bose–Einstein condensates in dilute atomic gases.
+
+### Introduction to Bose–Einstein condensation
+
+Upon learning of a work by S. N. Bose on the statistical behaviour of photons, A. Einstein translated and arranged for publication of his work, and generalised it to also describe systems of ideal bosons with mass . This led to the Bose–Einstein distribution, which in the framework of the grand canonical ensemble and following the description given by Pitaevskii and Stringari , can be written as
+$$\\bar{n}\_i = \\frac{1}{e^{\\beta(\\epsilon\_i - \\mu)} -1},$$
+ where $\\bar{n}\_i$ is the average occupation number of the *i*-th energy state, *β* = (*k*<sub>B</sub>*T*)<sup>−1</sup> with *k*<sub>B</sub> being the Boltzmann constant and *T* the temperature, *ϵ*<sub>*i*</sub> is the *i*-th energy eigenvalue, and *μ* is the chemical potential giving the energy required to add an atom to the system for a fixed volume and entropy. The total number of particles in the system, can be evaluated by summing over the individual occupation numbers, as
+$$N=\\displaystyle\\sum\_i \\bar{n}\_i.$$
+ This work predicted that non-interacting, indistinguishable bosonic particles would undergo a phase transition below a critical temperature into a new phase in which all particles would occupy the same lowest lying energy state of the system. The number of atoms occupying this lowest lying state, *N*<sub>0</sub>, at a given temperature is provided by
+$$N\_0 \\equiv \\bar{n}\_0 = \\frac{1}{e^{\\beta(\\epsilon\_0 - \\mu)} - 1},$$
+ with *ϵ*<sub>0</sub> representing the lowest energy eigenvalue. Since negative occupation numbers would be a nonphysical result, the chemical potential is limited to values of *μ* &lt; *ϵ*<sub>0</sub>. As *μ* tends to *ϵ*<sub>0</sub>, the occupation of the lowest energy state grows large. Separating the total number of atoms into the lowest lying (condensed), *N*<sub>0</sub>, and higher lying (thermal), *N*<sub>*T*</sub>, states as
+$$N = N\_0 + N\_T = N\_0 + \\displaystyle\\sum\_{i\\neq 0}\\bar{n}\_i(T,\\mu),$$
+ allows for a relation for the onset of Bose–Einstein condensation to be given. For a finite temperature system (*T* &gt; 0) this will happen when the temperature drops below a critical value, *T*<sub>c</sub>, where *μ* will approach *ϵ*<sub>0</sub>. This results in the macroscopic occupation of the lowest lying state, yielding a Bose–Einstein condensate (BEC).
+
+Given a cloud of identical bosons at temperatures higher than *T*<sub>c</sub>, the particles behave classically and exhibit hard-core scattering interactions. As they are cooled, their thermal de Broglie wavelength increases as
+$$\\lambda\_{\\textrm{dB}} = \\sqrt{\\frac{\\hbar^2}{2\\pi mk\_{B}T}},$$
+ where *m* is the atom mass, and the wave-nature of the atoms becomes more prominent. The de Broglie waves start to overlap when *λ*<sub>dB</sub>≈ inter-particle separation. The quantity *χ* = *ρ**λ*<sub>dB</sub><sup>3</sup>, where *ρ* is the density of the gas, is known as the *phase-space density*. Physically this denotes the number of particles present in a box with sides of *λ*<sub>dB</sub> length. The phase transition to the condensate sets in at *χ* = *ζ*(3/2) ≈ 2.612, where $\\zeta(s) = \\displaystyle\\sum\\limits\_{n=1}^{\\infty}\\frac{1}{n^s}$ is the Riemann-Zeta function.  . The value of *T*<sub>c</sub> for this to occur in a uniform gas is given by
+$$k\_{\\textrm{B}}T\_{\\textrm{c}} = \\frac{2\\pi}{\\zeta\\left( 3 / 2 \\right)^{2/3}}\\frac{\\hbar^2\\rho^{2/3}}{m}.$$
+ It is worth noting that the above derivation assumes an ideal gas, in which there are no interactions between particles. As this is not the case for most physical systems, one must consider systems where interactions are weak. Fritz London, in 1938, following on from the body of work derived by Einstein and Bose drew the connection between superfluidity in liquid **<sup>4</sup>He and Bose–Einstein condensation . However, due to the strongly interacting nature of liquid **<sup>4</sup>He at low temperatures only approximately 10% of the atoms condense into a BEC . In order to achieve the large occupation of the lowest energy state the system must be prepared so that the inter-particle interaction strength does not degrade the coherence, as is the case for liquid **<sup>4</sup>He.
+
+Due to their weak interactions, dilute atomic gases are closer to the ideal case discussed by Bose and Einstein. One negative impact, though, were the diluteness requirements and higher masses of most atoms compared to **<sup>4</sup>He, which required reaching much lower transition temperatures. As such, the use of lighter elements was considered. Spin-polarised hydrogen was one of the first systems to be investigated to create a BEC in the 1970’s. Using trapping and cooling techniques available at the time, this type of system came close, but did not quite reach the required temperatures and phase-space densities for Bose–Einstein condensation to occur until over twenty years later . With the advent of laser cooling in the 1980’s, the use of alkali atoms was considered partly due to the ease of accessibility of their optical transition frequencies. It was not until 1995 that the first BECs were experimentally realised .
+
+For a finite number of atoms in a realistic experimental scenario, one can consider the case of a BEC trapped in a harmonic oscillator potential. For this finite-sized sample and inhomogeneous density profile, the transition temperature is given by 
+$$k\_{\\textrm{B}}T\_{\\textrm{c}} = \\frac{\\hbar\\bar{\\omega}N^{1/3}}{\\zeta(3)^{1/3}},$$
+ where $\\bar{\\omega}=(\\omega\_x\\omega\_y\\omega\_z)^{1/3}$ is the geometric mean of the harmonic oscillator frequencies, and interactions between the particles have been neglected. Critical temperatures for harmonically trapped dilute gases are on the order of nano-Kelvin for experimentally realistic systems.
+
+### Theoretical description of BECs: Gross–Pitaevskii equation
+
+We will, in the following section, outline the derivation of the mean-field Gross–Pitaevskii equation, which is widely used to study the behaviour of condensates in many works cited in this review. Following the *Les Houches 2013 Lecture Course* by J. Walraven the second quantized form of the many-body Hamiltonian for interacting particles in an external potential is given by
+$$\\label{eqn:ham2ndq}
+\\hat{\\mathcal{H}} = \\hat{H\_1} + \\hat{H\_2} = \\int \\hat{\\Psi}^{\\dagger}(\\mathbf{r}) H\_0\\left(\\textbf{r},\\textbf{p} \\right)  \\hat{\\Psi}(\\mathbf{r}) \\; d\\textbf{r}  + \\frac{1}{2} \\iint\\hat{\\Psi}^{\\dagger}(\\mathbf{r}^\\prime)\\hat{\\Psi}^{\\dagger}(\\mathbf{r})V\_{\\textrm{int}}(\\textbf{r}^\\prime,\\textbf{r})\\hat{\\Psi}(\\mathbf{r})\\hat{\\Psi}(\\mathbf{r}^\\prime) \\; d\\textbf{r}^\\prime d\\textbf{r},$$
+ with *H*<sub>0</sub>(**r**,**p**) = **p**<sup>2</sup>/(2*m*)+*V*<sub>ext</sub>(**r**) = −(ℏ/2*m*)∇<sup>2</sup> + *V*<sub>ext</sub>(**r**), and **r** = (*x*, *y*, *z*). The external potential, *V*<sub>ext</sub>(**r**) is taken as harmonic, of the form
+$$V\_{\\text{ext}}(\\mathbf{r}) = \\frac{m}{2}\\displaystyle\\sum\_{i}{\\left(\\omega\_i r\_i \\right)^2},$$
+ where *ω*<sub>*i*</sub> represents the trapping frequency in the *i*-th spatial dimension. The interaction potential, *V*<sub>int</sub> is assumed to be point-like as
+*V*<sub>int</sub>(**r**,**r**<sup>′</sup>) = *g**δ*(**r**−**r**<sup>′</sup>),
+ where *δ* is the Dirac delta function and the mean-field interaction, *g*, is given by
+$$g = \\frac{4\\pi\\hbar^2 a\_s}{m},$$
+ with *a*<sub>*s*</sub> being the *s*-wave scattering length. Inserting the contact potential Eq. into the second quantised interaction Hamiltonian $\\hat{H}\_2$ from Eq. above yields the relations
+
+$$\\begin{aligned}
+\\hat{H}\_2 &= \\frac{g}{2} \\int \\hat{\\Psi}^{\\dagger}(\\mathbf{r})\\hat{\\Psi}^{\\dagger}(\\mathbf{r}^{\\prime}) \\delta\\left(\\textbf{r} - \\textbf{r}^{\\prime}\\right)\\hat{\\Psi}(\\mathbf{r}^{\\prime})\\hat{\\Psi}(\\textbf{r})d\\textbf{r}d\\textbf{r}^{\\prime} \\\\
+ & = \\frac{g}{2}\\int \\hat{\\Psi}^{\\dagger}(\\textbf{r})\\hat{\\Psi}^{\\dagger}(\\mathbf{r}) \\hat{\\Psi}(\\mathbf{r})\\hat{\\Psi}(\\mathbf{r})d\\mathbf{r}d\\mathbf{r} \\\\
+ & = \\frac{g}{2}\\int \\hat{\\Psi}^{\\dagger}\\left(\\mathbf{r}\\right)\\hat{n}\\left(\\mathbf{\\mathbf{r}}\\right)\\hat{\\Psi}(\\mathbf{r})d\\textbf{r}.\\end{aligned}$$
+
+In the Heisenberg picture, the evolution of the system is governed by the equation
+$$\\label{eqn:heisenberg}
+\\textrm{i}\\hbar \\frac{d}{d t}\\hat{\\Psi}\_H\\left(\\mathbf{r}, t\\right) = \\left\[\\hat{\\Psi}\_{H}\\left(\\mathbf{r}, t\\right), \\hat{\\mathcal{H}}  \\right\],$$
+ where the Heisenberg field annihilation operator, $\\hat{\\Psi}\_H\\left(\\textbf{r}, t\\right)$, is given by
+$$\\label{eqn:psi\_heisenberg}
+\\hat{\\Psi}\_H\\left(\\mathbf{r}, {t} \\right) = e^{{\\textrm{i}\\hat{\\mathcal{H}}t / \\hbar}}\\hat{\\Psi}\\left(\\mathbf{r}\\right) e^{{-\\textrm{i}\\hat{\\mathcal{H}}t / \\hbar}}.$$
+ The operator, $\\hat{\\Psi}\_H$, can be interpreted as the one removing an atom from a given state of the system. Therefore, if all *N* atoms in the system are in the ground state, |0<sub>*N*</sub>⟩, as would be the case in an ideal condensate, the following relationship holds
+
+$$\\begin{aligned}
+\\hat{\\Psi}\_{H}(\\mathbf{r},t)\\vert 0\_N \\rangle &= e^{\\frac{\\textrm{i}E\_0(N-1)t}{\\hbar}}\\hat{\\Psi}(\\mathbf{r})e^{\\frac{-\\textrm{i}E\_0(N)t}{\\hbar}}\\vert 0\_N \\rangle \\\\
+&= \\hat{\\Psi}(\\mathbf{r})e^{\\frac{\\textrm{i}\[E\_0(N-1) - E\_0(N)\]t}{\\hbar}} \\vert 0\_N \\rangle \\\\
+&= \\hat{\\Psi}(\\mathbf{r})e^{\\frac{-\\textrm{i}\\mu t}{\\hbar}} \\vert 0\_N \\rangle,\\label{eqn:psi\_dagger\_time} $$
+
+where the chemical potential is defined as *μ* = *E*<sub>0</sub>(*N*)−*E*<sub>0</sub>(*N* − 1). Using the bosonic commutation relations
+$$\\begin{aligned}
+\\left\[\\hat{\\Psi}(\\mathbf{r}'), \\hat{\\Psi}^{\\dagger}(\\mathbf{r})\\right\] &=& \\delta(\\mathbf{r}' - \\mathbf{r}), \\\\
+\\left\[\\hat{\\Psi}(\\mathbf{r}'), \\hat{\\Psi}(\\mathbf{r})\\right\] &=& \\left\[\\hat{\\Psi}^{\\dagger}(\\mathbf{r}'), \\hat{\\Psi}^{\\dagger}(\\mathbf{r})\\right\] = 0,\\end{aligned}$$
+ and noting the following relations
+$$\\begin{aligned}
+\\left\[\\hat{\\Psi}(\\mathbf{r}),\\hat{H}\_1 \\right\] & = \\hat{H}\_0(\\mathbf{r},\\mathbf{p})\\hat{\\Psi}(\\mathbf{r}), \\\\
+\\left\[\\hat{\\Psi}(\\mathbf{r}),\\hat{H}\_2 \\right\] & = g\\hat{n}(\\textbf{r})\\hat{\\Psi}(\\mathbf{r}), \\\\
+\\left\[\\hat{\\Psi}(\\mathbf{r}),\\hat{N} \\right\] & = \\hat{\\Psi}(\\textbf{r}) ,\\end{aligned}$$
+ upon substitution of Eq.  into Eq. , it can be rewritten as
+$$\\label{eqn:almost\_gpe}
+    \\textrm{i} \\hbar \\frac{d}{d t} \\left( \\hat{\\Psi}(\\mathbf{r}) e^{-{\\textrm{i}\\mu t / \\hbar}} \\right) = H \\hat{\\Psi}(\\mathbf{r}) e^{-{\\textrm{i}\\mu t / \\hbar}}$$
+ with
+$$\\label{eqn:h\_many}
+H =  -\\frac{\\hbar^2}{2m}\\nabla^2  + V(\\mathbf{r}) + g\\hat{n}(\\mathbf{r}).$$
+ Due to the macroscopic occupation of the lowest lying single-particle state, $\\hat{\\Psi}$ can be treated as the sum of a condensed term and a quantum fluctuation (uncondensed) term, as
+$$\\label{eqn:gpe\_fluc}
+    \\hat{\\Psi} = \\Psi + \\delta\\hat{\\Psi},$$
+ where $\\Psi = \\langle \\hat{\\Psi} \\rangle$ is known as the condensate wavefunction. *Ψ* takes the form of a classical field, and can be used to model the behaviour of the condensate, provided the number of atoms is sufficiently large (*N* &gt; 10<sup>3</sup> for most experimental set-ups) and the correlations are not too strong i.e. the gas is sufficiently dilute that only two-body interactions occur. By substituting Eq.  into , and assuming a condensate at *T* = 0 K, the number of uncondensed atoms will be essentially zero, and thus we can safely ignore all terms in $\\delta\\hat{\\Psi}$ and $\\delta\\hat{\\Psi}^{\\dagger}$. The above procedure gives the time dependent mean-field Gross–Pitaevskii equation (GPE) as
+$$\\label{eqn:gpe}
+\\textrm{i}\\hbar\\frac{\\partial}{\\partial t}\\Psi(\\mathbf{r},t) = H\_{\\textrm{GP}} \\Psi(\\textbf{r},t),$$
+ with the nonlinear GPE Hamiltonian,
+$$\\label{eqn:h\_gp}
+H\_{\\textrm{GP}} = \\left\[-\\frac{\\hbar^2}{2m}\\nabla^2 + V(\\textbf{r}) + g\\vert\\Psi(\\mathbf{r},t)\\vert^2 \\right\],$$
+ where *Ψ*(**r**, *t*)=*Ψ*(**r**)*e*<sup>−i*μ**t*/ℏ</sup>. The time independent form can be found by evaluating the left-hand side derivative in and dividing across by *e*<sup>−*i**μ**t*/ℏ</sup>, yielding
+$$\\mu\\Psi(\\mathbf{r}) = \\left\[-\\frac{\\hbar^2}{2m}\\nabla^2 + V(\\mathbf{r}) + g\\vert\\Psi(\\mathbf{r})\\vert^2 \\right\]\\Psi(\\mathbf{r}),$$
+ where the wavefunction is normalised to the particle number, *N*, as follows
+$$\\label{eqn:norm}
+\\displaystyle\\int\\limits\_{-\\infty}^{\\infty}d\\mathbf{r} \\left\\vert \\Psi\\left(\\mathbf{r},t\\right) \\right\\vert^2 = N.$$
+
+Assuming a large number of bosons in the condensate *N* ≫ 1, the interaction term dominates over the kinetic term of the Hamiltonian which can therefore be neglected. This approximation turns finding the ground state of the system into a solvable, algebraic problem, and is known as the Thomas–Fermi approximation . The Hamiltonian can thus be reduced to a combination of the trapping potential and the mean-field interaction, where the ground state wavefunction, *Ψ*<sub>TF</sub>, can be determined from the time independent GPE as
+$$\\Psi\_{\\textrm{TF}}(\\mathbf{r}) = \\sqrt{ g^{-1}\[\\mu - V(\\textbf{r})\] \\Theta(\\mu - V(\\textbf{r}))},$$
+ where *μ* is the chemical potential, and *Θ* is the Heaviside step function, which ensures that the condensate density does not become negative. The boundary of the cloud is determined by the surface at which the density becomes zero, and corresponds to the point where the trapping potential and chemical potential are equal. This gives the Thomas–Fermi radius along the *i*-th direction of the cloud as
+$${R}\_i = a\_{\\textrm{}}\\left(\\frac{15Na\_s}{a\_{\\textrm{}}}\\right)^{1/5}\\frac{\\bar{\\omega}\_{\\textrm{}}}{\\omega\_i},$$
+ where the characteristic length of the harmonic oscillator is given by ${a} = \\sqrt{{\\hbar}/{m\\bar{\\omega}}}$, and
+$$\\bar{\\omega} = \\left(\\displaystyle\\prod\\limits\_j \\omega\_j\\right)^{1/3},$$
+ is the geometric mean of the harmonic oscillator trapping frequencies. This approximation holds valid for stationary condensate solutions.
+
+To investigate condensate dynamics, it is convenient to consider rotation of the condensate about an axis. For such a rotating condensate, an additional term appears in the GPE Hamiltonian, −**Ω** ⋅ **L**, where **Ω** is the angular rotation frequency, and **L** is the angular momentum operator. Assuming rotation about a single axis, the longitudinal direction *z*, **L** can be replaced with *L*<sub>*z*</sub>, giving the form of the GPE in the co-rotating frame as
+$$\\label{eqn:gpe\_rotation}
+\\textrm{i}\\hbar\\frac{\\partial}{\\partial t}\\Psi(\\mathbf{r},t) = \\left\[-\\frac{\\hbar^2}{2m}\\nabla^2 + V(\\mathbf{r}) + g\\vert\\Psi(\\textbf{r},t)\\vert^2 - \\Omega L\_z  \\right\]\\Psi(\\mathbf{r},t).$$
+ Within the Thomas-Fermi approximation, it is possible to determine analytical results for the profile of the BEC, and compare with exact results from numerically integrating the full GPE. However, in the case of a rotating condensate to solve the above form of the Gross–Pitaevskii equation will require numerical integration as the kinetic energy term can no longer be neglected.
+
+### Bogoliubov-de Gennes equations
+
+While the Gross–Pitaevskii equation captures the rich array of dynamics exhibited by a condensate system, it is often necessary to examine the stability of its solutions. The previously neglected small quantum fluctuations (see Eq. ) can be included by writing them as a combination of counterpropagating waves as
+$$\\delta\\hat{\\Psi} = e^{{-\\textrm{i}\\mu t/\\hbar}}\[u(\\mathbf{r})e^{-\\textrm{i}t\\omega} + v^{\*}(\\mathbf{r})e^{it\\omega}\].$$
+ From this expression, the wavefunction can be written as
+*Ψ*(**r**, *t*)=*e*<sup>−i*μ**t*/ℏ</sup>\[*Ψ*<sub>0</sub>(**r**)+*u*(**r**)*e*<sup>−i*t**ω*</sup>+*v*<sup>\*</sup>(**r**)*e*<sup>i*t**ω*</sup>\],
+ where *Ψ*<sub>0</sub>(**r**) is the stationary state solution. Firstly, we calculate the time-derivative of Eq. , which after simplification becomes
+$$\\label{eqn:bogo\_lhs}
+    \\textrm{i}\\hbar\\partial\_t \\Psi(t) = e^{\\frac{-\\textrm{i}\\mu t}{\\hbar}}\\left\[\\mu\\Psi\_0 + (\\mu+\\hbar\\omega)ue^{-\\textrm{i}t\\omega} + (\\mu-\\hbar\\omega)v^{\*}e^{\\textrm{i}t\\omega} \\right\],$$
+ where the dependence on **r** is dropped for notational simplicity. Next, the nonlinear interaction term is given as
+
+$$\\begin{aligned}
+\\label{eqn:bogo\_nonlin}
+    g|\\Psi|^2\\Psi &= g\\Psi^{\*}\\Psi\\Psi \\\\
+    &= g e^{\\frac{-\\textrm{i}\\mu t}{\\hbar}}(\\Psi\_0^{\*} + u^{\*}e^{\\textrm{i}t\\omega} + ve^{-\\textrm{i}t\\omega})\\\\ &~~~~~~\\times (\\Psi\_0 + u e^{-\\textrm{i}t\\omega} + v^{\*} e^{\\textrm{i}t\\omega})^2, \\nonumber \\\\
+    & \\approx g e^{\\frac{-\\textrm{i}\\mu t}{\\hbar}}\[|\\Psi\_0|^2(\\Psi\_0 + 2(u e^{-\\textrm{i}t\\omega} + v^{\*} e^{\\textrm{i}t\\omega} )) \\\\ &~~~~~~+ \\Psi\_0^2( u^{\*} e^{\\textrm{i}t\\omega} + v e^{-\\textrm{i}t\\omega})\]. \\nonumber\\end{aligned}$$
+
+with the resulting equations linearised in terms of *u* and *v*. Plugging these terms into the GPE yields the Bogoliubov-de Gennes (BdG) equations,
+
+\[eqn:bogo\_lhsrhs\]
+$$\\begin{aligned}
+    \\mu \\Psi\_0 &= (H\_0 - \\Omega L\_z + g |\\Psi\_0|^2)\\Psi\_0,\\\\
+    (\\mu +\\hbar\\omega)u &= (H\_0 - \\Omega L\_z + 2g|\\Psi\_0|^2)u + g\\Psi\_0^2 v,\\\\
+    (\\mu -\\hbar\\omega)v^{\*} &= (H\_0 - \\Omega L\_z + 2g|\\Psi\_0|^2)v^{\*} + g\\Psi\_0^2 u^{\*},\\end{aligned}$$
+
+where
+$$\\label{eqn:bogo\_h0}
+H\_0 = -\\frac{\\hbar^2}{2m}\\nabla^2 + V(\\mathbf{r}).$$
+ This can be written in matrix form as
+$$\\begin{pmatrix}
+        H\_0 + 2g|\\Psi\_0|^2- \\mu -\\Omega L\_z & g\\Psi\_0^2 \\\\
+        -g\\Psi\_0^{\*2} & -H\_0 - 2g|\\Psi\_0|^2 + \\mu +\\Omega L\_z
+    \\end{pmatrix}
+    \\begin{pmatrix}
+        u \\\\
+        v
+    \\end{pmatrix}
+    = \\hbar\\omega
+    \\begin{pmatrix}
+        u \\\\
+        v
+    \\end{pmatrix},$$
+ where the eigenvalues of these modes can be used to determine the stability of the system. The norm of these functions is given by *N*<sub>BdG</sub> = ∫*d***r**(|*u*|<sup>2</sup> − |*v*|<sup>2</sup>). If the norm is positive, with positive eigenvalues, the system is energetically stable. If the norm is positive with negative eigenvalues, the system will have an energetic instability, which will cause the system to move towards the lowest energy state only in the presence of dissipation. If, however, the norm is 0 with imaginary eigenvalues, the modes of the fluctuations are dynamically unstable. Due to the complex eigenvalues these modes will dominate exponentially over time and destroy the initial state of the condensate.
+
+### Lower dimensional condensates
+
+Whilst the full three dimensional GPE describes the dynamics of a condensed cloud of cold atoms, often the physics of lower dimensional systems can also be quite interesting. For a BEC tightly confined along one axis, the system can be described as a pancake shaped condensate, or cigar shaped for tight confinement along two axes. These tightly confined systems allow for the examination of both two and one dimensional physics. For a BEC harmonically confined in a trap with a transverse frequency, *ω*<sub>⊥</sub>, and tightly confined along *z* with frequency *ω*<sub>*z*</sub> ≫ *ω*<sub>⊥</sub>, all dynamics can be frozen out along *z*, leaving the system in the ground state of the oscillator along *z*. This assumes that the energy to excite the system along *z*, ℏ*ω*<sub>*z*</sub> is significantly greater than that to excite along the transverse plane ℏ*ω*<sub>⊥</sub>, and also the chemical potential *μ*. This assumption allows for the wavefunction to be written as *Ψ*(**r**, *t*)=*Ψ*(*x*, *y*, *t*)*ϕ*(*z*) where *Ψ*(*x*, *y*, *t*) is the transverse wavefunction, and *ϕ*(*z*)=(*m**ω*<sub>*z*</sub>/(*π*ℏ))exp(−*z*<sup>2</sup>*m**ω*<sub>*z*</sub>/(2ℏ)) is the ground state along *z*. Substituting this separable wavefunction into the GPE and integrating over *z* modifies the nonlinear interaction strength as 
+$$\\label{eqn:g2d\_efint}
+    g\_{\\textrm{2D}} = g\\sqrt{\\frac{m\\omega\_z}{2\\pi\\hbar}}.$$
+ Though still technically a 3D system, this separation and integration allows one to consider a quasi-2D model, which can be modelled in two-dimensions and which reproduces the main aspects of the same vortex dynamics as a tightly confined three dimensional model. This is advantageous for numerical simulations, but also ensures that only the physics of interest, i.e. in this case the vortex-vortex interactions, play a role. Three dimensional effects, such as the possibility of excitations along the vortex line are removed. The above assumptions have been observed in many experimental systems , and therefore all work and models discussed later will be within the quasi-2D condensate regime, unless otherwise specified.
+
+Superfluidity
+-------------
+
+### Introduction to superfluidity
+
+Superfluidity is a macroscopic quantum effect that is closely related to Bose–Einstein condensation. Liquid helium has been known for many years to exhibit superfluid behaviour . One interesting property of superfluids is that they have quantized circulation which can lead to the appearance of quantum vortices under rotation. Traditionally, such excitations have been created in liquid **<sup>4</sup>He by a “rotating bucket” type of experiment, where the container holding the superfluid is rotated about a single axis. When the fluid is initially above the *λ*-critical point, the temperature at which **<sup>4</sup>He moves from a classical fluid to a superfluid, the atoms will undergo classical rotation with the container. On cooling the atoms below the *λ*-critical point, liquid **<sup>4</sup>He will undergo a transition to the superfluid state. If the velocity is above a critical rotation frequency, *Ω*<sub>*c*</sub>, vortices are nucleated in the rotating superfluid helium system. Due to the strongly interacting nature of liquid helium, the nucleated vortices are difficult to visualise as the healing length, *ξ*, of liquid **<sup>4</sup>He is only on the order of ngstr<span>ö</span>ms .
+
+In order to visualise these vortices experimentally it was necessary to use an indirect means of visualisation in the form of tracer particles . Limited success was had with this technique using solid hydrogen, and later plastic microspheres, as they tended to join together due to static charges. An improved technique, using charged particles, showed much greater success . Ions, or electrons, were trapped inside the vortex lines, and an electric field along the direction of the lines allowed for acceleration of the charges towards a luminescent screen where they could be observed. Current experimental work in vortex visualisation with liquid **<sup>4</sup>He has advanced significantly , yet fine control over the behaviour of the liquid and the vortex dynamics remains difficult.
+
+Superfluid behaviour is observed in liquid helium due partly to a portion of the atoms condensing into the ground state. Given that BECs show superfluidity, the use of a dilute gas where the majority of atoms are in the condensate state provides a more controlled means to investigate superfluidity and quantised vortices . In contrast with liquid **<sup>4</sup>He, which has a healing length of the order of ngstr<span>ö</span>ms, the healing length of a dilute gas of alkali atoms is on the order of microns . This places condensates in a much more accessible regime for visualising vortices compared with liquid **<sup>4</sup>He experiments. For many condensates visualisation of the vortices is provided by absorption imaging, following a time-of-flight expansion of the cloud to allow the vortex cores to expand and become more easily visible . One drawback of this method is that it is destructive, and requires multiple experimental realisations to acquire any dynamical information. To examine the dynamics of the vortices, successive imaging techniques are required. Single-shot experiments have been demonstrated, where a small percentage of the condensate is repeatedly transferred to an untrapped atomic state. This allows for the untrapped atoms to expand, and vortices have been imaged this way . With this method the precession of the vortices in a trapped condensate can be directly observed, in a single-shot experiment. More recently, *in-situ* imaging of a condensate with a vortex lattice was demonstrated and allowed resolution of the cores without time-of-flight expansion with a minimally destructive optical refraction technique .
+
+To fully understand the behaviour of these systems, it is necessary to have a framework for modeling the condensate, in the absence and the presence of vortices. As described above, a dilute gas of condensed atoms close to absolute zero temperature can be readily modelled by the Gross–Pitaevskii equation , offering a direct means to examine condensate behaviour. It is, however, useful to obtain a hydrodynamic description for the condensate, performed by treating its wave-function as
+$$\\label{eqn:madelung}
+\\Psi(\\textbf{r},t) = \\sqrt{\\rho(\\mathbf{r},t)} e^{\\textrm{i}\\theta(\\textbf{r},t)},$$
+ with
+*ρ*(**r**, *t*)=*Ψ*<sup>\*</sup>(**r**, *t*)*Ψ*(**r**, *t*)=|*Ψ*(**r**, *t*)|<sup>2</sup>.
+ where *θ*(**r**, *t*) is the condensate phase . Multiplying Eq.  by *Ψ*<sup>\*</sup>(**r**, *t*) then subtracting the complex conjugate of that expression allows one to obtain the continuity equation as 
+$$\\label{eqn:continuity}
+\\frac{\\partial}{\\partial t}\\rho(\\textbf{r},t)  + \\nabla\\cdot \\textbf{j}(\\textbf{r},t) = 0,$$
+ where the current density of the condensate is
+$$\\label{eqn:current\_density}
+\\textbf{j}(\\textbf{r},t) = \\frac{-\\textrm{i}\\hbar}{2m}\\left\[\\Psi^\*(\\textbf{r},t)\\nabla\\Psi(\\textbf{r},t) - \\Psi(\\textbf{r},t)\\nabla\\Psi^\*(\\textbf{r},t)\\right\].$$
+ Using ansatz and substituting it into Eq. then gives the form for the current density,
+$$\\textbf{j}(\\textbf{r},t) = \\vert\\Psi(\\textbf{r},t)\\vert ^2\\frac{\\hbar}{m}\\nabla\\theta(\\textbf{r},t).$$
+ The velocity of the superfluid, **v**(**r**, *t*), is defined as the ratio of the current density to the density, which is then given by
+$$\\label{eqn:velocity}
+\\textbf{v}(\\textbf{r},t)\\equiv \\frac{\\textbf{j}(\\textbf{r},t)}{\\rho(\\textbf{r},t)} = \\frac{\\hbar}{m}\\nabla\\theta(\\textbf{r},t).$$
+ The gradient of the phase therefore determines the velocity of the condensate atoms; this indicates that the superfluid behaviour in a condensate is irrotational (∇ × (∇*θ*)=0). Assuming a closed loop integral about a central point in the condensate, and recalling the single-valued nature of the wavefunction, yields the relationship
+$$\\label{eqn:circulation}
+\\oint \\textbf{v}\\cdot d\\textbf{l} = \\frac{\\hbar}{m}2\\pi l.$$
+ This shows the quantised nature of circulation in a superfluid, with *l* representing the integer charge of the circulation. The phase winding around the central region is given by multiples of 2*π*, with the centre of the phase becoming ill-defined. To circumvent this problem the density at this point drops to zero, signalling the presence of a vortex in the condensate. This drop happens over the scale of the healing length, which, for repulsive interactions, is given by
+$$\\xi = \\frac{1}{\\sqrt{8\\pi \\rho\_b a\_s}},$$
+ where *ρ*<sub>*b*</sub> is the bulk density of the condensate, and *a*<sub>*s*</sub> is the *s*-wave scattering length. For a cylindrically symmetric rotating condensate carrying a single vortex in its centre the wavefunction can be written as
+*Ψ* = |*Ψ*|*e*<sup>i*l**θ*</sup>,
+ where *l* is the vortex charge. The velocity profile at a distance *r*<sub>*v*</sub> away from the core can then be given as
+$$\\label{eqn:1\_over\_r}
+    v =\\frac{\\hbar l}{m r\_v}.$$
+
+To sustain a vortex the condensate must have sufficient angular momentum, which is imparted via the angular rotation frequency times the angular momentum operator −*Ω**L*<sub>*z*</sub> in the Hamiltonian given by Eq. . The rotation frequency, *Ω*, of the condensate has an upper-bound stability limit equivalent to the transverse trapping frequency, *ω*<sub>⊥</sub>, of the harmonically trapped condensate.
+
+### Vortices in Bose–Einstein condensates
+
+Given that the circulation of a vortex in a superfluid is quantised, one may assume that for faster rotation rates the circulation increases in integer multiples of *h*/*m*, beyond critical rotation thresholds to excite each higher multiple. To understand the effect of vortex charge on the condensate, it is necessary to examine the energy functional, as given by
+*E*\[*Ψ*\]=∫*Ψ*<sup>\*</sup>(*H*<sub>E</sub>)*Ψ**d***r**,
+ where *H*<sub>E</sub> = ( − ℏ<sup>2</sup>/2*m*)∇<sup>2</sup> + *V* + *g*|*Ψ*|<sup>2</sup>/2 − *Ω**L*<sub>*z*</sub>. By substituting into Eq.  the energy functional is given as
+$$\\label{eqn:functional\_full}
+    E\[\\Psi\] = \\int \\frac{\\hbar^2}{2m} \\left(|\\nabla\\Psi|^2  + \\frac{|\\Psi|^2 l^2 m \\mathbf{v}^2}{2}  \\right) + V|\\Psi|^2 + \\frac{g}{2}|\\Psi|^4 + \\Omega \\Psi^{\*} L\_z \\Psi,$$
+ where **v** is the superfluid velocity, as given by Eq. . The *l*<sup>2</sup> term shows that the energy scales quadratically with an increase in charge. This energy growth dependence indicates that it will be more favourable to allow for two singly charged vortices, than a single doubly charged vortex, which will decay due to the presence of complex eigenmodes . For rates of rotation *Ω*<sub>*c*</sub> &lt; *Ω* &lt; *ω*<sub>⊥</sub>, where *Ω*<sub>*c*</sub>, is the threshold rotation rate to create a vortex, the condensate will favour many singly quantised vortices, rather than one or several multiply charged ones. For a superfluid condensate in the rotating frame *Ω*<sub>*c*</sub> = *E*<sub>*v*</sub>/*L* = *E*<sub>*v*</sub>/(*N*ℏ), where *E*<sub>*v*</sub> is the energy of the vortex, and *L* is the angular momentum component of the superfluid along *z* .
+
+The stability of vortex states in a condensate is also a widely discussed topic , as non-rotating traps show an instability for small displacements of the vortex from the trap centre. Since the “rotating bucket” technique used to generate vortices in **<sup>4</sup>He cannot be used for gaseous BECs, many other techniques have been developed . For the work presented in this thesis, the method proposed by Dobrek *et al*. , is of particular interest, as it allows one to optically generate vortices by the use of what they term a “phase-imprinting” method. The authors describe a scheme where the phase of the condensate is directly controlled in such a way that the required topological charge to induce a vortex during evolution is provided by external lasers. Through use of an absorption plate whose absorption coefficient depends on the axis angle, the condensate can be imprinted with the required phase pattern. This method will form the basis of one work carried out in this thesis, and will be discussed in detail later in Sec. \[sec:phase\].
+
+### Vortex lattices
+
+Although a large number of works exist which investigate systems with low numbers of vortices , such systems do not necessarily form periodic vortex lattices. We will therefore concentrate primarily on studies of systems containing many vortices, assuming large values of *Ω* ≲ *ω*<sub>⊥</sub>. For such systems, the vortices are arranged in a periodic triangular Abrikosov lattice, reminiscent of that which appears in type-II superconductors with magnetic flux lines . This triangular lattice configuration is the most energetically favourable and stable arrangement . Experimental setups have demonstrated upwards of over 130 vortices in a well ordered triangular formation. The resulting lattices are shown to be highly stable and are ideal setups for investigations of periodic systems .
+
+The Thomas–Fermi limit discussed earlier describes the case where the kinetic energy term of the Hamiltonian may be neglected in comparison to the interaction energy, as it offers little contribution to the condensate behaviour. This remains true for low rotation rates, however kinetic energy becomes important in the limit of fast rotation. In this case *Ω*/*ω*<sub>⊥</sub> ≈ 1, and the centrifugal force term, *m**Ω*<sup>2</sup>*r*, almost balances with the trapping force term, −*m**ω*<sup>2</sup>*r*. The condensate behaviour then closely resembles that of the two-dimensional quantum Hall regime, where the system is residing in the lowest Landau level, (LLL) (*n* = 0) . As the rotation of the cloud approaches the trapping frequency, the system tends to the LLL, wherein the nonlinear interaction term becomes relatively weak due to the centrifugal forces on the atomic cloud. In this regime the Thomas–Fermi approximation becomes invalid, as the interaction term no longer dominates over the kinetic energy. The interaction energy is then much smaller than the gap between energy levels for single particle Landau levels. While there have been studies using harmonic-plus-quartic potentials to allow condensates to remain trapped beyond the harmonic trapping frequency limit , we will in this thesis consider only systems in a harmonic confinement.
+
+At high rotation rates very close to the trap frequency (*Ω*/*ω*<sub>⊥</sub> ≈ 1) the system enters a fractional quantum Hall (FQH) state , and will require treatment beyond that of mean-field methods. This state will require the use of a discrete boson model, which becomes next to impossible to simulate for a realistic number of atoms in a condensate. However, for rotation rates just below this limit a mean-field approach can be used in the so-called “mean-field quantum Hall” (MFQH) regime . The differences between these two regimes are characterised purely by the ratio of the kinetic energy to the interaction energy of the system, and in the MFQH regime we can assume that the LLL has been achieved . To identify these different regimes one may use the the “filling factor”, *ν* = *N*/*N*<sub>*v*</sub> , which examines the ratio of atoms, *N*, to vortices in the system, *N*<sub>*v*</sub>. This becomes an important characteristic at high rotation rates, and in the case where 1000 &gt; *ν* &gt; 10, the system may be accurately described to be in the MFQH regime. For values *ν* ≤ 10 the system is said to be strongly correlated , and the system enters the FQH regime. For an almost perfectly regular vortex lattice, the rotation rate must be sufficiently large so that the condensate width extends to large distances and a large number of vortices are generated, without entering the FQH regime . To ensure the applicability of mean-field theory choosing rotational frequencies that guarantee this is important.
+
+The distribution of the vortices in the MFQH regime forms a triangular lattice pattern that is almost regular . As discussed earlier, the condensate has an irrotational flow profile due to velocity being defined as Eq. . This relation holds true provided that *θ* is well defined, which is not the case at the centre of a vortex. As the phase at the vortex core is ill-defined, this singular region creates a non-zero curl. A generalisation of the irrotational flow condition (i.e. ∇ × **v** = 0) to account for this can be given as as 
+$$\\nabla\\times \\mathbf{v}=\\frac{2\\pi l\\hbar}{m}\\delta^{(2)}(\\mathbf{r}\_\\perp) \\hat{z},$$
+ where *δ*<sup>2</sup> is a two-dimensional Dirac delta function, $\\hat{z}$ is the unit vector along *z* and **r**<sub>⊥</sub> = (*x*, *y*). For large rotation frequencies this value becomes very similar to that of a solid-body rotation, as given by ∇ × **v** = 2*Ω*<sub>*z*</sub>. This result arises for a large regular vortex lattice, where the areal density of vortices can be specified by the Feynman relation 
+$$\\label{eqn:feynman}
+n\_{v} = \\frac{m\\Omega}{\\pi\\hbar}.$$
+ In the case of realistic condensates systems, where the densities are not uniform due to harmonic trapping, deviations exist from this value which have been calculated theoretically and observed experimentally . However, for the values chosen in all later discussed simulations these deviations tend to be small, and can in most cases be neglected.
+
+Some key details for the classification of the regime of the condensate are :
+
+-   Mean-field theory and experiment agree well for large atom numbers (*N* &gt; 10<sup>3</sup>) and rotational frequencies reaching approximately 0.995*ω*<sub>⊥</sub>.
+
+-   The density profile of slowly rotating condensates differs very little from that of non-rotating condensates, except for the inclusion of the vortex cores.
+
+-   The Thomas–Fermi regime holds true for frequencies of 0.75 ≤ *Ω*/*ω*<sub>⊥</sub> ≤ 0.99, where kinetic energy remains negligible compared to flow velocity.
+
+-   The MFQH regime description, holding for 0.99 ≤ *Ω*/*ω*<sub>⊥</sub> ≤ 0.999, sees the vortex cores expanding and forming a densely packed lattice.
+
+Given the above criteria, the rapidly rotating condensate system in our work can be described using mean-field Gross–Pitaevskii theory at a rotation rate of *Ω* = 0.995*ω*<sub>⊥</sub>, assuming *N* ≈ 10<sup>6</sup> atoms, as used in typical experimental setups.
+
+Recent progress and outlook
+---------------------------
+
+Recently there have been many advances in the control of atomic BEC systems. A notable example is the work of Gauthier *et* al. , wherein they demonstrate arbitrary optical potential generation for Bose–Einstein condensates through use of digital micromirror devices (DMD). The authors demonstrate high resolution control and patterning of the condensate, and show near perfect control of the condensate atomic distribution. Given the current state of the art high performance imaging and control techniques available, these experimental systems can allow for high precision control and manipulations of the atoms, and therefore also vortices.
+
+Another recent experimental work of note is that of Wigley *et* al. , with a completely automated approach to BEC generation and control. Such automation can allow for much higher throughput of experimental data collection, and allow for a much wider breadth of physics to be explored in condensate systems.
+
+The current state of the art experimental systems can offer a very high degree of control of condensates, and their ensuing dynamics. In fact, all further methods discussed can be built using currently available state of the art systems, and hence are experimentally realisable.

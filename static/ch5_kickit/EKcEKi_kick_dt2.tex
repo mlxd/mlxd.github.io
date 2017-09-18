@@ -1,0 +1,48 @@
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage{tikz,pgfplots,pgf}
+\input{colour_incl}
+
+\begin{document}
+
+
+%\pgfplotstableread[col sep = comma]{/Users/mlxd/Desktop/sumEKc.csv}\mydata
+\begin{tikzpicture}
+    \begin{semilogyaxis}[name=ekc,
+        xlabel=\textsc{$k~(m^{-1})$},
+        ylabel=$E(k)$,
+        xmin=0,xmax=1.3e6,
+        ymin=1e-28,ymax=1e-12,
+        tick scale binop=\times
+    ]
+    \addplot[mark=none, myblue, thick] table [col sep=comma, trim cells=true, x=c, y=a] {kick_novtx_ekcekikbin_dt2.dat};\addlegendentry{$E^c$}
+    \addplot[mark=none, myorange, thick] table [col sep=comma, trim cells=true, x=c, y=b] {kick_novtx_ekcekikbin_dt2.dat};\addlegendentry{$E^i$}
+    %\addplot[mark=none, myblue, thick] table [col sep=comma, trim cells=true, x=x, y=y]{kick_novtx_ekcekikbin_dt2.dat};
+   % \addplot[mark=none, myyellow, thick] table [col sep=comma, trim cells=true, x=x, y=y] {no_kick_kbin2_512__sumavgEKi_2-100.tex};
+
+   \addplot [line width=1.5pt, color=mygreen, dotted] table {
+   3.5167e5 1e-28
+   3.5167e5 1e-12
+   };
+      \end{semilogyaxis}
+
+
+
+
+
+    %\addplot[mark=none, myblue, ultra thick] plot coordinates {
+	%	\input{data_sum_omega0_kicked_ekc.tikz}
+	%};
+%\begin{loglogaxis}[
+%        xlabel=\textsc{$k$},
+%        ylabel=$E_i(k)$,
+%        at=(ekc.below south), anchor=above north
+%    ]
+%    \addplot[mark=none, myyellow,  thick] table [col sep=comma, trim cells=true, x=x, y=y] {no_kick_kbin2_512__sumavgEKi.csv};
+
+    %\legend{$E_c(k)$\\$E_i(k)$\\}
+ %\legend{$\tilde{\Omega}=0$, kicked\\ $\tilde{\Omega}=0.995$, non-kicked\\}
+%    \end{loglogaxis}
+
+\end{tikzpicture}
+
+\end{document}

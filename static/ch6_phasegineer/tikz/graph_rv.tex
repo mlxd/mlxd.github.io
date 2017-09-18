@@ -1,0 +1,27 @@
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage{tikz,pgfplots,pgf}
+\input{../../include/colour_incl}
+\begin{document}
+
+\begin{tikzpicture}
+    \begin{axis}[
+        xlabel=$t$ (s),
+        ylabel=$\langle r_v \rangle$ (m),
+        legend pos=north west
+    ]
+
+    \addplot[mark=none, myblue] table [y expr=\thisrowno{0}*6.821230e-07, col sep=comma, trim cells=true, x=c, y=a] {../imgs/NEWPICS/varrnuclear/GRAPHDAT.csv};
+
+
+    \addplot[mark=none, myred] table [y expr=\thisrowno{0}*6.821230e-07, col sep=comma, trim cells=true, x=c, y=a] {../imgs/NEWPICS/varr161anti/GRAPHDAT.csv};
+
+
+        \addplot[mark=none, mygreen] table [y expr=\thisrowno{0}*6.821230e-07, col sep=comma, trim cells=true, x=c, y=a] {../imgs/NEWPICS/varr161/GRAPHDAT.csv};
+
+    \legend{$7$\\1,-1\\$1$\\}
+
+    \end{axis}
+
+\end{tikzpicture}
+
+\end{document}

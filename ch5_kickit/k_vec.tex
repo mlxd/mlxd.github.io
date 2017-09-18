@@ -1,0 +1,73 @@
+\documentclass[tikz,border=2pt,10pt]{standalone}
+\usepackage{tikz,pgfplots,pgf}
+\usetikzlibrary{decorations.pathmorphing,decorations.text,calc}
+\newcommand{\MYPI}{3.14159}
+\newcommand{\MYTHETA}{25}
+\newcommand{\MYSCALE}{3}
+\newcommand{\XSHIFT}{0}
+\newcommand{\OPRIME}{0}
+\newcommand{\LINEPT}{2pt}
+\input{../../include/colour_incl}
+\begin{document}
+	\begin{tikzpicture}\label{fig:k_vec}
+	
+		%%
+			
+		\coordinate (o1) at (0,0) ;
+		\coordinate (g1) at ({1*\MYSCALE},0); 
+		\coordinate (g2) at ({0.5*\MYSCALE},{0.866*\MYSCALE}); 
+		\coordinate (g3) at ({-0.5*\MYSCALE},{0.866*\MYSCALE}); 
+		\coordinate (g4) at ({-1*\MYSCALE},0);
+		\coordinate (g5) at ({-0.5*\MYSCALE},{-0.866*\MYSCALE}); 
+		\coordinate (g6) at ({0.5*\MYSCALE},{-0.866*\MYSCALE}); 
+		
+		\coordinate (h1) at ({\XSHIFT + (\OPRIME+cos(\MYTHETA))*\MYSCALE},{\MYSCALE*sin(\MYTHETA)}); 
+		\coordinate (h2) at ({\XSHIFT + (\OPRIME+cos(\MYTHETA+60))*\MYSCALE},{\MYSCALE*sin(\MYTHETA+60)});  
+		\coordinate (h3) at ({\XSHIFT + (\OPRIME+cos(\MYTHETA+120))*\MYSCALE},{\MYSCALE*sin(\MYTHETA+120)}); 
+		\coordinate (h4) at ({\XSHIFT + (\OPRIME+cos(\MYTHETA+180))*\MYSCALE},{\MYSCALE*sin(\MYTHETA+180)}); 
+		\coordinate (h5) at ({\XSHIFT + (\OPRIME+cos(\MYTHETA+240))*\MYSCALE},{\MYSCALE*sin(\MYTHETA+240)}); 
+		\coordinate (h6) at ({\XSHIFT + (\OPRIME+cos(\MYTHETA+300))*\MYSCALE},{\MYSCALE*sin(\MYTHETA+300)}); 
+		
+		\draw[-,color=mygreen,dotted,line width=\LINEPT] (g1) -- (h1) node  [midway, sloped, above] (TextNode) {\color{black}$|\mathbf{g}_{1} - \mathbf{h}_{1}|$};
+		\draw[-,color=mygreen,dotted,line width=\LINEPT] (g2) -- (h2) node  [midway, sloped, above] (TextNode) {\color{black}$|\mathbf{g}_{2} - \mathbf{h}_{2}|$};
+		\draw[-,color=mygreen,dotted,line width=\LINEPT] (g3) -- (h3) node  [midway, sloped, above] (TextNode) {\color{black}$|\mathbf{g}_{3} - \mathbf{h}_{3}|$};
+		\draw[-,color=mygreen,dotted,line width=\LINEPT] (g4) -- (h4) node  [midway, sloped, below] (TextNode) {\color{black}$|\mathbf{g}_{4} - \mathbf{h}_{4}|$};
+		\draw[-,color=mygreen,dotted,line width=\LINEPT] (g5) -- (h5) node  [midway, sloped, below] (TextNode) {\color{black}$|\mathbf{g}_{5} - \mathbf{h}_{5}|$};
+		\draw[-,color=mygreen,dotted,line width=\LINEPT] (g6) -- (h6) node  [midway, sloped, below] (TextNode) {\color{black}$|\mathbf{g}_{6} - \mathbf{h}_{6}|$};
+		
+		%%
+		\draw[-,color=mypurple,line width=\LINEPT] ({0.6*\MYSCALE},0)  arc(0:\MYTHETA:0.6*\MYSCALE);% node [left, sloped] (TextNode) {$\theta$};
+		\draw[-,color=mypurple,line width=\LINEPT] ({1.3},{2.3})  arc(60:\MYTHETA:0.9*\MYSCALE);
+		%\draw[decoration={text along path, text={$\theta$}, text align={center}}, decorate] ({0.6*\MYSCALE},0) to (1,1); %arc(0:\MYTHETA:0.6*\MYSCALE);
+		\node (name) at ({0.475*\MYSCALE},{0.4*\MYSCALE*sin(0.5*\MYTHETA)}) {\color{mypurple} $\theta_{\tiny\textrm{opt}}$};
+		\node (name1) at ({0.525*\MYSCALE},{0.5*\MYSCALE*(sin(0.5*(\MYTHETA))) + \MYPI/3}) {\color{mypurple} ${\frac{\pi}{3}-\theta_{\tiny\textrm{opt}}}$};		
+		
+		\draw[->,color=myred,solid,line width=\LINEPT] (o1) -- (h1) node  [midway,above, sloped] (TextNode) {\color{myred}$\mathbf{h}_{1}$};
+		\draw[->,color=myred,solid,line width=\LINEPT] (o1) -- (h2) node  [midway,above, sloped] (TextNode) {\color{myred}$\mathbf{h}_{2}$};
+		\draw[->,color=myred,solid,line width=\LINEPT] (o1) -- (h3) node  [midway,above, sloped] (TextNode) {\color{myred}$\mathbf{h}_{3}$};
+		\draw[->,color=myred,solid,line width=\LINEPT] (o1) -- (h4) node  [midway,below, sloped] (TextNode) {\color{myred}$\mathbf{h}_{4}$};
+		\draw[->,color=myred,solid,line width=\LINEPT] (o1) -- (h5) node  [midway,below, sloped] (TextNode) {\color{myred}$\mathbf{h}_{5}$};
+		\draw[->,color=myred,solid,line width=\LINEPT] (o1) -- (h6) node  [midway,below, sloped] (TextNode) {\color{myred}$\mathbf{h}_{6}$};		
+		
+		\draw[->,color=myblue,solid,line width=\LINEPT] (o1) -- (g1) node  [near end, below, sloped] (TextNode) {\color{myblue}$\mathbf{g}_{1}$};
+		\draw[->,color=myblue,solid,line width=\LINEPT] (o1) -- (g2) node  [near end, above, sloped] (TextNode) {\color{myblue}$\mathbf{g}_{2}$};
+		\draw[->,color=myblue,solid,line width=\LINEPT] (o1) -- (g3) node  [near end, above, sloped] (TextNode) {\color{myblue}$\mathbf{g}_{3}$};
+		\draw[->,color=myblue,solid,line width=\LINEPT] (o1) -- (g4) node  [near end, above, sloped] (TextNode) {\color{myblue}$\mathbf{g}_{4}$};
+		\draw[->,color=myblue,solid,line width=\LINEPT] (o1) -- (g5) node  [near end, below, sloped] (TextNode) {\color{myblue}$\mathbf{g}_{5}$};
+		\draw[->,color=myblue,solid,line width=\LINEPT] (o1) -- (g6) node  [near end, below, sloped] (TextNode) {\color{myblue}$\mathbf{g}_{6}$};
+		\draw[mark options={color=myblue},mark size=1.5\LINEPT] plot[mark=*] (o1);
+		
+
+		
+
+
+		
+		%%
+		
+%		\draw[dashed,->,color=myred,thick] (o2) -- (l1) node [midway, above, sloped] (TextNode) {$\mathbf{k_{22}}$};
+%		\draw[dashed,->,color=myred,thick] (o2) -- (l2) node [midway, above, sloped] (TextNode)  {$\mathbf{k_{21}}$};
+%		\draw[dashed,->,color=myred,thick] (o2) -- (l3) node [midway, above, sloped] (TextNode)  {$\mathbf{k_{23}}$};
+%		\draw[mark options={color=myred},mark size=1pt] plot[mark=*] (o2);
+
+	\end{tikzpicture}
+\end{document}

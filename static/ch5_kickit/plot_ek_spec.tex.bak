@@ -1,0 +1,69 @@
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage{tikz,pgfplots,pgf}
+\input{colour_incl}
+
+\begin{document}
+%\pgfplotstableread[col sep = comma]{/Users/mlxd/Desktop/sumEKc.csv}\mydata
+\begin{tikzpicture}
+    \begin{semilogyaxis}[ytickmin=1e-28,ytickmax=1e-12,  %max space between ticks=20,
+    ytickten={-30, -28, ..., -10},
+    scaled ticks=base 10:-5,
+    xmin=0,
+xmax=1.3e6,
+ymin=5e-28,
+ymax=1e-12,
+        xlabel=\textrm{$k$ [m$^{-1}$]},
+        /pgfplots/tick scale binop=\times,
+        ylabel=\textrm{$E(k)$ [a.u.]}
+    ]
+
+%30964
+    %\addplot [color=mygreen,dashed,line width=1.5pt,forget plot,opacity=0.8] table[row sep=crcr]{3.0964e4 1e-19 \\ 3.0964e4 1e-14\\}; 
+%\draw[->,color=black,dotted,opacity=0.5,line width=1.2pt] (0.2e6,1e-18) -- ( 0.2e6,1e-17);
+    \addplot [color=mygreen,dashdotted,line width=1,forget plot,opacity=0.8] table[row sep=crcr]{3.5493e5 1e-28 \\ 3.5493e5 1e-12\\}; 
+    
+    %\addplot[mark=none, myblue,  thick] table [col sep=comma, trim cells=true, x=x, y=y] {kbin2_512__sumavgEKc_2-100.tex};
+    %\addplot[mark=none, myred,  thick] table [col sep=comma, trim cells=true, x=x, y=y] {kbin2_512__sumavgEKi_2-100.tex};
+    \addplot[mark=none, myblue, thick] table [col sep=comma, trim cells=true, x=c, y=a] {kick_novtx_ekcekikbin_dt2.dat};
+    \addplot[mark=none, myred, dashed,thick] table [col sep=comma, trim cells=true, x=c, y=b] {kick_novtx_ekcekikbin_dt2.dat};
+    
+   % \addplot[mark=none, mygreen, ultra thick] table [col sep=comma, trim cells=true, x=x, y=y] {no_kick_kbin2_512__sumavgEKc.csv};
+  %  \addplot[mark=none, black, ultra thick] table [col sep=comma, trim cells=true, x=x, y=y] {no_kick_kbin2_512__sumavgEKi.csv};
+       
+        
+    %\addplot[mark=none, myblue, ultra thick] plot coordinates {
+	%	\input{data_sum_omega0_kicked_ekc.tikz}
+	%};
+
+
+    \legend{$E^c(k)$\\$E^i(k)$\\}
+ %\legend{$\tilde{\Omega}=0$, kicked\\ $\tilde{\Omega}=0.995$, non-kicked\\}
+    \end{semilogyaxis}
+  \end{tikzpicture}  
+    \begin{tikzpicture}
+
+    
+\begin{semilogyaxis}[
+    scaled ticks=base 10:-5,
+    xmin=0,
+xmax=1.3e6,
+ymin=1e-16,
+ymax=5e-11,
+        xlabel=\textrm{$k$ [m$^{-1}$]},
+        /pgfplots/tick scale binop=\times,
+        ylabel=\textrm{$E(k)$ [a.u.]}
+    ]
+    \addplot[mark=none, myblue, thick] table [col sep=comma, trim cells=true, x=c, y=a] {EKcEKiKBIN_1s.csv};
+    \addplot[mark=none, myorange, thick] table [col sep=comma, trim cells=true, x=c, y=b] {EKcEKiKBIN_1s.csv};
+
+    \addplot [color=mygreen,dashed,line width=1,forget plot,opacity=0.8] table[row sep=crcr]{3.5493e5 7e-17 \\ 3.5493e5 1e-10\\}; 
+    
+    \legend{$E^c(k)$\\$E^i(k)$\\}
+ %\legend{$\tilde{\Omega}=0$, kicked\\ $\tilde{\Omega}=0.995$, non-kicked\\}
+    \end{semilogyaxis}
+        
+      \end{tikzpicture}  
+
+
+    
+\end{document}

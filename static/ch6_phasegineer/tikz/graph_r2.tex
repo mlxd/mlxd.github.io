@@ -1,0 +1,22 @@
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage{tikz,pgfplots,pgf}
+\input{../../include/colour_incl}
+\begin{document}
+
+\begin{tikzpicture}
+    \begin{axis}[
+        xlabel=$t$ (s),
+        ylabel=$\langle r^2 \rangle$ (m),
+        legend pos=north west,
+        tick scale binop=\times,
+        width=8cm,
+        height=4cm,
+    ]
+
+    \addplot[mark=none, myblue,thick] table [ col sep=comma, trim cells=true, x=a, y=b] {R2expect_s.dat};
+
+    \end{axis}
+
+\end{tikzpicture}
+
+\end{document}

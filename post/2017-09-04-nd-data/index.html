@@ -218,7 +218,7 @@
 <pre><code class="language-c++">for(int k=0; k &lt; k_size; ++k)
     for(int j=0; j &lt; j_size; ++j)
         for(int i=0; i &lt; i_size; ++i)
-            data[i + i_size*j*(1 + j_size*k)] = 0;
+            data[i + i_size*(j + j_size*k)] = 0;
 </code></pre>
 
 <p>In this example, $i$ is the fast index and the axis along which the data is linearly adjacent in memory, and $k$ is the slow axis (with $j$ being slower than fast and faster than slow).</p>

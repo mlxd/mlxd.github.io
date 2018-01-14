@@ -65,7 +65,7 @@ $$\\label{eqn:heisenberg}
 \\textrm{i}\\hbar \\frac{d}{d t}\\hat{\\Psi}\_H\\left(\\mathbf{r}, t\\right) = \\left\[\\hat{\\Psi}\_{H}\\left(\\mathbf{r}, t\\right), \\hat{\\mathcal{H}}  \\right\],$$
  where the Heisenberg field annihilation operator, $\\hat{\\Psi}\_H\\left(\\textbf{r}, t\\right)$, is given by
 $$\\label{eqn:psi\_heisenberg}
-\\hat{\\Psi}\_H\\left(\\mathbf{r}, {t} \\right) = e^{{\\textrm{i}\\hat{\\mathcal{H}}t / \\hbar}}\\hat{\\Psi}\\left(\\mathbf{r}\\right) e^{{-\\textrm{i}\\hat{\\mathcal{H}}t / \\hbar}}.$$
+\\hat{\\Psi}\_H\\left(\\mathbf{r}, {t} \\right) = e^{ { \\textrm{i} \\hat{ \\mathcal{H} }t / \\hbar}} \\hat{\\Psi}\\left(\\mathbf{r}\\right) e^{{-\\textrm{i}\\hat{\\mathcal{H}}t / \\hbar}}.$$
  The operator, $\\hat{\\Psi}\_H$, can be interpreted as the one removing an atom from a given state of the system. Therefore, if all *N* atoms in the system are in the ground state, $|0\_N\rangle$, as would be the case in an ideal condensate, the following relationship holds
 
 $$

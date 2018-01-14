@@ -1,6 +1,6 @@
 +++
 title = "Thesis"
-draft = false
+draft = true
 date = "2017-09-19"
 tags = []
 math = "true"
@@ -49,34 +49,6 @@ Next, by removing vortices at predefined positions in the lattice using phase im
 
 All work described makes extensive use of GPU computing techniques, and allows for the simulation of these systems to be realised in short times. The implementation of the calculations using GPU computing are also discussed, where the software is shown to be the fastest of its kind out of the independently tested software suites.
 
-License and copyright information
-=================================
-
-The work contained in this thesis includes materials that have been published elsewhere. Notably, Chapters 3, 5 and 6 include figures and text that are published in adapted and original form in the American Physical Society’s journal Physical Review A. Copyright permission has been obtained for use of these figures, and for brevity the copyright notice is given here.
-
-### Chapter 3. Numerical methods
-
-Reprinted excerpts and figures with permission from Tadhg Morgan, Lee James O’Riordan, Neil Crowley, Brian O’Sullivan and Thomas Busch, Physical Review A **88**, 053618 (2013). Copyright (2013) by the American Physical Society.
-
-### Chapter 5. Moiré superlattice structures
-
-Reprinted excerpts and figures with permission from Lee James O’Riordan, Angela White and Thomas Busch, Physical Review A **93**, 023609 (2016). Copyright (2016) by the American Physical Society.
-
-### Chapter 6. Defect engineering of the vortex lattice
-
-Reprinted excerpts and figures with permission from Lee James O’Riordan, and Thomas Busch, Physical Review A **94**, 053603 (2016). Copyright (2016) by the American Physical Society.
-
-Acknowledgments
-===============
-
-/\* Firstly, I would like to express my sincerest gratitude to my family back in the ’mel who have always been there for me, and provided amazing support from across the planet since I started my PhD (and before I started too) — most notably, to Mum, Nan, and Maria, who have helped so much over the past few years. Next, my sincerest gratitude and thanks goes to Prof. Thomas Busch, for freeing me from the working world and introducing me to the (ultra)cool world of atomic physics, as well as the guidance he has offered over the years. To past and present members of both the Ultracold Quantum Gases group at University College Cork, and Quantum Systems Unit at OIST, thanks for keeping me sane and helping out through the work and writing over the years — in no particular order: Mossy, Steve, Jeremie, Tara, Albert, Angela, Sawako, Rashi, James, Irina, the magnificent Dave Rea, and of course Tadhg. Next, I would like to thank the Graduate School for all of their help removing bureaucratic dealings from my everyday life here. A special thanks goes to IT & the Scientific Computing Section, for allowing me access to some very amazing toys over these past few years. A special thanks also to Annie, for supplying me with enough caffeine to get to the moon and back. Lastly, but not least-ly, to Christina for her compassion, understanding, and companionship over the past few years. \*/
-
-*i*← ありがとうございます!
-
-<span>
-- <span>D</span><span>o</span><span>o</span></span><span>M</span> <span>6) [1]</span>
-
-Introduction
 ============
 
 The purpose of this work is to understand the dynamics of rapidly rotating Bose–Einstein condensates subjected to perturbations, and to develop techniques to control and engineer specific non-equilibrium states. While it is possible to derive some analytical solutions for rapidly rotating condensates (e.g. lowest Landau level approach), such solutions are rare. This thesis concentrates on the numerical solutions of the Gross–Pitaevskii equation, and the resulting dynamics within this framework. It focuses on gaining an understanding of the dynamical behaviour of quantum vortices in an Abrikosov geometry following a perturbation. This body of work was carried out during my time as a Ph.D student at Okinawa Institute of Science and Technology Graduate University (OIST), and grew out of work and ideas I started to pursue at University College Cork (UCC), Ireland.

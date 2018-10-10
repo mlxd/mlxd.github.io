@@ -23,6 +23,7 @@ external_link = ""
 
 # Does the project detail page use math formatting?
 math = true
+draft = true
 
 +++
 Numerical methods

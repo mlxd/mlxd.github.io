@@ -25,5 +25,4 @@ external_link = ""
 math = true
 
 +++
-
-This page will be updated with instructions on how to use [GPUE](https://github.com/mlxd/gpue).
+[GPUE](https://github.com/gpue-group/gpue) represents the culmination of work by myself and [James Schloss](https://github.com/leios) into investigating superfluid dynamics using Bose-Einstein condensates. This solver allows for studies of 2D and 3D dynamics, quantum vortices, arbitrary potential geometries, artificial gauge fields, as well as a variety of additional features. The solver makes use of CUDA libraries and custom kernels to enable GPUE to simulate quantum systems faster than [competing suites or libraries](https://peterwittek.com/gpe-comparison.html), as well as Python routines for post-processing and data analysis. Documentation and example use-cases are available [here](https://gpue-group.github.io), with the API available [here](https://gpue-group.github.io/development/html/).

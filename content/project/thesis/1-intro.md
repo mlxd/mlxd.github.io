@@ -23,7 +23,7 @@ external_link = ""
 
 # Does the project detail page use math formatting?
 math = true
-
+draft = true
 +++
 
 <span>Thesis submitted for the degree </span>

@@ -1,7 +1,7 @@
 publishDir = "./"
 baseurl = "https://mlxd.github.io/"
 title = "Lost in Computation"
-copyright = "&copy; 2017 Lee James O'Riordan (mlxd)"
+copyright = "&copy; 2018 Lee James O'Riordan (mlxd)"
 theme = "academic"
 enableEmoji = true
 footnotereturnlinkcontents = "<sup>^</sup>"
@@ -21,10 +21,10 @@ defaultContentLanguageInSubdir = false
 
 [params]
   name = "Lee James O'Riordan"
-  role = "Postdoctoral researcher"
-  organization = "Lawrence Berkeley National Labs"
+  role = ""
+  organization = ""
   avatar = "mypic.jpg"
-  email = "loriordan@lbl.gov"
+  email = "loriordan@gmail.com"
   address = ""
   office_hours = ""
   phone = ""

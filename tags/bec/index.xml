@@ -6,9 +6,11 @@
     <description>Recent content in Bec on Lost in Computation</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; 2017 Lee James O&#39;Riordan (mlxd)</copyright>
+    <copyright>&amp;copy; 2018 Lee James O&#39;Riordan (mlxd)</copyright>
     <lastBuildDate>Wed, 18 Jan 2017 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/tags/bec/" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="https://mlxd.github.io/tags/bec/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>GPUE</title>
@@ -16,18 +18,7 @@
       <pubDate>Wed, 18 Jan 2017 00:00:00 +0000</pubDate>
       
       <guid>https://mlxd.github.io/project/gpue/</guid>
-      <description>&lt;p&gt;This page will be updated with instructions on how to use &lt;a href=&#34;https://github.com/mlxd/gpue&#34;&gt;GPUE&lt;/a&gt;.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Ultracold quantum systems</title>
-      <link>https://mlxd.github.io/project/uqs/</link>
-      <pubDate>Wed, 18 Jan 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://mlxd.github.io/project/uqs/</guid>
-      <description>&lt;p&gt;This page will be updated with details of the research undertaken during my PhD.&lt;/p&gt;
-</description>
+      <description>GPUE represents the culmination of work by myself and James Schloss into developing a high performance quantum dynamics simulator for investigating superfluid dynamics of Bose-Einstein condensates. This solver allows for studies of 2D and 3D dynamics, quantum vortices, arbitrary potential geometries, artificial gauge fields, as well as a variety of additional features. The solver makes use of CUDA libraries and custom kernels to enable GPUE to simulate quantum systems faster than competing suites or libraries, as well as Python routines for post-processing and data analysis.</description>
     </item>
     
   </channel>

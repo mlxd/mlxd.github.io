@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="hugo-academic">
+  <meta name="generator" content="Hugo 0.49" />
+  <meta name="author" content="Lee James O&#39;Riordan">
+  
+
+  
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="/css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.0/css/academicons.min.css" integrity="sha512-GGGNUPDhnG8LEAEDsjqYIQns+Gu8RBs4j5XGlxl7UfRaZBhCCm5jenJkeJL8uPuOXGqgl8/H1gjlWQDRjd3cUQ==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather%7CRoboto+Mono">
+  <link rel="stylesheet" href="/css/hugo-academic.css">
+  
+
+  
+
+  <link rel="alternate" href="https://mlxd.github.io/index.xml" type="application/rss+xml" title="Lost in Computation">
+  <link rel="feed" href="https://mlxd.github.io/index.xml" type="application/rss+xml" title="Lost in Computation">
+
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/apple-touch-icon.png">
+
+  <link rel="canonical" href="https://mlxd.github.io/page/exafel/readme/">
+
+  
+
+  <title>Levenberg-Marquardt sparse solver scaling | Lost in Computation</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Lost in Computation</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#about">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#publications">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#posts">
+            
+            <span>Posts</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#projects">
+            
+            <span>Projects</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+  <div class="article-container">
+    <h1 itemprop="name">Levenberg-Marquardt sparse solver scaling</h1>
+    
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    <time datetime="2018-10-10 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      2018-10-10
+    </time>
+  </span>
+
+  
+
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="/tags/data">data</a
+    >, 
+    
+    <a href="/tags/bio">bio</a
+    >, 
+    
+    <a href="/tags/hpc">hpc</a
+    >, 
+    
+    <a href="/tags/knl">knl</a
+    >
+    
+  </span>
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fmlxd.github.io%2fpage%2fexafel%2freadme%2f"
+         target="_blank">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </li>
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Levenberg-Marquardt%20sparse%20solver%20scaling&amp;url=https%3a%2f%2fmlxd.github.io%2fpage%2fexafel%2freadme%2f"
+         target="_blank">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fmlxd.github.io%2fpage%2fexafel%2freadme%2f&amp;title=Levenberg-Marquardt%20sparse%20solver%20scaling"
+         target="_blank">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fmlxd.github.io%2fpage%2fexafel%2freadme%2f&amp;title=Levenberg-Marquardt%20sparse%20solver%20scaling"
+         target="_blank">
+        <i class="fa fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Levenberg-Marquardt%20sparse%20solver%20scaling&amp;body=https%3a%2f%2fmlxd.github.io%2fpage%2fexafel%2freadme%2f">
+        <i class="fa fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<p>The following documentation and data formed part of the work I carried out at LBNL from 2017 to 2018. The project described herein follows the integration of the <a href="https://github.com/pghysels/STRUMPACK">STRUMPACK</a> sparse linear solver library into CCTBX. Comparing solver&rsquo;s various backends with EIGEN&rsquo;s gives an indication of the applicability of each individual solver to the given problem (Levenberg-Marquardt nonlinear least-squares minimisation) to the observed data. Scalability comparisons are drawn to showcase which backend offers the best performance, allowing for future design decisions. The given code and documents are all available at <a href="https://github.com/ExaFEL/exafel_project/tree/master/95-strumpack_cctbx">ExaFEL</a>.</p>
+
+<p>&ndash;</p>
+
+<h1 id="notes-on-using-strumpack-within-cctbx">Notes on using Strumpack within CCTBX</h1>
+
+<p>Here are the documented results of using Strumpack on a single node for a variety of data set sizes (<code>StrumpackSolverMPI_1K</code>,<code>StrumpackSolverMPI_5K</code>,<code>StrumpackSolverMPI_10K</code>). All tests were performed on <code>dials.lbl.gov</code>, and allow the tests to be repeated at the user&rsquo;s discretion. Example matrices for a variety of different refinement parameters are listed in the given paths, and the times represent a single solution.</p>
+
+<h1 id="setting-up-and-running-strumpack">Setting up and running STRUMPACK</h1>
+
+<p>To build STRUMPACK alongside a conda cctbx.xfel build, follow the instructions given <a href="https://exafel.github.io/docs/psana-cctbx-install">here</a>/<a href="https://github.com/ExaFEL/exafel_project/tree/master/nks">here</a> with the following additional conda packages before building cctbx:</p>
+
+<pre><code class="language-bash">conda install -y IPython mysql-python matplotlib scipy mpi4py jupyter ipyparallel;
+</code></pre>
+
+<p>Building is now carried out as normal:</p>
+
+<pre><code class="language-bash">wget https://raw.githubusercontent.com/cctbx/cctbx_project/master/libtbx/auto_build/bootstrap.py;
+python bootstrap.py hot update --builder=xfel --sfuser=&lt;USERNAME&gt; --cciuser=&lt;USERNAME&gt;;
+python bootstrap.py build --builder=xfel --with-python=`which python` --nproc=&lt;NUM_CORES&gt;;
+source ./build/setpaths.sh;
+</code></pre>
+
+<p>The MPI-enabled work requires the <em>cctbx_project</em> git repository be checked-out into the <em>strumpack_solver_backend</em> branch (eventually all changes will be merged with upstream <em>master</em>).</p>
+
+<pre><code class="language-bash">cd modules/cctbx_project
+git checkout strumpack_solver_backend
+cd ../..
+</code></pre>
+
+<p>We can now proceed with building STRUMPACK, and it&rsquo;s required dependencies. The script located at <code>github.com/exafel/exafel_project/master/strumpack/STRUMPACK_installer_shared.sh</code> will acquire all dependencies and build the libraries against the conda MPI installation, or build OpenMPI if this is not available (such as may be true under MacOS).</p>
+
+<pre><code class="language-bash">wget https://raw.githubusercontent.com/ExaFEL/exafel_project/master/strumpack/STRUMPACK_installer_shared.sh
+chmod +x STRUMPACK_installer_shared.sh
+./STRUMPACK_installer_shared.sh
+</code></pre>
+
+<p>The STRUMPACK (and dependencies) binaries, libraries and headers will be installed into <code>strumpack_build/{bin,lib,include}</code>, of which will be added to the dispatcher environment given successful completion of the installation script. With the presence of the new libraries, refreshing the dispatcher and rebuilding the packages will allow any STRUMPACK-enabled Boost.Python extension modules to be built.</p>
+
+<pre><code class="language-bash">cd build &amp;&amp; libtbx.refresh
+make
+</code></pre>
+
+<p>To test the new libraries several test scripts are available, for a provided A matrix and b vector solution. The solver will compare both the original Eigen-based solver and the new STRUMPACK solvers for both the OpenMP backend (<code>cctbx_project/scitbx/examples/bevington/strumpack_eigen_solver.py</code>) and the distributed MPI-enabled solver (<code>cctbx_project/scitbx/examples/bevington/strumpack_eigen_solver_mpi_dist.py</code>).</p>
+
+<p>Sample run commands are given in the provided notebooks.</p>
+
+<p>Full integration with Samosa will be provided shortly to allow the solvers to be used therein. Initial work to provide selective choice of the Eigen solver backend is available in the <code>eigen_solver_algo</code> branch of <code>https://github.com/cctbx/cctbx_project/</code>.</p>
+
+<h1 id="scalability-tests-on-cori">Scalability tests on Cori</h1>
+
+<p>Scalability testing of the OpenMP and MPI backends are available in Jupyter notebook <a href="https://github.com/ExaFEL/exafel_project/blob/master/95-strumpack_cctbx/StrumpackSolverMPI_dist_Cori.ipynb">StrumpackSolverMPI_dist_Cori.ipynb</a></p>
+
+<h1 id="experimental-spack-build">Experimental spack build</h1>
+
+<p>An experimental set of commands to build STRUMPACK using spack is given <a href="https://github.com/ExaFEL/exafel_project/tree/master/95-strumpack_cctbx/spack_installation">here</a>. This is not supported, and not guaranteed to work. It was used as an example environment to build STRUMPACK dependencies.</p>
+
+    </div>
+  </div>
+
+</article>
+
+<div class="container">
+  <nav>
+  <ul class="pager">
+    
+    <li class="previous"><a href="https://mlxd.github.io/page/exafel/strumpacksolvermpi_10k_data/"><span
+      aria-hidden="true">&larr;</span> Levenberg-Marquardt sparse solver scaling: 10K data set</a></li>
+    
+
+    
+  </ul>
+</nav>
+
+</div>
+
+<div class="article-container">
+  
+
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="powered-by">
+
+      &copy; 2018 Lee James O&rsquo;Riordan (mlxd) &middot; 
+
+      Powered by the <a href="https://github.com/gcushen/hugo-academic" target="_blank">Academic
+      theme</a> for <a href="http://gohugo.io" target="_blank">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.2/imagesloaded.pkgd.min.js" integrity="sha512-iHzEu7GbSc705hE2skyH6/AlTpOfBmkx7nUqTLGzPYR+C1tRaItbRlJ7hT/D3YQ9SV0fqLKzp4XY9wKulTBGTw==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js" integrity="sha512-Z5heTz36xTemt1TbtbfXtTq5lMfYnOkXM2/eWcTTiLU01+Sw4ku1i7vScDc8fWhrP2abz9GQzgKH5NGBLoYlAw==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/plugins/ScrollToPlugin.min.js" integrity="sha512-CDeU7pRtkPX6XJtF/gcFWlEwyaX7mcAp5sO3VIu/ylsdR74wEw4wmBpD5yYTrmMAiAboi9thyBUr1vXRPA7t0Q==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+    
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML" integrity="sha512-tOav5w1OjvsSJzePRtt2uQPFwBoHt1VZcUq8l8nm5284LEKE9FSJBQryzMBzHxY5P0zRdNqEcpLIRVYFNgu1jw==" crossorigin="anonymous"></script>
+    
+    
+
+  </body>
+</html>
+

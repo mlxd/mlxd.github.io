@@ -6,9 +6,11 @@
     <description>Recent content in Uqs on Lost in Computation</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; 2017 Lee James O&#39;Riordan (mlxd)</copyright>
+    <copyright>&amp;copy; 2018 Lee James O&#39;Riordan (mlxd)</copyright>
     <lastBuildDate>Tue, 05 Sep 2017 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/tags/uqs/" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="https://mlxd.github.io/tags/uqs/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Introduction to GPUE: Part 1</title>
@@ -16,77 +18,8 @@
       <pubDate>Tue, 05 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://mlxd.github.io/post/2015-09-18-quantums/</guid>
-      <description>
-
-&lt;h1 id=&#34;bose-einstein-condensation&#34;&gt;Bose$-$Einstein condensation&lt;/h1&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;This will be a hand-waiving introduction to Bose-Einstein condensate theory. I&amp;rsquo;ll begin by introducing what is a Bose-Einstein condensate, followed by how we model it (hint: we use the Gross-Pitaevskii equation). For more detailed derivations, see Pethick and Smith [ISBN: 978-0521846516] or Pitaevskii and Stringari [ISBN: 978-0198507192].&lt;/p&gt;
-
-&lt;p&gt;Again, this is another work in progress, so expect me to continually dump my thoughts here and on subsequent posts.&lt;/p&gt;
-
-&lt;h2 id=&#34;schrödinger-equation&#34;&gt;Schrödinger equation&lt;/h2&gt;
-
-&lt;p&gt;To understand how we simulate a Bose$-$Einstein condensate, first we must examine the behaviour of the Schrödinger equation. I will assume that you are already familiar with the Schrödinger equation, but if not, I will recommend the usual material:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Principles of Quantum Mechanics, Shankar [ISBN: 978-0306447907]&lt;/li&gt;
-&lt;li&gt;Introduction to Quantum Mechanics, Griffiths [ISBN: 978-9332542891]&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;single-particle&#34;&gt;Single particle&lt;/h3&gt;
-
-&lt;p&gt;The single particle Schrödinger equation describes the behaviour of a non-relativistic (i.e. much slower than the speed of light, and/or massless) quantum particle. Firstly, we define our Hamiltonian as&lt;/p&gt;
-
-&lt;p&gt;$$
-\hat{H}_0 = -\frac{\hbar^2}{2m} \hat{\nabla}^2 ,
-$$&lt;/p&gt;
-
-&lt;p&gt;where $~\hat{H}_0$ corresponds with the momentum-space operator for a free particle. Assuming the particle is trapped by an external potential energy, we can give the following Hamiltonian instead,&lt;/p&gt;
-
-&lt;p&gt;$$
-\hat{H}_1 = \hat{H}_0 + \hat{V}_{\textrm{ext}}(\mathbf{r},t).
-$$&lt;/p&gt;
-
-&lt;p&gt;Now we have a potential and kinetic term for our system. In cold atomic systems, we nearly always have trapped atoms, by use of an external trapping potential [usually with optical or magnetic fields]. To simulate the dynamics of a single particle in a trapping potential, we use the time dependent Schrödinger equation,&lt;/p&gt;
-
-&lt;p&gt;$$
-i\hbar\frac{\partial}{\partial t}{\Psi}(\mathbf{r},t) =  \hat{H}_1 {\Psi}(\mathbf{r},t).
-$$&lt;/p&gt;
-
-&lt;h3 id=&#34;many-particle&#34;&gt;Many particle&lt;/h3&gt;
-
-&lt;p&gt;$$
- H_N = \displaystyle\sum\limits_{i=1}^{N} \left(-\frac{\hbar^2}{2m_i} \nabla_i^2 + V_\textrm{ext}(\mathbf{r}_i,t) + \displaystyle\sum_{j\neq i}^{N-1}U(\mathbf{r}_i,\mathbf{r}_j) \right)
-$$
-Solving this for the ground state is hard, even numerically. The memory requirements grow exponentially as we increase the particle count, as every particle must interact in some way with all the others nearby. Therefore, in order to find the lowest energy state we must &lt;a href=&#34;http://arxiv.org/pdf/1301.2073v1.pdf&#34;&gt;simplify things&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;First, let&amp;rsquo;s assume that particles don&amp;rsquo;t interact over long, or even short ranges. What if they can only interact when they occupy the same position, as though $|\mathbf{r}_i - \mathbf{r}_j| = 0$. Also, we can say that the strength of this interaction is dependent upon some parameter, $g$, which depends on properties of the particle. We can also assume that the more particles in a particular region, then the larger the interactions in that specific region. Thus, we can say that these interactions can be approximated by $g\rho(\mathbf{r},t)$, where $\rho$ is the particle density in the region.&lt;/p&gt;
-
-&lt;p&gt;$$
-i\hbar\frac{\partial}{\partial t}\hat{\Psi}(\mathbf{r}_1,\dots\mathbf{r}_N,t) = \left[\hat{\Psi}(\mathbf{r}_1,\dots\mathbf{r}_N,t), H_N \right]
-$$&lt;/p&gt;
-
-&lt;h2 id=&#34;gp-equation&#34;&gt;GP equation&lt;/h2&gt;
-
-&lt;p&gt;$$
-i\hbar\frac{\partial}{\partial t}\Psi(\mathbf{r},t) = \left[ -\frac{\hbar^2}{2m} \nabla^2 + V(\mathbf{r},t) + \color{violet}{g\vert\Psi(\mathbf{r},t)\vert^2} -\color{teal}{\mathbf{\Omega}\cdot \mathbf{L} }\right]\Psi(\mathbf{r},t)&lt;br /&gt;
-$$&lt;/p&gt;
-
-&lt;h3 id=&#34;madelung-transform&#34;&gt;Madelung transform&lt;/h3&gt;
-
-&lt;p&gt;$$
- \Psi(\mathbf{r},t) = \sqrt{\rho\left(\mathbf{r},t\right)}\exp\left[i\theta\left(\mathbf{r},t\right)\right],
-$$
-where $$\rho(\mathbf{r},t) = |\Psi\left(\mathbf{r},t\right)|^2$$&lt;/p&gt;
-
-&lt;h3 id=&#34;evolution&#34;&gt;Evolution&lt;/h3&gt;
-
-&lt;p&gt;$$
-\Psi(\mathbf{r},t+\delta t) = \exp\left(-\frac{i H}{\hbar}\delta t\right)\Psi(\mathbf{r},t)
-$$&lt;/p&gt;
-</description>
+      <description>Bose$-$Einstein condensation This will be a hand-waiving introduction to Bose-Einstein condensate theory. I&amp;rsquo;ll begin by introducing what is a Bose-Einstein condensate, followed by how we model it (hint: we use the Gross-Pitaevskii equation). For more detailed derivations, see Pethick and Smith [ISBN: 978-0521846516] or Pitaevskii and Stringari [ISBN: 978-0198507192].
+Again, this is another work in progress, so expect me to continually dump my thoughts here and on subsequent posts.</description>
     </item>
     
     <item>
@@ -95,24 +28,7 @@ $$&lt;/p&gt;
       <pubDate>Tue, 05 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://mlxd.github.io/post/2015-09-20-quantum-vortices/</guid>
-      <description>
-
-&lt;h1 id=&#34;quantum-vortices&#34;&gt;Quantum vortices&lt;/h1&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Consider, if you will, a bucket of water. We can also do this with a closed bottle of water, to prevent from getting wet, but let&amp;rsquo;s assume we have a bucket. We drop a spoon/stick/paddle in there, and begin to draw a circle, stirring the water. If the item is removed, the water continues to rotate, gradually slowing down before coming to a halt. Let us now assume that the water is spinning quickly, such that a hole develops in the centre. We call this a vortex. As it rotates faster and faster, the vortex increases in size, until we rotate so fast that the water flies out over the edge of the bucket. Hopefully, you have a towel on hand.&lt;/p&gt;
-
-&lt;p&gt;Now, let us assume that we have a really small bucket, namely a &lt;em&gt;quantum bucket&lt;/em&gt;. This quantum bucket, like the normal bucket, holds atoms, but very few of them in comparison. These atoms are also very cold, and form what is known as a [Bose-Einstein condensate](). Now, imagine we have a really small spoon/stick/paddle, and we once again begin to stir. What do we assume will happen?&lt;/p&gt;
-
-&lt;p&gt;Nothing may happen. Otherwise, something strange may happen. Both &lt;em&gt;nothing&lt;/em&gt;, and &lt;em&gt;something strange&lt;/em&gt; are equally interesting. What causes these two separate, yet related, cases is a (not unique) property of Bose-Einstein condensates known as &lt;em&gt;superfluidity&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;Let us go back to stirring our condensate. If we stir slowly enough, the condensate will remain stationary. That is to say, it will be as if we were not stirring at all. To allow it rotate, the stirring rate must be above a specific value. This is because, in a superfluid, the circulation occurs in discrete units only. That is to say, it is quantised.&lt;/p&gt;
-
-&lt;p&gt;Unlike a classical fluid, such as water, a condensate cannot accept a continuous range of values with which it rotates. Also, unlike a classical fluid, a superfluid in rotation will continue to rotate without slowing, provided the quantum bucket holds it in place. Beyond the critical value for rotation in a condensate a vortex will be visible. This vortex will not grow or shrink with changes around the critical value, as though a vortex in water might. However, since it does not grow, what happens with faster rotation?&lt;/p&gt;
-
-&lt;p&gt;Since the rotation is quantised, we could assume that beyond another specific value, the vortex might just become wider,  with a circulation of 2 units, instead of just 1. This, however, is not the case (in most cases encountered). Instead of a &lt;em&gt;winding&lt;/em&gt; 2 vortex, we obtain 2 &lt;em&gt;winding&lt;/em&gt; 1 vortices.&lt;/p&gt;
-</description>
+      <description>Quantum vortices Consider, if you will, a bucket of water. We can also do this with a closed bottle of water, to prevent from getting wet, but let&amp;rsquo;s assume we have a bucket. We drop a spoon/stick/paddle in there, and begin to draw a circle, stirring the water. If the item is removed, the water continues to rotate, gradually slowing down before coming to a halt. Let us now assume that the water is spinning quickly, such that a hole develops in the centre.</description>
     </item>
     
     <item>
@@ -121,83 +37,9 @@ $$&lt;/p&gt;
       <pubDate>Tue, 05 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://mlxd.github.io/post/2015-09-22-tdsim/</guid>
-      <description>
-
-&lt;h1 id=&#34;time-dependent-simulations&#34;&gt;Time dependent simulations&lt;/h1&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;I will focus on the &lt;a href=&#34;https://en.wikipedia.org/wiki/Pseudo-spectral_method&#34;&gt;pseudo-spectral&lt;/a&gt; Fourier split operator (or split step) method.&lt;/p&gt;
-
-&lt;p&gt;Firsly, we need to quantised position space by making a grid over a specific range of position values. Assume $-10$ $\mu$m to $+10$ $\mu$m, giving a grid divided into $xDim=2^8$ equispaced elements. Let us call this grid $\mathbf{x}$, and the maximum value $x_\textrm{max}$. The following Julia code will carry out the above:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-jl&#34;&gt;xDim = 2^8; # The resolution of your grid.
-xMax = 4e-4;
-x = linspace(-xMax, xMax, xDim);
-dx = abs(x[2]-x[1]);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Great, so now that we have our grid in position space, we need to also consider generating another grid, this time in &lt;a href=&#34;https://en.wikipedia.org/wiki/Position_and_momentum_space&#34;&gt;momentum space&lt;/a&gt; (also known as reciprocal space, $k$ space). Position and momentum space are related by the Fourier transform.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-jl&#34;&gt;kxMax = (2*pi/xMax)*(xDim/2);
-kx = circshift(linspace(-kxMax,kxMax,xDim),xDim/2);
-dkx = abs(kx[2] - kx[1]);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;However, as you may know, knowledge of position can affect your knowledge of momentum, and vice-versa. In this case, our fundamental limit is defined by the size of our grid dimension, $d$. Just as the wavenumber is given by the relation $k = \frac{2\pi}{\lambda}$, we can obtain our smallest $k$ value using our largest position space value, $x_\textrm{max}$.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-jl&#34;&gt;#Define properties of the system
-omegaX = 2*pi*1 # Harmonic trapping potential frequency
-hbar = 1.0545718e-34;
-m = 1.4431607e-25; #Rb87 mass
-a_s = 4.76e-9; #S-wave scattering length
-dt = 1e-4; #Timestep
-
-#Make an initial guess
-wfc = pdf(Normal(0,xMax/100),x) + 0*im;
-
-#Define the trapping potential and kinetic energy operators
-V = 0.5*m*x.^2.*omegaX^2;
-K = (0.5*hbar^2/m).*(kx.^2);
-
-GV = exp(-0.5*V*dt/hbar);
-GK = exp(-K*dt/hbar);
-
-wfc /= sqrt(sum(abs(wfc).^2)*dx);
-for t=1:10000
-        wfc = wfc.*GV;
-        wfc = ifft(fft(wfc).*GK);
-        wfc = wfc.*GV;
-        wfc /= sqrt(sum(abs(wfc).^2)*dx);
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-jl&#34;&gt;function energy(wfc,dx,V,K)
-        EV = V.*wfc;
-        EK = ifft(K.*fft(wfc));
-        E = conj(wfc).*(EV + EK)
-        return real(sum(E)*dx)/hbar
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-jl&#34;&gt;e_0 = 1e100 #Arbitrarily large unrealistic value
-e_1 = energy(wfc,dx,V,K);
-
-while e_0-e_1 &amp;gt; 1e-7
-        push!(E,e_1)
-        wfc = wfc.*GV;
-        wfc = ifft(fft(wfc).*GK);
-        wfc = wfc.*GV;
-        wfc /= sqrt(sum(abs(wfc).^2)*dx);
-        e_0 = e_1;
-        e_1 = energy(wfc,dx,V,K)
-        println(e_1)
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;$$  k_\textrm{max} = \frac{2\pi}{x_\textrm{max}}d $$
-n A&lt;/p&gt;
-</description>
+      <description>Time dependent simulations I will focus on the pseudo-spectral Fourier split operator (or split step) method.
+Firsly, we need to quantised position space by making a grid over a specific range of position values. Assume $-10$ $\mu$m to $+10$ $\mu$m, giving a grid divided into $xDim=2^8$ equispaced elements. Let us call this grid $\mathbf{x}$, and the maximum value $x_\textrm{max}$. The following Julia code will carry out the above:
+xDim = 2^8; # The resolution of your grid.</description>
     </item>
     
     <item>
@@ -206,229 +48,8 @@ n A&lt;/p&gt;
       <pubDate>Tue, 01 Aug 2017 00:00:00 +0000</pubDate>
       
       <guid>https://mlxd.github.io/post/2017-07-11-ffts/</guid>
-      <description>
-
-&lt;p&gt;&lt;code&gt;The following article is a work in progress, and will be continually updated over time. I&#39;ll issue a RELEASE tag or similar when everything has been finished.&lt;/code&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&#34;q-how-do-available-fft-routines-compare-over-different-libraries-and-accelerator-hardwares&#34;&gt;Q. How do available FFT routines compare over different libraries and accelerator hardwares?&lt;/h1&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;This is something I have wondered for sometime, though it can be difficult for an apples-to-apples comparison. I will consider the above question in relation to the following plan:&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Comparing FFT implementations in a pseudospectral solver for linear and nonlinear Schrodinger equation dynamics&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;To decide on how to proceed, it is instructive to list all (or most) widely known and used implementations.&lt;/p&gt;
-
-&lt;h2 id=&#34;standard-implementations&#34;&gt;Standard implementations&lt;/h2&gt;
-
-&lt;h3 id=&#34;cpu&#34;&gt;[CPU]&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;FFTW: &lt;a href=&#34;http://fftw.org/&#34;&gt;http://fftw.org/&lt;/a&gt; and &lt;a href=&#34;https://github.com/FFTW/fftw3&#34;&gt;https://github.com/FFTW/fftw3&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;MKL-FFT: &lt;a href=&#34;https://software.intel.com/en-us/articles/the-intel-math-kernel-library-and-its-fast-fourier-transform-routines&#34;&gt;https://software.intel.com/en-us/articles/the-intel-math-kernel-library-and-its-fast-fourier-transform-routines&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;clFFT: &lt;a href=&#34;https://github.com/clMathLibraries/clFFT&#34;&gt;https://github.com/clMathLibraries/clFFT&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Eigen FFT (using kissfft backend): &lt;a href=&#34;http://eigen.tuxfamily.org/index.php?title=EigenFFT&#34;&gt;http://eigen.tuxfamily.org/index.php?title=EigenFFT&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;sFFT: &lt;a href=&#34;http://groups.csail.mit.edu/netmit/sFFT/code.html&#34;&gt;http://groups.csail.mit.edu/netmit/sFFT/code.html&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;KFR FFT: &lt;a href=&#34;https://github.com/kfrlib/fft&#34;&gt;https://github.com/kfrlib/fft&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;gpu&#34;&gt;[GPU]&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;cuFFT: &lt;a href=&#34;http://docs.nvidia.com/cuda/cufft/index.html&#34;&gt;http://docs.nvidia.com/cuda/cufft/index.html&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;clFFT: &lt;a href=&#34;https://github.com/clMathLibraries/clFFT&#34;&gt;https://github.com/clMathLibraries/clFFT&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;fbfft: &lt;a href=&#34;https://github.com/facebook/fbcuda/tree/master/fbfft&#34;&gt;https://github.com/facebook/fbcuda/tree/master/fbfft&lt;/a&gt; and &lt;a href=&#34;https://arxiv.org/abs/1412.7580&#34;&gt;https://arxiv.org/abs/1412.7580&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;cutting-edge&#34;&gt;[Cutting edge]&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;FPGA FFT (Xilinx and Altera/Intel): &lt;a href=&#34;https://www.xilinx.com/products/intellectual-property/fft.html&#34;&gt;https://www.xilinx.com/products/intellectual-property/fft.html&lt;/a&gt; and &lt;a href=&#34;https://www.altera.com/products/intellectual-property/ip/dsp/m-ham-fft.html&#34;&gt;https://www.altera.com/products/intellectual-property/ip/dsp/m-ham-fft.html&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;IBM TrueNorth FFT: No link/source found (yet)&lt;/li&gt;
-&lt;li&gt;Rigetti pyQuil quantum FFT: &lt;a href=&#34;http://pyquil.readthedocs.io/en/latest/getting_started.html&#34;&gt;http://pyquil.readthedocs.io/en/latest/getting_started.html&lt;/a&gt; (currently emulated AFAIK, but will eventually/hopefully run directly on quantum hardware)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;test-cases&#34;&gt;Test cases&lt;/h2&gt;
-
-&lt;p&gt;To ensure sufficient time is spent in the FFT routines I will opt for a 2D transform of an NxN grid, requiring N transforms, a transpose, and another N. The value of N can be scaled to determine sweet spots for all implementations. Granted, memory size will be the determining factor of how large we can go. $N=2^j$ where $j \in \mathbb{Z}, 7 \leq j \leq 11$ is a reasonable range of values to examine that should fit readily on most hardware.&lt;/p&gt;
-
-&lt;p&gt;For this, the following test precisions will be instructive:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;$\mathbb{C}2\mathbb{C}$ - 32-bit float (32-bits for each real and imaginary component)&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;$\mathbb{C}2\mathbb{C}$ - 64-bit float&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;$\mathbb{R}2\mathbb{C}$ - 32-bit float&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;$\mathbb{R}2\mathbb{C}$ - 64-bit float&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;As a sample system to investigate, I will consider the case of a quantum harmonic oscillator (QHO). To investigate dynamics and their resulting accuracy, a known and analytically calculable result is useful. For this, I will opt for a a superposition state of the groundstate along the $xy$ plane, and the first excited state along $x$ with the groundstate along $y$. To put things more formally:&lt;/p&gt;
-
-&lt;p&gt;$$
-\Psi(x,y) = \frac{ \Psi_{00}(x,y) + \Psi_{10}(x,y) }{\sqrt{2}}.
-$$
-To construct the above wavefunction we will assume that the states $\Psi_{00}(x,y)$ and $\Psi_{10}(x,y)$ are outer products of the solutions to the QHO, as given by:&lt;/p&gt;
-
-&lt;p&gt;$$
-\Psi_n(x) = \frac{1}{\sqrt{2^{n}n!}}\left(\frac{m\omega_x}{\pi\hbar}\right)^{\frac{1}{4}}\mathrm{e}^{-\frac{m\omega_x x^2}{2\hbar}}H_n(x),
-$$
-where $$
-H_n(x)=(-1)^n\mathrm{e}^{x^2}\frac{d^n}{dx^n}\left(\mathrm{e}^{-x^2}\right),$$
-are the &lt;a href=&#34;https://en.wikipedia.org/wiki/Hermite_polynomials&#34;&gt;physicists&amp;rsquo; Hermite polynomials&lt;/a&gt;. As we are looking for the ground and first excited states ($n=0,1$) we can simplify a lot of the above calculations: $H_0(x)=1$ and $H_0(x)=2x$. Next, we determine the states $\Psi_0(x)$ and $\Psi_1(x)$ as:&lt;/p&gt;
-
-&lt;p&gt;$$ \begin{eqnarray}
-\Psi_0(x) = \left(\frac{m\omega_x}{\pi\hbar}\right)^\frac{1}{4}\mathrm{e}^{-\frac{m\omega_x x^2}{2\hbar}},~
-\Psi_1(x) = \frac{2x}{\sqrt{2}} \left(\frac{m\omega_x}{\pi\hbar}\right)^{\frac{1}{4}}\mathrm{e}^{-\frac{m\omega_x x^2}{2\hbar}}.
-\end{eqnarray}
-$$&lt;/p&gt;
-
-&lt;p&gt;Along a single dimension, our system can potentially be in any of the allowed harmonic oscillator states. Therefore, the overall state is given by a tensor product of the state along $x$ and that along $y$. If we assume the dimensionality of the Hilbert space along the $i$-th orthogonal spacial index is finite and given by $d_i$, then the overall system dimensionality (ie the total number of states we can consider) is $d = \displaystyle\prod_{i} d_i$.&lt;/p&gt;
-
-&lt;p&gt;Assuming an $n$-dimensional system, where each individual dimension is in the groundstate of the harmonic oscillator, we can define the tensor product state as
-$$
-\Psi_n = \Psi_0^{\otimes n} = \Psi_0 \otimes \Psi_0  \cdots \otimes \Psi_0.
-$$&lt;/p&gt;
-
-&lt;p&gt;While the above is fine for a general case, for the purposes of FFTs we have assumed a much simpler system, dealing with combinations of only 2 states. We can then define them as $\Psi_{00}(x,y) = \Psi_{0}(x)\otimes\Psi_{0}(y)$ and $\Psi_{10}(x,y) = \Psi_{1}(x)\otimes\Psi_{0}(y)$. Thus, our final superposition state when filling everything in is given by
-$$
-\Psi(x,y) = \left(\frac{m}{\pi\hbar}\right)^{\frac{1}{2}}\left(\omega_x\omega_y\right)^{\frac{1}{4}}\mathrm{e}^{-\frac{m}{2\hbar}\left(\omega_x x^2 + \omega_y y^2\right)}\left(x + \frac{1}{\sqrt{2}}\right).
-$$&lt;/p&gt;
-
-&lt;p&gt;To simplify life, I will assume some of the above quantities are set to unity (i.e. $m=\omega_x = \omega_y = \hbar = 1$). This will not change the dynamics of the simulation, but simplify the equations and the numerical implementation, which can help with improving accuracy. The above equation then becomes
-$$
-\Psi(x,y) = \left(\frac{1}{\pi}\right)^{\frac{1}{2}}\mathrm{e}^{-\frac{1}{2}\left( x^2 + y^2 \right)}\left(x + \frac{1}{\sqrt{2}}\right).
-$$&lt;/p&gt;
-
-&lt;p&gt;For a more detailed explanation and approach to the above have a look at Christina Lee&amp;rsquo;s (&lt;a href=&#34;https://github.com/albi3ro&#34;&gt;albi3ro&lt;/a&gt;) blog post on &lt;a href=&#34;http://albi3ro.github.io/M4//prerequisites%20required/Time-Evolution.html&#34;&gt;time evolution&lt;/a&gt;, which will cover the method I use next.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;To be continued&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;/***
-
-This document will implement the quantum simulation aspects of the code, in as simple a means as possible.
-
-***/
-#include&amp;lt;stdio.h&amp;gt;
-#include&amp;lt;stdlib.h&amp;gt;
-#include&amp;lt;math.h&amp;gt;
-
-#define GRIDSIZE 128
-#define GRIDMAX 5
-#define PI 3.14159
-#define DT 1e-4
-
-
-//################################################//
-
-struct double2{
-    double x;
-    double y;
-};
-
-//Define the grid on which the simulation will be run.
-struct Grid{
-    double *x = (double*) malloc(GRIDSIZE*sizeof(double));
-    double *y = (double*) malloc(GRIDSIZE*sizeof(double));
-    double *xy2 = (double*) malloc(GRIDSIZE*GRIDSIZE*sizeof(double));
-
-    double *kx = (double*) malloc(GRIDSIZE*sizeof(double));
-    double *ky = (double*) malloc(GRIDSIZE*sizeof(double));
-    double *kxy2 = (double*) malloc(GRIDSIZE*GRIDSIZE*sizeof(double));
-
-    double2 *wfc = (double2*) malloc(GRIDSIZE*GRIDSIZE*sizeof(double2));
-    double2 *U_V = (double2*) malloc(GRIDSIZE*GRIDSIZE*sizeof(double2));
-    double2 *U_K = (double2*) malloc(GRIDSIZE*GRIDSIZE*sizeof(double2));
-};
-
-void setupGrids(Grid *grid){
-    double invSqrt2 = 1/sqrt(2);
-    //Position space grids
-    for (int j=0; j &amp;lt; GRIDSIZE; ++j){
-        grid-&amp;gt;x[j] = -GRIDMAX + j*(2*GRIDMAX)/((double)GRIDSIZE);
-        grid-&amp;gt;y[j] = grid-&amp;gt;x[j];
-    }
-    for(int i=0; i &amp;lt; GRIDSIZE; ++i){
-        for(int j=0; j &amp;lt; GRIDSIZE; ++j){
-            grid-&amp;gt;xy2[j+GRIDSIZE*i] = 0.5*(grid-&amp;gt;x[i]*grid-&amp;gt;x[i]+grid-&amp;gt;y[j]*grid-&amp;gt;y[j]);
-            //Evolution operator in position space
-            grid-&amp;gt;U_V[j+GRIDSIZE*i].x = cos(-grid-&amp;gt;xy2[j+GRIDSIZE*i]*DT);
-            grid-&amp;gt;U_V[j+GRIDSIZE*i].y = sin(-grid-&amp;gt;xy2[j+GRIDSIZE*i]*DT);
-            
-            //Wavefunction
-            grid-&amp;gt;wfc[j+GRIDSIZE*i].x = sqrt( 1/PI )*exp( -0.5 * ( grid-&amp;gt;x[i]*grid-&amp;gt;x[i] + grid-&amp;gt;y[j]*grid-&amp;gt;y[j] ) ) * ( grid-&amp;gt;x[i] + invSqrt2 );
-            grid-&amp;gt;wfc[j+GRIDSIZE*i].y = 0.;
-        }
-    }
-
-    //Momentum space grids
-    for (int j=0; j &amp;lt; GRIDSIZE; ++j){
-        grid-&amp;gt;kx[j] = (j&amp;lt;(GRIDSIZE/2)) ? j*2*PI/(GRIDMAX) : -(GRIDSIZE - j)*(2*PI/(GRIDMAX));
-        grid-&amp;gt;ky[j] = grid-&amp;gt;kx[j];
-    }
-    for(int i=0; i &amp;lt; GRIDSIZE; ++i){
-        for(int j=0; j &amp;lt; GRIDSIZE; ++j){
-            grid-&amp;gt;kxy2[j+GRIDSIZE*i] = 0.5*(grid-&amp;gt;kx[i]*grid-&amp;gt;kx[i]+grid-&amp;gt;ky[j]*grid-&amp;gt;ky[j]);
-
-            //Evolution operator in momentum space
-            grid-&amp;gt;U_K[j+GRIDSIZE*i].x = cos(-grid-&amp;gt;kxy2[j+GRIDSIZE*i]*DT);
-            grid-&amp;gt;U_K[j+GRIDSIZE*i].y = sin(-grid-&amp;gt;kxy2[j+GRIDSIZE*i]*DT);
-        }
-    }
-}
-
-//################################################//
-int fileIO(Grid *grid){
-    //Open files to write
-    FILE *f_x = fopen(&amp;quot;x&amp;quot;, &amp;quot;w&amp;quot;);
-    FILE *f_y = fopen(&amp;quot;y&amp;quot;, &amp;quot;w&amp;quot;);
-    FILE *f_xy2 = fopen(&amp;quot;xy2&amp;quot;, &amp;quot;w&amp;quot;);
-    FILE *f_kx = fopen(&amp;quot;kx&amp;quot;, &amp;quot;w&amp;quot;);
-    FILE *f_ky = fopen(&amp;quot;ky&amp;quot;, &amp;quot;w&amp;quot;);
-    FILE *f_kxy2 = fopen(&amp;quot;kxy2&amp;quot;, &amp;quot;w&amp;quot;);
-    FILE *f_U_V = fopen(&amp;quot;U_V&amp;quot;, &amp;quot;w&amp;quot;);
-    FILE *f_U_K = fopen(&amp;quot;U_K&amp;quot;, &amp;quot;w&amp;quot;);
-    FILE *f_wfc = fopen(&amp;quot;wfc&amp;quot;, &amp;quot;w&amp;quot;);
-
-    //No safety checks because I&#39;m a bad person
-
-    fwrite(grid-&amp;gt;x, sizeof(double), GRIDSIZE, f_x);
-    fwrite(grid-&amp;gt;y, sizeof(double), GRIDSIZE, f_y);
-    fwrite(grid-&amp;gt;xy2, sizeof(double), GRIDSIZE*GRIDSIZE, f_xy2);
-    fwrite(grid-&amp;gt;kx, sizeof(double), GRIDSIZE, f_kx);
-    fwrite(grid-&amp;gt;ky, sizeof(double), GRIDSIZE, f_ky);
-    fwrite(grid-&amp;gt;kxy2, sizeof(double), GRIDSIZE*GRIDSIZE, f_kxy2);
-    fwrite(grid-&amp;gt;U_V, sizeof(double2), GRIDSIZE*GRIDSIZE, f_U_V);
-    fwrite(grid-&amp;gt;U_K, sizeof(double2), GRIDSIZE*GRIDSIZE, f_U_K);
-    fwrite(grid-&amp;gt;wfc, sizeof(double2), GRIDSIZE*GRIDSIZE, f_wfc);
-
-    //No moar opin
-
-    fclose(f_x); fclose(f_y); fclose(f_xy2); fclose(f_kx);  fclose(f_ky);
-    fclose(f_kxy2); fclose(f_U_V); fclose(f_U_K); fclose(f_wfc);
-    return 0;
-}
-
-//################################################//
-int main(){
-    Grid grid;
-    setupGrids(&amp;amp;grid);
-    fileIO(&amp;amp;grid);
-}
-
-
-//################################################//
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://mlxd.github.io/img/x_y_kx_ky.png&#34; alt=&#34;alt text&#34; title=&#34;X Y Kx Ky&#34; /&gt;
-&lt;img src=&#34;https://mlxd.github.io/img/xy2_kxky2_UV_UK.png&#34; alt=&#34;alt text&#34; title=&#34;Ops&#34; /&gt;
-&lt;img src=&#34;https://mlxd.github.io/img/wfc_abs2.png&#34; alt=&#34;alt text&#34; title=&#34;WFC&#34; /&gt;&lt;/p&gt;
-</description>
+      <description>The following article is a work in progress, and will be continually updated over time. I&#39;ll issue a RELEASE tag or similar when everything has been finished.
+Q. How do available FFT routines compare over different libraries and accelerator hardwares? This is something I have wondered for sometime, though it can be difficult for an apples-to-apples comparison. I will consider the above question in relation to the following plan:</description>
     </item>
     
     <item>
@@ -437,18 +58,7 @@ int main(){
       <pubDate>Wed, 18 Jan 2017 00:00:00 +0000</pubDate>
       
       <guid>https://mlxd.github.io/project/gpue/</guid>
-      <description>&lt;p&gt;This page will be updated with instructions on how to use &lt;a href=&#34;https://github.com/mlxd/gpue&#34;&gt;GPUE&lt;/a&gt;.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Ultracold quantum systems</title>
-      <link>https://mlxd.github.io/project/uqs/</link>
-      <pubDate>Wed, 18 Jan 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://mlxd.github.io/project/uqs/</guid>
-      <description>&lt;p&gt;This page will be updated with details of the research undertaken during my PhD.&lt;/p&gt;
-</description>
+      <description>GPUE represents the culmination of work by myself and James Schloss into developing a high performance quantum dynamics simulator for investigating superfluid dynamics of Bose-Einstein condensates. This solver allows for studies of 2D and 3D dynamics, quantum vortices, arbitrary potential geometries, artificial gauge fields, as well as a variety of additional features. The solver makes use of CUDA libraries and custom kernels to enable GPUE to simulate quantum systems faster than competing suites or libraries, as well as Python routines for post-processing and data analysis.</description>
     </item>
     
     <item>
@@ -457,20 +67,9 @@ int main(){
       <pubDate>Wed, 11 May 2016 00:00:00 +0000</pubDate>
       
       <guid>https://mlxd.github.io/post/2016-05-11-todo/</guid>
-      <description>&lt;p&gt;Granted I have not published any of the articles I am writing since my initial post, they are still in the works. Unfortunately, they will also  need to wait until my thesis has been written and published (as some of them will be used therein).&lt;/p&gt;
-
-&lt;p&gt;As a snapshot, I will intend to discuss the following topics:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;GPU acceleration of Schrodinger-like problems using &lt;a href=&#34;https://github.com/mlxd/gpue&#34;&gt;GPUE&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Implementing the pseudospectral Fourier split-operator method for time dependent simulations&lt;/li&gt;
-&lt;li&gt;An easy introduction to simulation of Bose-Einstein condensates (BECs)&lt;/li&gt;
-&lt;li&gt;Numerically solving the Bogoliubov equations for BEC fun&lt;/li&gt;
-&lt;li&gt;Playing with vortices in a BEC&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;However, do not hold your breath for these&amp;hellip;&lt;/p&gt;
-</description>
+      <description>Granted I have not published any of the articles I am writing since my initial post, they are still in the works. Unfortunately, they will also need to wait until my thesis has been written and published (as some of them will be used therein).
+As a snapshot, I will intend to discuss the following topics:
+ GPU acceleration of Schrodinger-like problems using GPUE Implementing the pseudospectral Fourier split-operator method for time dependent simulations An easy introduction to simulation of Bose-Einstein condensates (BECs) Numerically solving the Bogoliubov equations for BEC fun Playing with vortices in a BEC  However, do not hold your breath for these&amp;hellip;</description>
     </item>
     
     <item>
@@ -479,16 +78,7 @@ int main(){
       <pubDate>Wed, 11 May 2016 00:00:00 +0000</pubDate>
       
       <guid>https://mlxd.github.io/post/2017-07-11-questions/</guid>
-      <description>
-
-&lt;h1 id=&#34;questions-to-consider&#34;&gt;Questions to consider&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;What is the optimal choice of FFTs over competing HPC software and device architectures for quantum dynamics using pseduospectral methods?&lt;/li&gt;
-&lt;li&gt;Do space filling curves have a performance impact on multidimensional data when performing FFTs along the i-th dimension?&lt;/li&gt;
-&lt;li&gt;Is there an optimal way to permute an n-D data set so that the elements along a specific basis direction are linear in memory? Reasons for this are optimal data access when performing operations, allowing for higher cache hits (such as with FFTs on GPUs are an example).&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description>Questions to consider  What is the optimal choice of FFTs over competing HPC software and device architectures for quantum dynamics using pseduospectral methods? Do space filling curves have a performance impact on multidimensional data when performing FFTs along the i-th dimension? Is there an optimal way to permute an n-D data set so that the elements along a specific basis direction are linear in memory? Reasons for this are optimal data access when performing operations, allowing for higher cache hits (such as with FFTs on GPUs are an example).</description>
     </item>
     
   </channel>

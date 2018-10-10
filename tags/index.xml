@@ -6,9 +6,11 @@
     <description>Recent content in Tags on Lost in Computation</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; 2017 Lee James O&#39;Riordan (mlxd)</copyright>
+    <copyright>&amp;copy; 2018 Lee James O&#39;Riordan (mlxd)</copyright>
     <lastBuildDate>Wed, 18 Jan 2017 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/tags/" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="https://mlxd.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Bec</title>
@@ -22,7 +24,7 @@
     <item>
       <title>Bio</title>
       <link>https://mlxd.github.io/tags/bio/</link>
-      <pubDate>Wed, 18 Jan 2017 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://mlxd.github.io/tags/bio/</guid>
       <description></description>
@@ -40,7 +42,7 @@
     <item>
       <title>Data</title>
       <link>https://mlxd.github.io/tags/data/</link>
-      <pubDate>Wed, 18 Jan 2017 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://mlxd.github.io/tags/data/</guid>
       <description></description>
@@ -58,7 +60,7 @@
     <item>
       <title>Hpc</title>
       <link>https://mlxd.github.io/tags/hpc/</link>
-      <pubDate>Wed, 18 Jan 2017 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://mlxd.github.io/tags/hpc/</guid>
       <description></description>
@@ -67,7 +69,7 @@
     <item>
       <title>Knl</title>
       <link>https://mlxd.github.io/tags/knl/</link>
-      <pubDate>Wed, 18 Jan 2017 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://mlxd.github.io/tags/knl/</guid>
       <description></description>

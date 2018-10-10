@@ -6,9 +6,29 @@
     <description>Recent content in Publications on Lost in Computation</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; 2017 Lee James O&#39;Riordan (mlxd)</copyright>
-    <lastBuildDate>Thu, 03 Nov 2016 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/publication/" rel="self" type="application/rss+xml" />
+    <copyright>&amp;copy; 2018 Lee James O&#39;Riordan (mlxd)</copyright>
+    <lastBuildDate>Mon, 03 Sep 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://mlxd.github.io/publication/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Improving signal strength in serial crystallography with DIALS geometry refinement</title>
+      <link>https://mlxd.github.io/publication/dials2018/</link>
+      <pubDate>Mon, 03 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://mlxd.github.io/publication/dials2018/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Non-equilibrium vortex dynamics in rapidly rotating Bose–Einstein condensates</title>
+      <link>https://mlxd.github.io/publication/phdthesis/</link>
+      <pubDate>Fri, 10 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://mlxd.github.io/publication/phdthesis/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Topological defect dynamics of vortex lattices in Bose–Einstein condensates</title>

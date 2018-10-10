@@ -26,11 +26,6 @@ math = true
 draft = false
 +++
 
-
-The following documentation and data formed part of the work I carried out at LBNL from 2017 to 2018. The project described herein follows the integration of the [STRUMPACK](https://github.com/pghysels/STRUMPACK) sparse linear solver library into CCTBX. Comparing solver's various backends with EIGEN's gives an indication of the applicability of each individual solver to the given problem (Levenberg-Marquardt nonlinear least-squares minimisation) to the observed data. Scalability comparisons are drawn to showcase which backend offers the best performance, allowing for future design decisions. The given code and documents are all available at [ExaFEL](https://github.com/ExaFEL/exafel_project/tree/master/95-strumpack_cctbx).
-
---
-
 # Notes on using Strumpack within CCTBX
 Here are the documented results of using Strumpack on a single node for a variety of data set sizes (`StrumpackSolverMPI_1K`,`StrumpackSolverMPI_5K`,`StrumpackSolverMPI_10K`). All tests were performed on `dials.lbl.gov`, and allow the tests to be repeated at the user's discretion. Example matrices for a variety of different refinement parameters are listed in the given paths, and the times represent a single solution.
 

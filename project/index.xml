@@ -18,7 +18,7 @@
       <pubDate>Wed, 18 Jan 2017 00:00:00 +0000</pubDate>
       
       <guid>https://mlxd.github.io/project/exafel/</guid>
-      <description>For now, I will link directly to the ExaFEL site. I&amp;rsquo;ll directly link all pages in here at a later time.</description>
+      <description>STRUMPACK vs EIGEN for Levenberg-Marquardt nonlinear least squares optimisation The following documentation and data formed part of the work I carried out at LBNL from 2017 to 2018. The project described herein follows the integration of the STRUMPACK sparse linear solver library into CCTBX. Comparing solver&amp;rsquo;s various backends with EIGEN&amp;rsquo;s gives an indication of the applicability of each individual solver to the given problem (Levenberg-Marquardt nonlinear least-squares minimisation) to the observed data.</description>
     </item>
     
     <item>

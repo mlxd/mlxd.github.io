@@ -5,6 +5,60 @@
     
     <url>
     
+      <loc>https://mlxd.github.io/page/exafel/readme/</loc>
+      <lastmod>2018-10-10T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>https://mlxd.github.io/page/exafel/strumpacksolvermpi_10k_data/</loc>
+      <lastmod>2018-10-10T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>https://mlxd.github.io/page/exafel/strumpacksolvermpi_1k_data/</loc>
+      <lastmod>2018-10-10T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>https://mlxd.github.io/page/exafel/strumpacksolvermpi_5k_data/</loc>
+      <lastmod>2018-10-10T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>https://mlxd.github.io/page/exafel/strumpacksolvermpi_dist_cori/</loc>
+      <lastmod>2018-10-10T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>https://mlxd.github.io/page/exafel/strumpacktest/</loc>
+      <lastmod>2018-10-10T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>https://mlxd.github.io/publication/dials2018/</loc>
       <lastmod>2018-09-03T00:00:00+00:00</lastmod>
     </url>
@@ -195,7 +249,7 @@
     <url>
     
       <loc>https://mlxd.github.io/tags/bio/</loc>
-      <lastmod>2017-01-18T00:00:00+00:00</lastmod>
+      <lastmod>2018-10-10T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -224,7 +278,7 @@
     <url>
     
       <loc>https://mlxd.github.io/tags/data/</loc>
-      <lastmod>2017-01-18T00:00:00+00:00</lastmod>
+      <lastmod>2018-10-10T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -244,7 +298,7 @@
     <url>
     
       <loc>https://mlxd.github.io/tags/hpc/</loc>
-      <lastmod>2017-01-18T00:00:00+00:00</lastmod>
+      <lastmod>2018-10-10T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -254,7 +308,7 @@
     <url>
     
       <loc>https://mlxd.github.io/tags/knl/</loc>
-      <lastmod>2017-01-18T00:00:00+00:00</lastmod>
+      <lastmod>2018-10-10T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -284,6 +338,7 @@
     <url>
     
       <loc>https://mlxd.github.io/page/</loc>
+      <lastmod>2018-10-10T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     

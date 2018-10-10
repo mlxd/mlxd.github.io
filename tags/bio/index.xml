@@ -7,10 +7,65 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018 Lee James O&#39;Riordan (mlxd)</copyright>
-    <lastBuildDate>Wed, 18 Jan 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 10 Oct 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://mlxd.github.io/tags/bio/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Levenberg-Marquardt sparse solver scaling</title>
+      <link>https://mlxd.github.io/page/exafel/readme/</link>
+      <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://mlxd.github.io/page/exafel/readme/</guid>
+      <description>Notes on using Strumpack within CCTBX Here are the documented results of using Strumpack on a single node for a variety of data set sizes (StrumpackSolverMPI_1K,StrumpackSolverMPI_5K,StrumpackSolverMPI_10K). All tests were performed on dials.lbl.gov, and allow the tests to be repeated at the user&amp;rsquo;s discretion. Example matrices for a variety of different refinement parameters are listed in the given paths, and the times represent a single solution.
+Setting up and running STRUMPACK To build STRUMPACK alongside a conda cctbx.</description>
+    </item>
+    
+    <item>
+      <title>Levenberg-Marquardt sparse solver scaling: 10K data set</title>
+      <link>https://mlxd.github.io/page/exafel/strumpacksolvermpi_10k_data/</link>
+      <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://mlxd.github.io/page/exafel/strumpacksolvermpi_10k_data/</guid>
+      <description>STRUMPACK vs EIGEN performance The goal of this notebook is to allow the documentation of STRUMPACK vs EIGEN performance to be maintained in a single accessible location. The environment within which this notebook is run follows the standard cctbx conda build instructions available here. For this instance, we are using the STRUMPACK-enabled build of cctbx located at ExaFEL:cctbx_project(str_merge). STRUMPACK is currently built using the installation script STRUMPACK_installer_shared.sh, and if the installation takes place within the same directory as moddules and build, the cctbx build process can make use of it as a backend.</description>
+    </item>
+    
+    <item>
+      <title>Levenberg-Marquardt sparse solver scaling: 1K data set</title>
+      <link>https://mlxd.github.io/page/exafel/strumpacksolvermpi_1k_data/</link>
+      <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://mlxd.github.io/page/exafel/strumpacksolvermpi_1k_data/</guid>
+      <description>STRUMPACK vs EIGEN performance The goal of this notebook is to allow the documentation of STRUMPACK vs EIGEN performance to be maintained in a single accessible location. The environment within which this notebook is run follows the standard cctbx conda build instructions available here. For this instance, we are using the STRUMPACK-enabled build of cctbx located at ExaFEL:cctbx_project(str_merge). STRUMPACK is currently built using the installation script STRUMPACK_installer_shared.sh, and if the installation takes place within the same directory as moddules and build, the cctbx build process can make use of it as a backend.</description>
+    </item>
+    
+    <item>
+      <title>Levenberg-Marquardt sparse solver scaling: 5K data set</title>
+      <link>https://mlxd.github.io/page/exafel/strumpacksolvermpi_5k_data/</link>
+      <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://mlxd.github.io/page/exafel/strumpacksolvermpi_5k_data/</guid>
+      <description>STRUMPACK vs EIGEN performance The goal of this notebook is to allow the documentation of STRUMPACK vs EIGEN performance to be maintained in a single accessible location. The environment within which this notebook is run follows the standard cctbx conda build instructions available here. For this instance, we are using the STRUMPACK-enabled build of cctbx located at ExaFEL:cctbx_project(str_merge). STRUMPACK is currently built using the installation script STRUMPACK_installer_shared.sh, and if the installation takes place within the same directory as moddules and build, the cctbx build process can make use of it as a backend.</description>
+    </item>
+    
+    <item>
+      <title>Levenberg-Marquardt sparse solver scaling: Cori Haswell and KNL</title>
+      <link>https://mlxd.github.io/page/exafel/strumpacksolvermpi_dist_cori/</link>
+      <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://mlxd.github.io/page/exafel/strumpacksolvermpi_dist_cori/</guid>
+      <description>Performance tests of STRUMPACK using OpenMP and MPI on Cori We make use of the linear solver backends within cctbx.xfel, and evaluate their performance on a variety of sample A matrices and b vectors for 1k, 5k, 10k, and 32k images each, and for a variety of different refinement parameters. The time to solve a single sparse system will offer insight into the time spent during the Levenberg-Marquardt minimisation process.</description>
+    </item>
+    
+    <item>
+      <title>Levenberg-Marquardt sparse solver scaling: Initial tests</title>
+      <link>https://mlxd.github.io/page/exafel/strumpacktest/</link>
+      <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://mlxd.github.io/page/exafel/strumpacktest/</guid>
+      <description>STRUMPACK vs EIGEN performance The goal of this notebook is to allow the documentation of STRUMPACK vs EIGEN performance to be maintained in a single accessible location. The environment within which this notebook is run follows the standard cctbx conda build instructions available here. For this instance, we are using the STRUMPACK-enabled build of cctbx located at ExaFEL:cctbx_project(str_merge). STRUMPACK is currently built using the installation script STRUMPACK_installer_shared.sh, and if the installation takes place within the same directory as moddules and build, the cctbx build process can make use of it as a backend.</description>
+    </item>
     
     <item>
       <title>ExaFEL</title>
@@ -18,7 +73,7 @@
       <pubDate>Wed, 18 Jan 2017 00:00:00 +0000</pubDate>
       
       <guid>https://mlxd.github.io/project/exafel/</guid>
-      <description>For now, I will link directly to the ExaFEL site. I&amp;rsquo;ll directly link all pages in here at a later time.</description>
+      <description>STRUMPACK vs EIGEN for Levenberg-Marquardt nonlinear least squares optimisation The following documentation and data formed part of the work I carried out at LBNL from 2017 to 2018. The project described herein follows the integration of the STRUMPACK sparse linear solver library into CCTBX. Comparing solver&amp;rsquo;s various backends with EIGEN&amp;rsquo;s gives an indication of the applicability of each individual solver to the given problem (Levenberg-Marquardt nonlinear least-squares minimisation) to the observed data.</description>
     </item>
     
   </channel>

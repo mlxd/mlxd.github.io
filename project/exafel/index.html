@@ -8,7 +8,7 @@
   <meta name="theme" content="hugo-academic">
   <meta name="generator" content="Hugo 0.49" />
   <meta name="author" content="Lee James O&#39;Riordan">
-  
+  <meta name="description" content="Postdoctoral researcher">
 
   
   
@@ -182,7 +182,22 @@
     
 
     <div class="article-style" itemprop="articleBody">
-      <p>For now, I will link directly to the <a href="https://exafel.github.io/docs">ExaFEL site</a>. I&rsquo;ll directly link all pages in here at a later time.</p>
+      
+
+<h1 id="strumpack-vs-eigen-for-levenberg-marquardt-nonlinear-least-squares-optimisation">STRUMPACK vs EIGEN for Levenberg-Marquardt nonlinear least squares optimisation</h1>
+
+<p>The following documentation and data formed part of the work I carried out at LBNL from 2017 to 2018. The project described herein follows the integration of the <a href="https://github.com/pghysels/STRUMPACK">STRUMPACK</a> sparse linear solver library into CCTBX. Comparing solver&rsquo;s various backends with EIGEN&rsquo;s gives an indication of the applicability of each individual solver to the given problem (Levenberg-Marquardt nonlinear least-squares minimisation) to the observed data. Scalability comparisons are drawn to showcase which backend offers the best performance, allowing for future design decisions. The given code and documents are all available at <a href="https://github.com/ExaFEL/exafel_project/tree/master/95-strumpack_cctbx">ExaFEL</a>.</p>
+
+<p>Each different test data set receives its own analysis, as well as a distributed test using CORI. The following files represent part of the scalability analysis performed:</p>
+
+<ul>
+<li><a href="/page/exafel/strumpacksolvermpi_1k_data">Single node, MPI+OpenMP, $10^3$ images</a></li>
+<li><a href="/page/exafel/strumpacksolvermpi_5k_data">Single node, MPI+OpenMP, $5\times 10^3$ images</a></li>
+<li><a href="/page/exafel/strumpacksolvermpi_10k_data">Single node, MPI+OpenMP, $10^4$ images</a></li>
+<li><a href="/page/exafel/strumpacksolvermpi_dist_cori">Multi node (CORI), MPI, $5\times 10^3$ images</a></li>
+</ul>
+
+<p>For my other contributions to ExaFEL project, please visit the <a href="https://exafel.github.io/docs">ExaFEL site</a>.</p>
 
     </div>
 

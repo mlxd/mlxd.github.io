@@ -12,8 +12,8 @@ weight = 1
 # List your academic interests.
 [interests]
   interests = [
-    "Quantum systems",
-    "GPU and next-generation computing",
+    "Quantum computation",
+    "HPC (GPU, FPGA, MPI)",
     "Nonlinear dynamics",
     "Computational & numerical /.*/"
   ]
@@ -25,7 +25,7 @@ weight = 1
   year = 2017
 
 [[education.courses]]
-  course = "BSc (H) in Physics with Computing"
+  course = "BSc (Hons) in Physics with Computing"
   institution = "Waterford Institute of Technology"
   year = 2010
 

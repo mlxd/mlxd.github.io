@@ -1,0 +1,3 @@
+[submodule "themes/academic_mlxd"]
+	path = themes/academic_mlxd
+	url = https://github.com/mlxd/hugo-academic

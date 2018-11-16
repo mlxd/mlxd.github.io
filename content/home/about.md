@@ -1,40 +1,61 @@
 +++
 # About/Biography widget.
+
+date = "2016-04-20T00:00:00"
+draft = false
+
 widget = "about"
-active = true
-date = 2016-04-20T00:00:00
 
 # Order that this section will appear in.
-weight = 5
+weight = 1
 
 # List your academic interests.
 [interests]
   interests = [
-    "Artificial Intelligence",
-    "Computational Linguistics",
-    "Information Retrieval"
+    "Quantum systems",
+    "GPU and next-generation computing",
+    "Nonlinear dynamics",
+    "Computational & numerical /.*/"
   ]
 
 # List your qualifications (such as academic degrees).
 [[education.courses]]
-  course = "PhD in Artificial Intelligence"
-  institution = "Stanford University"
-  year = 2012
+  course = "PhD in Science (Physics)"
+  institution = "Okinawa Institute of Science and Technology Graduate University"
+  year = 2017
 
 [[education.courses]]
-  course = "MEng in Artificial Intelligence"
-  institution = "Massachusetts Institute of Technology"
-  year = 2009
+  course = "BSc (H) in Physics with Computing"
+  institution = "Waterford Institute of Technology"
+  year = 2010
 
-[[education.courses]]
-  course = "BSc in Artificial Intelligence"
-  institution = "Massachusetts Institute of Technology"
-  year = 2008
- 
+# List your experience
+[[experience.info]]
+  title = "Visiting researcher"
+  company = "Okinawa Institute of Science and Technology Graduate University"
+  s_year = 2018
+  e_year = "2018"
+
+[[experience.info]]
+  title = "Postdoctoral fellow"
+  company = "Lawrence Berkeley National Laboratory"
+  s_year = 2017
+  e_year = "2018"
+
+
+[[experience.info]]
+  title = "Software developer"
+  company = "IBM, Dublin Software Labs"
+  s_year = 2010
+  e_year = 2011
+
+[[experience.info]]
+  title = "Product engineer (intern)"
+  company = "Analog Devices"
+  s_year = 2009
+  e_year = 2009
 +++
 
 # Biography
 
-Lena Smith is a professor of artificial intelligence at the Stanford AI Lab. Her research interests include distributed robotics, mobile computing and programmable matter. She leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate. 
+My background is in theoretical physics, with experience in computational accelerators and data analytics. I am a PhD graduate of the [Quantum Systems Unit](https://groups.oist.jp/qsu) at Okinawa Institute of Science and Technology Graduate University, Japan. My PhD research included control and manipulation of quantum states, GPU and next-generation computing, and nonlinear dynamics. I am an author of the Bose-Einstein condensate simulation suite [GPUE](https://github.com/gpue-group/GPUE). My most recent post was investigating the use of prototype exascale computing technologies for femtosecond X-ray crystallography (XFEL) of bio-molecular systems. My contributions to this project can be found at the following repositories: [CCTBX](https://github.com/cctbx/cctbx_project), [DIALS](https://github.com/dials/dials) and [ExaFEL](https://github.com/exafel/exafel_project). I am currently interested in exploring quantum computing technologies, and emerging developments in this area.

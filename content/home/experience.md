@@ -44,6 +44,14 @@ date_format = "2006"
 #  description = """Taught electronic engineering and researched semiconductor physics."""
 
 [[experience]]
+  title = "Computational scientist"
+  company = "Irish Centre for High-End Computing (ICHEC)"
+  date_start = "2019-01-07"
+  #date_end = "2018-08-29"
+  location = "Dublin, Ireland"
+  description = """ """
+
+[[experience]]
   title = "Visiting researcher"
   company = "Okinawa Institute of Science and Technology Graduate University (OIST)"
   date_start = "2018-07-01"
@@ -79,7 +87,7 @@ date_format = "2006"
   location = "Okinawa, Japan"
   description = """Researched cold atomic systems, which specific emphasis on the non-equilibrium dynamics of vortex lattice carrying Bose–Einstein condensates.
   
-  Works and responsbilities included:
+  Works and responsibilities included:
 
   * Thesis: [Non-equilibrium vortex dynamics in rapidly rotating Bose-Einstein condensates](https://oist.repo.nii.ac.jp/?action=pages_view_main&active_action=repository_view_main_item_detail&item_id=182&item_no=1&page_id=15&block_id=79)
   * Developed GPUE ([modern](https://github.com/GPUE-group/GPUE),[original](https://github.com/mlxd/GPUE)), a software suite for simulating linear and nonlinear Schrödinger equation dynamics. The work was used largely to investigate vortex behaviour in Bose--Einstein condensates.
@@ -91,27 +99,35 @@ date_format = "2006"
   """
 
 [[experience]]
-  title = "Research assistant"
+  title = "Research assistant (PhD student)"
   company = "University College Cork (UCC)"
   date_start = "2011-09-01"
   date_end = "2012-09-30"
   location = "Cork, Ireland"
-  description = """Did some things."""
+  description = """Transfered to OIST with [Prof. Busch](https://groups.oist.jp/qsu) after completing first year of PhD programme."""
 
 [[experience]]
   title = "Software developer"
   company = "IBM, Dublin Software Labs"
   date_start = "2010-08-01"
   date_end = "2011-07-01"
-  location = "Okinawa, Japan"
-  description = """Did some things."""
+  location = "Dublin, Ireland"
+  description = """
+  * Developer on [IBM Solution Installer](https://www.ibm.com/support/knowledgecenter/en/SSHRKX_8.0.0/config/int_sol_installer.html), used for installing server-side applications with WebSphere Portal platform.
+  * Experience using Java, J2EE, XML, XSLT, Ant, Shell scripting, JDBC, Python, C.
+  * Deployed and maintained WebSphere Portal, Lotus Sametime, and Lotus Connections software stacks for development and testing.
+  """
 
 [[experience]]
   title = "Product engineer (intern)"
   company = "Analog Devices"
   date_start = "2009-01-05"
   date_end = "2009-08-31"
-  location = "Okinawa, Japan"
-  description = """Did some things."""
+  location = "Limerick, Ireland"
+  description = """
+  * Analysed and assisted in trouble-shooting of die failures.
+  * Trained in operation of light-emission microscopy (LEM), optical beam-induced resistance change (OBIRCH) methods, focussed ion beam (FIB) and scanning electron microscope (SEM) equipment.
+  * Programmed wafer data analysis and input automation routines in BASH, C, and VB.
+  """
 
 +++

@@ -11,8 +11,8 @@ weight = 8
 
 # Date format for experience
 #   Refer to https://sourcethemes.com/academic/docs/customization/#date-format
-date_format = "January 2006"
-#date_format = "2006"
+#date_format = "January 2006"
+date_format = "2006"
 
 # Experiences.
 #   Add/remove as many `[[experience]]` blocks below as you like.
@@ -49,14 +49,16 @@ date_format = "January 2006"
   date_start = "2018-07-01"
   date_end = "2018-08-29"
   location = "Okinawa, Japan"
-  description = """Collaborated on a study of chaotic dynamics in quantum superfluid systems."""
+  description = """
+  * Collaborated on a study of chaotic dynamics in quantum superfluid systems. Work available at [https://arxiv.org/abs/1812.04759](https://arxiv.org/abs/1812.04759). 
+  * Further developed and generalised the Bose--Einstein simulation suite [GPUE](https://github.com/GPUE-group/GPUE). Accepted for publication in the Journal of Open Source Software as [GPUE: Graphics Processing Unit Gross--Pitaevskii Equation solver](http://joss.theoj.org/papers/10.21105/joss.01037). """
 
 [[experience]]
   title = "Postdoctoral fellow"
   company = "Lawrence Berkeley National Laboratory"
   date_start = "2017-04-28"
   date_end = "2018-05-31"
-  location = "Okinawa, Japan"
+  location = "Berkeley, CA, USA"
   description = """Researcher involved the ExaFEL project.
   Responsibilities included:
   
@@ -65,6 +67,8 @@ date_format = "January 2006"
   * Scalability and bottle-neck investigations of the software at scale.
   * Real-time data analysis and feedback during protein crystallography experiments.
   * Implementing OpenMP and MPI parallelised algorithms.
+
+  Code contributions available at [CCTBX](https://github.com/cctbx/cctbx_project), [DIALS](https://github.com/dials/dials), [ExaFEL Project](https://github.com/exafel/exafel_project).
   """
 
 [[experience]]
@@ -73,7 +77,18 @@ date_format = "January 2006"
   date_start = "2012-09-30"
   date_end = "2017-03-23"
   location = "Okinawa, Japan"
-  description = """Did some things."""
+  description = """Researched cold atomic systems, which specific emphasis on the non-equilibrium dynamics of vortex lattice carrying Bose–Einstein condensates.
+  
+  Works and responsbilities included:
+
+  * Thesis: [Non-equilibrium vortex dynamics in rapidly rotating Bose-Einstein condensates](https://oist.repo.nii.ac.jp/?action=pages_view_main&active_action=repository_view_main_item_detail&item_id=182&item_no=1&page_id=15&block_id=79)
+  * Developed GPUE ([modern](https://github.com/GPUE-group/GPUE),[original](https://github.com/mlxd/GPUE)), a software suite for simulating linear and nonlinear Schrödinger equation dynamics. The work was used largely to investigate vortex behaviour in Bose--Einstein condensates.
+  * Responsible for HPC-related interactions between the lab and university.
+  * Chair of the OIST Student Assembly (2015-2016).
+
+  See [publications](/publication) for a list of published works.
+
+  """
 
 [[experience]]
   title = "Research assistant"

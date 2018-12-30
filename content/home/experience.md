@@ -85,9 +85,7 @@ date_format = "2006"
   date_start = "2012-09-30"
   date_end = "2017-03-23"
   location = "Okinawa, Japan"
-  description = """Researched cold atomic systems, which specific emphasis on the non-equilibrium dynamics of vortex lattice carrying Bose–Einstein condensates.
-  
-  Works and responsibilities included:
+  description = """Researched cold atomic systems, which specific emphasis on the non-equilibrium dynamics of vortex lattice carrying Bose–Einstein condensates. Works and responsibilities included:
 
   * Thesis: [Non-equilibrium vortex dynamics in rapidly rotating Bose-Einstein condensates](https://oist.repo.nii.ac.jp/?action=pages_view_main&active_action=repository_view_main_item_detail&item_id=182&item_no=1&page_id=15&block_id=79)
   * Developed GPUE ([modern](https://github.com/GPUE-group/GPUE),[original](https://github.com/mlxd/GPUE)), a software suite for simulating linear and nonlinear Schrödinger equation dynamics. The work was used largely to investigate vortex behaviour in Bose--Einstein condensates.

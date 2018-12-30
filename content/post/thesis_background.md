@@ -77,12 +77,12 @@ $$
 
 where the chemical potential is defined as $μ = E\_0(N)−E\_0(N − 1)$. Using the bosonic commutation relations
 $$\\begin{aligned}
-\\left\[\\hat{\\Psi}(\\mathbf{r}'), \\hat{\\Psi}^{\\dagger}(\\mathbf{r})\\right\] &=& \\delta(\\mathbf{r}' - \\mathbf{r}), \\\\
-\\left\[\\hat{\\Psi}(\\mathbf{r}'), \\hat{\\Psi}(\\mathbf{r})\\right\] &=& \\left\[\\hat{\\Psi}^{\\dagger}(\\mathbf{r}'), \\hat{\\Psi}^{\\dagger}(\\mathbf{r})\\right\] = 0,\\end{aligned}$$
+\\left\[\\hat{\\Psi}(\\mathbf{r}^{\prime}), \\hat{\\Psi}^{\\dagger}(\\mathbf{r})\\right\] &= \\delta(\\mathbf{r}^{\prime} - \\mathbf{r}), \\newline
+\\left\[\\hat{\\Psi}(\\mathbf{r}^{\prime}), \\hat{\\Psi}(\\mathbf{r})\\right\] &= \\left\[\\hat{\\Psi}^{\\dagger}(\\mathbf{r}^{\prime}), \\hat{\\Psi}^{\\dagger}(\\mathbf{r})\\right\] = 0,\\end{aligned}$$
  and noting the following relations
 $$\\begin{aligned}
-\\left\[\\hat{\\Psi}(\\mathbf{r}),\\hat{H}\_1 \\right\] & = \\hat{H}\_0(\\mathbf{r},\\mathbf{p})\\hat{\\Psi}(\\mathbf{r}), \\\\
-\\left\[\\hat{\\Psi}(\\mathbf{r}),\\hat{H}\_2 \\right\] & = g\\hat{n}(\\textbf{r})\\hat{\\Psi}(\\mathbf{r}), \\\\
+\\left\[\\hat{\\Psi}(\\mathbf{r}),\\hat{H}\_1 \\right\] & = \\hat{H}\_0(\\mathbf{r},\\mathbf{p})\\hat{\\Psi}(\\mathbf{r}), \\newline
+\\left\[\\hat{\\Psi}(\\mathbf{r}),\\hat{H}\_2 \\right\] & = g\\hat{n}(\\textbf{r})\\hat{\\Psi}(\\mathbf{r}), \\newline
 \\left\[\\hat{\\Psi}(\\mathbf{r}),\\hat{N} \\right\] & = \\hat{\\Psi}(\\textbf{r}) ,\\end{aligned}$$
  upon substitution of Eq.  into Eq. , it can be rewritten as
 $$\\label{eqn:almost\_gpe}

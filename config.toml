@@ -164,7 +164,8 @@ enableGitInfo = true
   #   https://sourcethemes.com/academic/docs/writing-markdown-latex/#highlighting-options
   highlight = true
   highlight_languages = []
-  # highlight_style = "solarized-dark"
+  # highlight_style = "a11y-dark"
+  highlight_style = "monokai-sublime"
 
   # Enable native social sharing buttons?
   sharing = true

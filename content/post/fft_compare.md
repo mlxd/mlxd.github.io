@@ -9,7 +9,6 @@ summary = "Investigating the use of different FFT implementations for quantum dy
 
 ` The following article is a work in progress, and will (hopefully) be updated over time. I will issue a RELEASE tag or similar when everything has been finished. Latest edit on 2018-12-30.`
 
-
 ---
 # Q. How do available FFT routines compare over different libraries and accelerator hardware?
 ---

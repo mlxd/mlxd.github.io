@@ -9,7 +9,8 @@
 publishDir = "./"
 baseurl = "https://mlxd.github.io/"
 # Title of your site
-title = "Lost in Computation"
+title = "Lee J. O'Riordan"
+subtitle = "BSc (Hons), PhD"
 
 # Your copyright notice - appears in site footer.
 # To display a copyright symbol, type `&copy;`.

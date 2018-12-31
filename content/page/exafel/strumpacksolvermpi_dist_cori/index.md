@@ -58,18 +58,19 @@ We make use of the linear solver backends within cctbx.xfel, and evaluate their 
 For these tests we use EIGEN with the following solver algorithms:
 
 $$
-\\textrm{EIGEN} : \\left\\{ \\begin{matrix}
+\\textrm{EIGEN} := \\left\( \\begin{matrix}
         \\textrm{SimplicialLLT} \\\\\\
         \\textrm{SimplicialLDLT} \\\\\\
         \\textrm{ConjugateGradient} \\\\\\
         \\textrm{BiCGSTAB} \\\\\\
-    \\end{matrix} \\right\\}
+    \\end{matrix} \\right\)
 $$
 
 Additionally, we test against the solvers from STRUMPACK using both the OpenMP and MPI enabled backends. For the single-node (OpenMP) tests, the solvers and reordering methods are:
 
+<!--
 $$
-\\textrm{OpenMP STRUMPACK} : 
+\\textrm{OpenMP STRUMPACK} :=
 \\left\\{
 \\begin{matrix}
  \\textrm{METIS} & \\textrm{AUTO} \\\\\\
@@ -82,9 +83,30 @@ $$
 \\end{matrix}
 \\right\\}
 $$
+-->
+
+$$
+\\textrm{OpenMP STRUMPACK} := 
+\\left\(
+\\begin{matrix}
+ \\textrm{METIS} \\\\\\
+ \\textrm{SCOTCH} \\\\\\
+\\end{matrix}
+\\right\)
+\otimes
+\\left\(
+\\begin{matrix}
+ \\textrm{AUTO} \\\\\\
+ \\textrm{BiCGSTAB} \\\\\\
+ \\textrm{PREC\_BICGSTAB} \\\\\\
+\\end{matrix}
+\\right\)
+$$
+
 
 For the MPI tests, we can use the parallel versions of the reordering methods, and choose from a variety of solvers as:
 
+<!--
 $$
 \\textrm{MPI STRUMPACK} : 
 \\left\\{
@@ -109,6 +131,31 @@ $$
 \\end{matrix}
 \\right\\}
 $$
+-->
+
+$$
+\\textrm{MPI STRUMPACK} :=
+\\left\(
+\\begin{matrix}
+ \\textrm{PARMETIS} \\\\\\
+ \\textrm{PTSCOTCH} \\\\\\
+\\end{matrix}
+\\right\)
+\otimes
+\\left\(
+\\begin{matrix}
+ \\textrm{AUTO} \\\\\\
+ \\textrm{DIRECT} \\\\\\
+ \\textrm{PREC\_BICGSTAB} \\\\\\
+ \\textrm{REFINE} \\\\\\
+ \\textrm{PREC\_GMRES} \\\\\\
+ \\textrm{GMRES} \\\\\\
+ \\textrm{PREC\_BICGSTAB} \\\\\\
+ \\textrm{BICGSTAB} \\\\\\
+\\end{matrix}
+\\right\)
+$$
+
 
 For this notebook we will enable the STRUMPACK-enabled conda backend, built following the instructions [here](https://github.com/ExaFEL/exafel_project/tree/master/95-strumpack_cctbx) and setting the Jupyter kernel following [these instructions](https://github.com/ExaFEL/exafel_project/tree/master/jupyter). We also perform job submission using the SlurmMagics Python package, allow direct submission to the Cori queueing system. Additionally, we may also dynamically generate submission scripts, and plot the results upon completion. We begin by verifying the environment is correctly built and set up:
 

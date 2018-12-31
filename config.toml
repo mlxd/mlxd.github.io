@@ -10,7 +10,6 @@ publishDir = "./"
 baseurl = "https://mlxd.github.io/"
 # Title of your site
 title = "Lee J. O'Riordan"
-subtitle = "BSc (Hons), PhD"
 
 # Your copyright notice - appears in site footer.
 # To display a copyright symbol, type `&copy;`.
@@ -164,7 +163,7 @@ enableGitInfo = true
   #   For more info on the highlighting options, see:
   #   https://sourcethemes.com/academic/docs/writing-markdown-latex/#highlighting-options
   highlight = true
-  highlight_languages = []
+  highlight_languages = ["python", "bash", "cpp", "julia"]
   # highlight_style = "a11y-dark"
   highlight_style = "monokai-sublime"
 
@@ -358,6 +357,9 @@ enableGitInfo = true
 # Configure the English version of the website.
 [languages.en]
   languageCode = "en-ie"
+  name = "Lee J. O'Riordan"
+  subtitle = "BSc (Hons), PhD"
+  role = "Computational Scientist, ICHEC"
 
 # Uncomment the lines below to configure your website in a second language.
 #[languages.zh]

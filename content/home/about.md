@@ -57,6 +57,4 @@ weight = 1
   e_year = 2009
 +++
 
-# Biography
-
-I completed my PhD with the [Quantum Systems Unit](https://groups.oist.jp/qsu) at Okinawa Institute of Science and Technology Graduate University, Japan. My research included control and manipulation of quantum states, GPU and HPC computing methods, and nonlinear dynamics. Following this I worked as a *postdoctoral researcher* in the [Computational Crystallography Initiative](cci.lbl.gov) at Lawrence Berkeley Lab, investigating the use of prototype exascale computing technologies for femtosecond X-ray crystallographic (XFEL) analysis of bio-molecular systems. I am currently a *computational scientist* with the [Irish Centre for High-End Computing](http://ichec.ie/), exploring the use of near-term quantum computing technologies.
+I completed my *PhD* with the [Quantum Systems Unit](https://groups.oist.jp/qsu) at Okinawa Institute of Science and Technology Graduate University, Japan. I researched the control and manipulation of quantum states via theoretical and numerical methods, making use of GPU and HPC computing methods. Following this, I worked as a *postdoctoral researcher* in the [Computational Crystallography Initiative](cci.lbl.gov) at Lawrence Berkeley Lab, investigating the use of prototype exascale computing technologies for X-ray free-electron laser (XFEL) crystallographic analysis of bio-molecular systems. I currently hold the position of *computational scientist* with the [Irish Centre for High-End Computing](http://ichec.ie/), exploring the use of near-term quantum computing technologies.

@@ -30,5 +30,5 @@ url_slides = ""
 url_video = ""
 
 url_custom = [
-    { name = "URL", url = "https://arxiv.org/abs/1812.04759" }]
+    { name = "arXiV", url = "https://arxiv.org/abs/1812.04759" }]
 +++

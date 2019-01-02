@@ -65,7 +65,9 @@ To allow us to track and manipulate vortices in (2D) condensates, we require som
 ## 1. Vortex detection
 To find a vortex in the condensate, we can rely on several methods, such as tracking the condensate density minima. However, given the nature of the wavefunction (a complex valued scalar field), and a quantum vortex (topological defect of the wavefunction), we can examine the phase of the condensate, $\phi$, such that $\Psi=|\Psi|\exp\left(i \phi\right)$. Every vortex in the condensate will have integer winding in the complex plane, wherein the phase has a singular point around which it winds through $2\pi$. By examining the condensate for these phase windings, we can identify the presence of a vortex to a location on our numerical grid.
 
-![Phase plaquette](/img/vortex_2d/phi_grid.png)
+|![Phase plaquette](/img/vortex_2d/phi_grid.png)|
+|:---|
+| **Fig. 1:** *Plot of the wavefunction phase, $\phi$, showing the values around a vortex core.* |
 
 The above image show the phase of a condensate containing four vortices. The zoomed region shows the numerical values of the sampled grid near this vortex core. By following a closed path around the dotted green line the the vortex core can be determined when the value is $\pm 2\pi$, positive for vortices, negative for anti-vortices (ie, vortices rotating in the opposite direction). In this instance,
 $$

@@ -67,3 +67,12 @@ Below are three sample videos from the 2D simulation code, showcasing a rapidly 
 |   |   |   |
 |---|---|---|
 |[![Moire superlattice following an optical lattice kick](https://img.youtube.com/vi/ajN40AIq7jA/0.jpg)](https://www.youtube.com/watch?v=ajN40AIq7jA "Superlattice") | [![2D BEC vortex lattice defect engineering](https://img.youtube.com/vi/o-BGZdF1MvI/0.jpg)](https://www.youtube.com/watch?v=o-BGZdF1MvI "Defect engineering") | [![Quantum sharingen](https://img.youtube.com/vi/UA7uVlu7Ykc/0.jpg)](https://www.youtube.com/watch?v=UA7uVlu7Ykc "Quantum sharingen") |
+
+
+---
+
+## GPUE topics
+The following pages discuss different aspects of the GPUE functionality. Much of the following can be found in the [documentation](https://gpue-group.github.io).
+
+ - [2D BEC vortex tracking](/post/vortex_2d/): This explains the tracking and determination of vortex core positions from 2D complex scalar field data (aka a wavefunction in 2D).
+ - [FFT along n-th dimension](/post/fft_nd/): For implementing the angular momentum operators, performing an FFT along individual dimensions of a multidimensional data set is necessary. This discusses our implementation in GPUE. 

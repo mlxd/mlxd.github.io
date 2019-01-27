@@ -32,6 +32,11 @@ weight = 1
 
 # List your experience
 [[experience.info]]
+  title = "Computational Scientist"
+  company = "Irish Centre for High-End Computing"
+  s_year = "2019"
+
+[[experience.info]]
   title = "Visiting researcher"
   company = "Okinawa Institute of Science and Technology Graduate University"
   s_year = "2018"

@@ -44,12 +44,14 @@ date_format = "2006"
 #  description = """Taught electronic engineering and researched semiconductor physics."""
 
 [[experience]]
-  title = "Computational scientist"
+  title = "Research Computational Scientist"
   company = "Irish Centre for High-End Computing (ICHEC)"
   date_start = "2019-01-07"
   #date_end = "2018-08-29"
   location = "Dublin, Ireland"
-  description = """ """
+  description = """
+  Exploring the use of quantum computing systems for natural language processing (NLP) tasks.
+  """
 
 [[experience]]
   title = "Visiting researcher"

@@ -359,7 +359,7 @@ enableGitInfo = true
   languageCode = "en-ie"
   name = "Lee J. O'Riordan"
   subtitle = "BSc (Hons), PhD"
-  role = "Computational Scientist, ICHEC"
+  role = "Research Computational Scientist, ICHEC"
 
 # Uncomment the lines below to configure your website in a second language.
 #[languages.zh]

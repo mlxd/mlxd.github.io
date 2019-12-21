@@ -51,6 +51,9 @@ date_format = "2006"
   location = "Dublin, Ireland"
   description = """
   Exploring the use of quantum computing systems for natural language processing (NLP) tasks.
+
+  * Presented work at both ISC 2019, Frankfurt, Germany, and Intel DevCon 2019, Denver Colorado.
+  * Invited talk at QNLP 2019, Oxford.  [Talk (Youtube)](https://www.youtube.com/watch?v=rG0_SKCx09A)
   """
 
 [[experience]]
@@ -61,7 +64,7 @@ date_format = "2006"
   location = "Okinawa, Japan"
   description = """
   * Collaborated on a study of chaotic dynamics in quantum superfluid systems. Work available at [https://arxiv.org/abs/1812.04759](https://arxiv.org/abs/1812.04759). 
-  * Further developed and generalised the Bose--Einstein simulation suite [GPUE](https://github.com/GPUE-group/GPUE). Accepted for publication in the Journal of Open Source Software as [GPUE: Graphics Processing Unit Gross--Pitaevskii Equation solver](http://joss.theoj.org/papers/10.21105/joss.01037). """
+  * Further developed and generalised the Bose--Einstein simulation suite [GPUE](https://github.com/GPUE-group/GPUE). Published in the Journal of Open Source Software as [GPUE: Graphics Processing Unit Gross--Pitaevskii Equation solver](http://joss.theoj.org/papers/10.21105/joss.01037). """
 
 [[experience]]
   title = "Postdoctoral fellow"
@@ -70,15 +73,16 @@ date_format = "2006"
   date_end = "2018-05-31"
   location = "Berkeley, CA, USA"
   description = """Researcher involved the ExaFEL project.
-  Responsibilities included:
-  
+  Responsibilities included:  
+
   * Building a Docker-enabled pipeline for deployment at NERSC.
   * Integration of STRUMPACK distributed sparse linear-algebra package for crystal parameter fitting.
   * Scalability and bottle-neck investigations of the software at scale.
   * Real-time data analysis and feedback during protein crystallography experiments.
   * Implementing OpenMP and MPI parallelised algorithms.
 
-  Code contributions available at [CCTBX](https://github.com/cctbx/cctbx_project), [DIALS](https://github.com/dials/dials), [ExaFEL Project](https://github.com/exafel/exafel_project).
+  Code contributions available at [CCTBX](https://github.com/cctbx/cctbx_project), [DIALS](https://github.com/dials/dials), [ExaFEL Project](https://github.com/exafel/exafel_project).  
+  Results leading to publications: [2018](publication/dials2018/), [2019](publication/pnas2019)
   """
 
 [[experience]]

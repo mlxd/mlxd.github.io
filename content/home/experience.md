@@ -44,16 +44,15 @@ date_format = "2006"
 #  description = """Taught electronic engineering and researched semiconductor physics."""
 
 [[experience]]
-  title = "Research Computational Scientist"
-  company = "Irish Centre for High-End Computing (ICHEC)"
-  date_start = "2019-01-07"
-  #date_end = "2018-08-29"
+  title = "Research Computational Scientist [Postdoctoral researcher], Senior Computational Scientist [Research Fellow]"
+  company = "Irish Centre for High-End Computing (ICHEC) [NUI Galway]"
+  date_start = "2019-01-01"
+  #date_end = "2020-12-11"
   location = "Dublin, Ireland"
   description = """
-  Exploring the use of quantum computing systems for natural language processing (NLP) tasks.
-
-  * Presented work at both ISC 2019, Frankfurt, Germany, and Intel DevCon 2019, Denver Colorado.
-  * Invited talk at QNLP 2019, Oxford.  [Talk (Youtube)](https://www.youtube.com/watch?v=rG0_SKCx09A)
+  *	Led research and development of a hybrid classical HPC-quantum algorithm for NLP tasks. Using Python, C++, PyBind11, Catch2, Docker, OpenMP, MPI and backed by Intel’s Quantum Simulator (Intel-QS), succeeded in demonstrating the encoding of corpus data and performing similarity comparisons between different sentences. Available at [Code](https://github.com/ICHEC/QNLP) and [Publication](https://doi.org/10.1088/2632-2153/abbd2e)
+  * Point-of-contact and technical lead for several national and international collaborations between both industry and academia on quantum software projects [URL](https://www.ichec.ie/about/activities/novel-technologies/ichecs-quantum-programming-ireland-qpi-initiative).
+  * Represnt the quantum research team at ICHEC for several international conferences, including talks at ISC 2019, Frankfurt, Germany, Intel DevCon 2019, Denver Colorado, and an invited talk at QNLP 2019, Oxford.  [Talk (Youtube)](https://www.youtube.com/watch?v=rG0_SKCx09A)
   """
 
 [[experience]]

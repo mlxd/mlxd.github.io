@@ -39,9 +39,15 @@ weight = 1
 
 # List your experience
 [[experience.info]]
+  title = "Software Developer, Scientific Computing"
+  company = "Xanadu"
+  s_year = "2021"
+
+[[experience.info]]
   title = "Senior Computational Scientist"
   company = "Irish Centre for High-End Computing"
   s_year = "2019"
+  e_year = "2021"
 
 [[experience.info]]
   title = "Visiting researcher"
@@ -68,6 +74,4 @@ weight = 1
   s_year = 2009
   e_year = 2009
 +++
-I am a senior computational scientist and research fellow, with programming experience across academic research (scientific computing) and industry environments. I have several years experience as a polyglot developer,  with expertise in C/C++, Python, and Julia, and parallelisation using MPI, OpenMP, and CUDA. I also have expertise in modern development practices, including containerisation, CI/CD, agile practices and performance engineering. I lead the technical activities for many quantum projects at the [Irish Centre for High-End Computing](http://ichec.ie/), and work on the the development of algorithms, methods and toolkits to best utilise near-term quantum devices.
-
-Previously, I completed my *PhD* with the [Quantum Systems Unit](https://groups.oist.jp/qsu) at Okinawa Institute of Science and Technology Graduate University, Japan, where I researched the control and manipulation of quantum states via theoretical and numerical methods, making use of GPU and HPC computing methods. Following this, I worked as a *postdoctoral researcher* in the [Computational Crystallography Initiative](cci.lbl.gov) at Lawrence Berkeley Lab, investigating the use of prototype exascale computing technologies for X-ray free-electron laser (XFEL) crystallographic analysis of bio-molecular systems.
+I am senior computational scientist, with programming experience across academic research (scientific computing) and industry environments. I have several years experience as a polyglot developer, with expertise in C++ (11-17), Python, and Julia, and parallelisation using MPI, OpenMP, and CUDA. I also have expertise in modern development practices, including containerisation, cloud platforms, CI/CD, agile practices and performance engineering. I hold the title of "Software Developer, Scientific Computing" at [Xanadu](https://xanadu.ai), where I lead the PennyLane Performance squad, working on the the development of algorithms, methods and toolkits to offer the best performance of hybrid quantum work-flows. Prior to this I was leading the technical activities for many quantum projects at the [Irish Centre for High-End Computing](http://ichec.ie/), focusing on HPC applications to quantum simulations and algorithms. I also worked as a *postdoctoral researcher* in the [Computational Crystallography Initiative](cci.lbl.gov) at Lawrence Berkeley Lab, investigating the use of prototype exascale computing technologies for X-ray free-electron laser (XFEL) crystallographic analysis of bio-molecular systems. I completed my *PhD* with the [Quantum Systems Unit](https://groups.oist.jp/qsu) at Okinawa Institute of Science and Technology Graduate University, Japan, where I researched the control and manipulation of quantum states via theoretical and numerical methods, making use of GPU and HPC computing methods.

@@ -44,10 +44,22 @@ date_format = "2006"
 #  description = """Taught electronic engineering and researched semiconductor physics."""
 
 [[experience]]
+  title = "Software Developer, Scientific Computing"
+  company = "Xanadu"
+  date_start = "2021-04-20"
+  location = "Ireland (Remote) & Toronto, Canada"
+  description = """
+  *	[PennyLane](https://github.com/PennyLaneAI/pennylane) Performance squad lead, applying HPC methods to improve quantum simulation \& hybrid classical-quantum computations.
+  * Provided extensions and improvements to the scaling performance of [JET](https://github.com/XanaduAI/jet/). Paper available [here](https://arxiv.org/abs/2107.09793).
+  * Adding parallelization to differentiable quantum programming with [PennyLane-Lightning](https://github.com/PennyLaneAI/pennylane-lightning).
+  * Added native GPU-support to PennyLane through the [cuQuantum plugin device](https://github.com/PennyLaneAI/pennylane-cuquantum/).
+  """
+
+[[experience]]
   title = "Research Computational Scientist [Postdoctoral researcher], Senior Computational Scientist [Research Fellow]"
   company = "Irish Centre for High-End Computing (ICHEC) [NUI Galway]"
   date_start = "2019-01-01"
-  #date_end = "2020-12-11"
+  date_end = "2021-04-19"
   location = "Dublin, Ireland"
   description = """
   *	Led research and development of a hybrid classical HPC-quantum algorithm for NLP tasks. Using Python, C++, PyBind11, Catch2, Docker, OpenMP, MPI and backed by Intel’s Quantum Simulator (Intel-QS), succeeded in demonstrating the encoding of corpus data and performing similarity comparisons between different sentences. Available at [Code](https://github.com/ICHEC/QNLP) and [Publication](https://doi.org/10.1088/2632-2153/abbd2e)

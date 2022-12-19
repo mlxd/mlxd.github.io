@@ -44,15 +44,23 @@ date_format = "2006"
 #  description = """Taught electronic engineering and researched semiconductor physics."""
 
 [[experience]]
-  title = "Software Developer, Scientific Computing"
+  title = "Senior Quantum Software Developer I"
+  company = "Xanadu"
+  date_start = "2022-08-01"
+  location = "Toronto, Canada"
+  description = """
+  *	[PennyLane](https://github.com/PennyLaneAI/pennylane) Performance squad lead, applying HPC methods to improve quantum simulation and hybrid classical-quantum computations.
+
+
+[[experience]]
+  title = "Software Developer, Scientific Computing, and Senior Quantum Software Developer I"
   company = "Xanadu"
   date_start = "2021-04-20"
   location = "Ireland (Remote) and Toronto, Canada"
   description = """
-  *	[PennyLane](https://github.com/PennyLaneAI/pennylane) Performance squad lead, applying HPC methods to improve quantum simulation and hybrid classical-quantum computations.
+  *	[PennyLane](https://github.com/PennyLaneAI/pennylane) Performance squad lead, applying HPC methods to improve quantum simulation and hybrid classical-quantum computations. Lead the design and development of [PennyLane-Lightning](https://github.com/PennyLaneAI/pennylane-lightning), [PennyLane-Lightning GPU](https://github.com/PennyLaneAI/pennylane-lightning-gpu), and [PennyLane-Lightning Kokkos](https://github.com/PennyLaneAI/pennylane-lightning-kokkos).
   * Provided extensions and improvements to the scaling performance of [JET](https://github.com/XanaduAI/jet/). Paper available [here](https://arxiv.org/abs/2107.09793).
-  * Adding parallelization to differentiable quantum programming with [PennyLane-Lightning](https://github.com/PennyLaneAI/pennylane-lightning).
-  * Added native GPU-support to PennyLane through the [cuQuantum plugin device](https://github.com/PennyLaneAI/pennylane-cuquantum/).
+  * Lead the HPC focused activitives for PennyLane, including supporting PennyLane on large-scale supercomputers (e.g. Perlmutter, Setonix, LUMI), designing scalable distributed architecture workloads (e.g. [QCUT](https://arxiv.org/abs/2207.14734)), and ensuring PennyLane supports all target architectures (x86_64, ARM, PowerPC) and OS (MacOS, Windows, Linux).
   """
 
 [[experience]]
@@ -64,7 +72,7 @@ date_format = "2006"
   description = """
   *	Led research and development of a hybrid classical HPC-quantum algorithm for NLP tasks. Using Python, C++, PyBind11, Catch2, Docker, OpenMP, MPI and backed by Intel’s Quantum Simulator (Intel-QS), succeeded in demonstrating the encoding of corpus data and performing similarity comparisons between different sentences. Available at [Code](https://github.com/ICHEC/QNLP) and [Publication](https://doi.org/10.1088/2632-2153/abbd2e)
   * Point-of-contact and technical lead for several national and international collaborations between both industry and academia on quantum software projects [URL](https://www.ichec.ie/about/activities/novel-technologies/ichecs-quantum-programming-ireland-qpi-initiative).
-  * Represnt the quantum research team at ICHEC for several international conferences, including talks at ISC 2019, Frankfurt, Germany, Intel DevCon 2019, Denver Colorado, and an invited talk at QNLP 2019, Oxford.  [Talk (Youtube)](https://www.youtube.com/watch?v=rG0_SKCx09A)
+  * Represent the quantum research team at ICHEC for several international conferences, including talks at ISC 2019, Frankfurt, Germany, Intel DevCon 2019, Denver Colorado, and an invited talk at QNLP 2019, Oxford.  [Talk (Youtube)](https://www.youtube.com/watch?v=rG0_SKCx09A)
   """
 
 [[experience]]

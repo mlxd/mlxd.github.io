@@ -30,7 +30,7 @@ url_slides = ""
 url_video = ""
 
 url_custom = [
-    { name = "URL", url = "	https://doi.org/10.22331/q-2022-05-09-709" },
+    { name = "URL", url = "https://doi.org/10.22331/q-2022-05-09-709" },
     { name = "arXiV", url = "https://arxiv.org/abs/2107.09793v3"}
 ]
 +++

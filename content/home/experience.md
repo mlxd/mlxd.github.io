@@ -47,9 +47,9 @@ date_format = "2006"
   title = "Software Developer, Scientific Computing"
   company = "Xanadu"
   date_start = "2021-04-20"
-  location = "Ireland (Remote) & Toronto, Canada"
+  location = "Ireland (Remote) and Toronto, Canada"
   description = """
-  *	[PennyLane](https://github.com/PennyLaneAI/pennylane) Performance squad lead, applying HPC methods to improve quantum simulation \& hybrid classical-quantum computations.
+  *	[PennyLane](https://github.com/PennyLaneAI/pennylane) Performance squad lead, applying HPC methods to improve quantum simulation and hybrid classical-quantum computations.
   * Provided extensions and improvements to the scaling performance of [JET](https://github.com/XanaduAI/jet/). Paper available [here](https://arxiv.org/abs/2107.09793).
   * Adding parallelization to differentiable quantum programming with [PennyLane-Lightning](https://github.com/PennyLaneAI/pennylane-lightning).
   * Added native GPU-support to PennyLane through the [cuQuantum plugin device](https://github.com/PennyLaneAI/pennylane-cuquantum/).

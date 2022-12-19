@@ -3,7 +3,7 @@ title = "Jet: Fast quantum circuit simulations with parallel task-based tensor-n
 date = "2022-05-09"
 draft = false
 
-authors = ["Trevor Vincent", "Lee J. O'Riordan", "Mikhail Andrenkov", "Jack Brown", "Nathan Killoran", "Haoyu Qi", and "Ish Dhand"]
+authors = ["Trevor Vincent", "Lee J. O'Riordan", "Mikhail Andrenkov", "Jack Brown", "Nathan Killoran", "Haoyu Qi", "Ish Dhand"]
 publication_types = ["2"]
 
 publication = "Quantum, Vol. 6, 709 (2022)"

@@ -44,16 +44,7 @@ date_format = "2006"
 #  description = """Taught electronic engineering and researched semiconductor physics."""
 
 [[experience]]
-  title = "Senior Quantum Software Developer I"
-  company = "Xanadu"
-  date_start = "2022-08-01"
-  location = "Toronto, Canada"
-  description = """
-  *	[PennyLane](https://github.com/PennyLaneAI/pennylane) Performance squad lead, applying HPC methods to improve quantum simulation and hybrid classical-quantum computations.
-
-
-[[experience]]
-  title = "Software Developer, Scientific Computing, and Senior Quantum Software Developer I"
+  title = "Software Developer::Scientific Computing, and Senior Quantum Software Developer I"
   company = "Xanadu"
   date_start = "2021-04-20"
   location = "Ireland (Remote) and Toronto, Canada"

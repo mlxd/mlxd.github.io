@@ -39,9 +39,15 @@ weight = 1
 
 # List your experience
 [[experience.info]]
+  title = "Senior Quantum Software Developer I"
+  company = "Xanadu"
+  s_year = "2022"
+
+[[experience.info]]
   title = "Software Developer, Scientific Computing"
   company = "Xanadu"
   s_year = "2021"
+  e_year = "2022"
 
 [[experience.info]]
   title = "Senior Computational Scientist"
@@ -74,4 +80,4 @@ weight = 1
   s_year = 2009
   e_year = 2009
 +++
-I am senior computational scientist, with programming experience across academic research (scientific computing) and industry environments. I have several years experience as a polyglot developer, with expertise in C++ (11-20), Python, and Julia, and parallelisation using MPI, OpenMP, and CUDA. I also have expertise in modern development practices, including containerisation, cloud platforms, CI/CD, agile practices and performance engineering. I hold the title of "Senior Quantum Software Developer I" at [Xanadu](https://xanadu.ai), where I lead the PennyLane Performance team, working on the the development of algorithms, methods and toolkits to offer the best performance of hybrid quantum work-flows. 
+I am senior computational scientist, with programming experience across both industry and academic research environments. I have several years experience with performance engineering, focusing mostly on C++ (11/14/17/20), Python, and Julia, and concurrent programming using MPI, OpenMP, CUDA and threads. I hold the title of "Senior Quantum Software Developer I" at [Xanadu](https://xanadu.ai), where I lead the PennyLane Performance team, working on the the development of algorithms, methods and toolkits to offer the best performance of hybrid quantum work-flows. 

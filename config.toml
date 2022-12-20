@@ -349,7 +349,7 @@ enableGitInfo = true
   languageCode = "en-ie"
   name = "Lee J. O'Riordan"
   subtitle = "BSc (Hons), PhD"
-  role = "Senior Quantu Software Developer I, and PennyLane Performance Team Lead @ Xanadu"
+  role = "Senior Quantum Software Developer I\nPennyLane Performance Team Lead @ Xanadu"
 
 # Uncomment the lines below to configure your website in a second language.
 #[languages.zh]

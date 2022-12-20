@@ -44,7 +44,7 @@ date_format = "2006"
 #  description = """Taught electronic engineering and researched semiconductor physics."""
 
 [[experience]]
-  title = "Software Developer, Scientific Computing,\nSenior Quantum Software Developer I"
+  title = "Software Developer, Scientific Computing, &#38; Senior Quantum Software Developer I"
   company = "Xanadu"
   date_start = "2021-04-20"
   location = "Toronto, Canada"
@@ -56,7 +56,7 @@ date_format = "2006"
   """
 
 [[experience]]
-  title = "Research Computational Scientist [Postdoctoral researcher],\nSenior Computational Scientist [Research Fellow]"
+  title = "Research Computational Scientist [Postdoctoral researcher], &#38; Senior Computational Scientist [Research Fellow]"
   company = "Irish Centre for High-End Computing (ICHEC) [NUI Galway]"
   date_start = "2019-01-01"
   date_end = "2021-04-19"

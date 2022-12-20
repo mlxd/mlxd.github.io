@@ -30,12 +30,6 @@ weight = 1
   institution = "Waterford Institute of Technology"
   year = 2010
 
-[[education.courses]]
-  course = "Certified ScrumMaster (CSM), Badge ID: 1196787"
-  institution = "Scrum Alliance, Feb 2020 - Feb 2022"
-  s_year = 2020
-  e_year = 2022
-
 
 # List your experience
 [[experience.info]]

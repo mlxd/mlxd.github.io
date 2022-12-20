@@ -15,4 +15,4 @@ caption = ""
 +++
 
 - [Large scale Hybrid Quantum Workflows with PennyLane, NERSC Quantum for Science day 2022](https://www.youtube.com/watch?v=MnPAFbueMKQ)
-- [Calculating sentence similarity using a hybrid classical-quantum workflow, QNLP 2019](https://www.youtube.com/watch?v=rG0_SKCx09A)
+- [](https://www.youtube.com/watch?v=rG0_SKCx09A)

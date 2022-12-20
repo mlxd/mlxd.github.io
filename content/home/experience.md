@@ -44,19 +44,19 @@ date_format = "2006"
 #  description = """Taught electronic engineering and researched semiconductor physics."""
 
 [[experience]]
-  title = "Software Developer::Scientific Computing, and Senior Quantum Software Developer I"
+  title = "Software Developer, Scientific Computing,\nSenior Quantum Software Developer I"
   company = "Xanadu"
   date_start = "2021-04-20"
-  location = "Ireland (Remote) and Toronto, Canada"
+  location = "Toronto, Canada"
   description = """
   *	[PennyLane](https://github.com/PennyLaneAI/pennylane) Performance squad lead, applying modern designs and performance engineering methods to improve quantum simulation and hybrid classical-quantum computation time-to-solution. 
-  * Lead the design and development of PennyLane C++ libraries [PennyLane-Lightning](https://github.com/PennyLaneAI/pennylane-lightning), [PennyLane-Lightning GPU](https://github.com/PennyLaneAI/pennylane-lightning-gpu), and [PennyLane-Lightning Kokkos](https://github.com/PennyLaneAI/pennylane-lightning-kokkos), targeting Python as the primary method of consumption.
+  * Lead the design and development of PennyLane C++ libraries [PennyLane-Lightning](https://github.com/PennyLaneAI/pennylane-lightning), [PennyLane-Lightning GPU](https://github.com/PennyLaneAI/pennylane-lightning-gpu), and [PennyLane-Lightning Kokkos](https://github.com/PennyLaneAI/pennylane-lightning-kokkos), targeting Python as the primary method of library consumption.
   * Lead the HPC focused activitives for PennyLane, including supporting PennyLane on large-scale supercomputers (e.g. Perlmutter, Setonix, LUMI), designing scalable distributed architecture workloads (e.g. [QCUT](https://arxiv.org/abs/2207.14734)), and ensuring PennyLane supports all target architectures (x86_64, ARM, PowerPC) and OS (MacOS, Windows, Linux).
   * Provided extensions and improvements to the scaling performance of [JET](https://github.com/XanaduAI/jet/). Paper available [here](https://arxiv.org/abs/2107.09793).
   """
 
 [[experience]]
-  title = "Research Computational Scientist [Postdoctoral researcher], Senior Computational Scientist [Research Fellow]"
+  title = "Research Computational Scientist [Postdoctoral researcher],\nSenior Computational Scientist [Research Fellow]"
   company = "Irish Centre for High-End Computing (ICHEC) [NUI Galway]"
   date_start = "2019-01-01"
   date_end = "2021-04-19"

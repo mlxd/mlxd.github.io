@@ -1,6 +1,6 @@
 +++
 title = "Large scale Hybrid Quantum Workflows with PennyLane"
-date = 2019-12-05  # Schedule page publish date.
+date = 2022-10-24  # Schedule page publish date.
 draft = false
 
 # Talk start and end times.
